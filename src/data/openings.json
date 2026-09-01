@@ -1,0 +1,698 @@
+[
+  {
+    "eco": "A00",
+    "name": "Атака Гроба",
+    "nameEn": "Grob's Attack",
+    "moves": "g4 d5 Bg2 c6"
+  },
+  {
+    "eco": "A00",
+    "name": "Дебют Сокольского",
+    "nameEn": "Sokolsky Opening",
+    "moves": "b4 e5 Bb2 Bxb4 Bxe5 Nf6"
+  },
+  {
+    "eco": "A00",
+    "name": "Защита Оуэна",
+    "nameEn": "Owen's Defense",
+    "moves": "e4 b6 d4 Bb7 Nc3 e6 f4 Bb4"
+  },
+  {
+    "eco": "A01",
+    "name": "Дебют Ларсена",
+    "nameEn": "Nimzo-Larsen Attack",
+    "moves": "b3 e5 Bb2 Nc6 e3 Nf6 c4 d5"
+  },
+  {
+    "eco": "A02",
+    "name": "Дебют Бёрда",
+    "nameEn": "Bird's Opening",
+    "moves": "f4 d5 Nf3 Nf6 e3 g6 b3 Bg7 Bb2 O-O"
+  },
+  {
+    "eco": "A04",
+    "name": "Дебют Рети",
+    "nameEn": "Réti Opening",
+    "moves": "Nf3 d5 c4 e6 g3 Nf6 Bg2 Be7"
+  },
+  {
+    "eco": "A10",
+    "name": "Английское начало",
+    "nameEn": "English Opening",
+    "moves": "c4 e5 Nc3 Nf6 Nf3 Nc6 g3 d5 cxd5 Nxd5"
+  },
+  {
+    "eco": "A20",
+    "name": "Английское начало (обратная сицилианская)",
+    "nameEn": "English, Reversed Sicilian",
+    "moves": "c4 e5 Nc3 Nf6 g3 d5 cxd5 Nxd5 Bg2 Nb6"
+  },
+  {
+    "eco": "A30",
+    "name": "Английская симметричная",
+    "nameEn": "English, Symmetrical",
+    "moves": "c4 c5 Nf3 Nf6 g3 g6 Bg2 Bg7 O-O O-O"
+  },
+  {
+    "eco": "A45",
+    "name": "Лондонская система",
+    "nameEn": "London System",
+    "moves": "d4 Nf6 Bf4 g6 e3 Bg7 Nf3 O-O Be2 d6"
+  },
+  {
+    "eco": "A45",
+    "name": "Атака Торре",
+    "nameEn": "Torre Attack",
+    "moves": "d4 Nf6 Nf3 e6 Bg5 b6 e3 Bb7 Bd3 Be7"
+  },
+  {
+    "eco": "A45",
+    "name": "Система Колле",
+    "nameEn": "Colle System",
+    "moves": "d4 d5 Nf3 Nf6 e3 c5 c3 e6 Bd3 Bd6 Nbd2"
+  },
+  {
+    "eco": "A45",
+    "name": "Дебют Йобавы (лондонская с Nc3)",
+    "nameEn": "Jobava London",
+    "moves": "d4 d5 Nc3 Nf6 Bf4 Bf5 e3 e6"
+  },
+  {
+    "eco": "A51",
+    "name": "Будапештский гамбит",
+    "nameEn": "Budapest Gambit",
+    "moves": "d4 Nf6 c4 e5 dxe5 Ng4 Bf4 Nc6 Nf3 Bb4+ Nbd2 Qe7"
+  },
+  {
+    "eco": "A53",
+    "name": "Староиндийская защита",
+    "nameEn": "King's Indian Defense",
+    "moves": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6"
+  },
+  {
+    "eco": "A77",
+    "name": "Староиндийская: Мар-дел-Плата",
+    "nameEn": "King's Indian: Mar del Plata",
+    "moves": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Nf3 O-O Be2 e5 O-O Nc6 d5 Ne7 b4 c5"
+  },
+  {
+    "eco": "A80",
+    "name": "Система Замиша",
+    "nameEn": "Sämisch System",
+    "moves": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f3 O-O Be3 e5 d5 Nh5 Qd2 f5"
+  },
+  {
+    "eco": "A84",
+    "name": "Система Авербаха",
+    "nameEn": "Averbakh System",
+    "moves": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 Be2 O-O Bg5 c5 d5 e6"
+  },
+  {
+    "eco": "A87",
+    "name": "Атака четырёх пешек",
+    "nameEn": "Four Pawns Attack",
+    "moves": "d4 Nf6 c4 g6 Nc3 Bg7 e4 d6 f4 O-O Nf3 c5"
+  },
+  {
+    "eco": "A92",
+    "name": "Система Панно",
+    "nameEn": "Panno System",
+    "moves": "d4 Nf6 c4 g6 g3 Bg7 Bg2 O-O Nc3 d6 Nf3 c6 O-O e5"
+  },
+  {
+    "eco": "A81",
+    "name": "Голландская защита",
+    "nameEn": "Dutch Defense",
+    "moves": "d4 f5 g3 Nf6 Bg2 e6 Nf3 Be7 O-O O-O c4 d5"
+  },
+  {
+    "eco": "A80",
+    "name": "Голландская: Ленинградская",
+    "nameEn": "Dutch, Leningrad",
+    "moves": "d4 f5 g3 Nf6 Bg2 g6 Nf3 Bg7 O-O O-O c4 d6"
+  },
+  {
+    "eco": "A81",
+    "name": "Голландская: Стоневолл",
+    "nameEn": "Dutch, Stonewall",
+    "moves": "d4 f5 e3 e6 Bd3 d5 c4 c6 Nf3 Nf6 O-O Bd6"
+  },
+  {
+    "eco": "A57",
+    "name": "Гамбит Бенко (Волжский)",
+    "nameEn": "Benko Gambit",
+    "moves": "d4 Nf6 c4 c5 d5 b5 cxb5 a6 b6 Qxb6"
+  },
+  {
+    "eco": "A61",
+    "name": "Современный Бенони",
+    "nameEn": "Modern Benoni",
+    "moves": "d4 Nf6 c4 c5 d5 e6 Nc3 exd5 cxd5 d6 e4 g6 Nf3 Bg7 Be2 O-O O-O"
+  },
+  {
+    "eco": "B00",
+    "name": "Защита Нимцовича (1...Nc6)",
+    "nameEn": "Nimzowitsch Defense",
+    "moves": "e4 Nc6 d4 d5 Nc3 dxe4 Nxe4 Nf6"
+  },
+  {
+    "eco": "B01",
+    "name": "Скандинавская защита",
+    "nameEn": "Scandinavian Defense",
+    "moves": "e4 d5 exd5 Qxd5 Nc3 Qa5 d4 Nf6 Nf3 c6 Bc4 Bf5"
+  },
+  {
+    "eco": "B01",
+    "name": "Скандинавская (2...Nf6)",
+    "nameEn": "Scandinavian, Modern",
+    "moves": "e4 d5 exd5 Nf6 d4 Nxd5"
+  },
+  {
+    "eco": "B02",
+    "name": "Защита Алехина (классическая)",
+    "nameEn": "Alekhine Defense, Classical",
+    "moves": "e4 Nf6 e5 Nd5 d4 d6 Nc3 Nb6 f4 dxe5 fxe5 Nc6"
+  },
+  {
+    "eco": "B02",
+    "name": "Атака четырёх пешек (Алехин)",
+    "nameEn": "Alekhine, Four Pawns Attack",
+    "moves": "e4 Nf6 e5 Nd5 d4 d6 c4 Nb6 f4 dxe5 fxe5 Nc6"
+  },
+  {
+    "eco": "B06",
+    "name": "Современная защита",
+    "nameEn": "Modern Defense",
+    "moves": "e4 g6 d4 Bg7 Nc3 d6 f4 Nf6 Nf3 O-O Bd3 c5 d5"
+  },
+  {
+    "eco": "B07",
+    "name": "Защита Пирца-Уфимцева",
+    "nameEn": "Pirc Defense",
+    "moves": "e4 d6 d4 Nf6 Nc3 g6 Nf3 Bg7 Be2 O-O O-O Nc6"
+  },
+  {
+    "eco": "B08",
+    "name": "Пирц: Австрийская атака",
+    "nameEn": "Pirc, Austrian Attack",
+    "moves": "e4 d6 d4 Nf6 Nc3 g6 f4 Bg7 Nf3 O-O Bd3 Nbd7 O-O c5"
+  },
+  {
+    "eco": "B10",
+    "name": "Каро-Канн (классическая)",
+    "nameEn": "Caro-Kann, Classical",
+    "moves": "e4 c6 d4 d5 Nc3 dxe4 Nxe4 Bf5 Ng3 Bg6 h4 h6 Nf3 Nd7 h5 Bh7"
+  },
+  {
+    "eco": "B12",
+    "name": "Каро-Канн (наступательная)",
+    "nameEn": "Caro-Kann, Advance",
+    "moves": "e4 c6 d4 d5 e5 Bf5 Nf3 e6 Be2 c5 Be3 Qb6 Nc3"
+  },
+  {
+    "eco": "B13",
+    "name": "Каро-Канн (разменная)",
+    "nameEn": "Caro-Kann, Exchange",
+    "moves": "e4 c6 d4 d5 exd5 cxd5 Bd3 Nc6 c3 Nf6 Bf4 Bg4 Qb3"
+  },
+  {
+    "eco": "B13",
+    "name": "Каро-Канн: гамбит Панова",
+    "nameEn": "Caro-Kann, Panov-Botvinnik",
+    "moves": "e4 c6 d4 d5 exd5 cxd5 c4 Nf6 Nc3 e6 Nf3 Be7 cxd5 exd5"
+  },
+  {
+    "eco": "B17",
+    "name": "Каро-Канн (главная)",
+    "nameEn": "Caro-Kann, Main Line",
+    "moves": "e4 c6 d4 d5 Nc3 dxe4 Nxe4 Nf6 Nxf6+ exf6 Bc4 Bd6"
+  },
+  {
+    "eco": "B20",
+    "name": "Сицилианская защита (закрытая)",
+    "nameEn": "Sicilian, Closed",
+    "moves": "e4 c5 Nc3 Nc6 g3 g6 Bg2 Bg7 d3 d6 Be3 e5 Nge2 Nge7"
+  },
+  {
+    "eco": "B22",
+    "name": "Сицилианская: вариант Алапина",
+    "nameEn": "Sicilian, Alapin",
+    "moves": "e4 c5 c3 Nf6 e5 Nd5 d4 Nc6 Nf3 cxd4 cxd4 d6 Nc3 Nxc3 bxc3"
+  },
+  {
+    "eco": "B23",
+    "name": "Сицилианская: атака Гран-при",
+    "nameEn": "Sicilian, Grand Prix Attack",
+    "moves": "e4 c5 Nc3 Nc6 f4 g6 Nf3 Bg7 Bb5"
+  },
+  {
+    "eco": "B30",
+    "name": "Сицилианская: атака Россолимо",
+    "nameEn": "Sicilian, Rossolimo",
+    "moves": "e4 c5 Nf3 Nc6 Bb5 g6 O-O Bg7 Re1 Nf6 c3 O-O d4"
+  },
+  {
+    "eco": "B27",
+    "name": "Сицилианская: защита О'Келли",
+    "nameEn": "Sicilian, O'Kelly",
+    "moves": "e4 c5 Nf3 a6 d4 cxd4 Nxd4 Nf6 Nc3 e5 Nb3 Bb4"
+  },
+  {
+    "eco": "B33",
+    "name": "Сицилианская: вариант Свечникова",
+    "nameEn": "Sicilian, Sveshnikov",
+    "moves": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 Nf6 Nc3 e5 Ndb5 d6 Bg5 a6 Na3 b5 Bxf6 gxf6 Nd5"
+  },
+  {
+    "eco": "B35",
+    "name": "Сицилианская: ускоренный дракон",
+    "nameEn": "Sicilian, Accelerated Dragon",
+    "moves": "e4 c5 Nf3 Nc6 d4 cxd4 Nxd4 g6 c4 Nf6 Nc3 d6 Be2 Bg7 O-O O-O Be3"
+  },
+  {
+    "eco": "B42",
+    "name": "Сицилианская: вариант Кана",
+    "nameEn": "Sicilian, Kan",
+    "moves": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 a6 Nc3 Qc7 Bd3 Nf6 O-O Bb4"
+  },
+  {
+    "eco": "B44",
+    "name": "Сицилианская: вариант Тайманова",
+    "nameEn": "Sicilian, Taimanov",
+    "moves": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nc6 Nc3 Qc7 Be2 a6 O-O Nf6 Be3 Bb4"
+  },
+  {
+    "eco": "B50",
+    "name": "Сицилианская: классическая (Раузер)",
+    "nameEn": "Sicilian, Classical (Rauzer)",
+    "moves": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 Nc6 Bg5 e6 Qd2 a6 O-O-O Bd7"
+  },
+  {
+    "eco": "B70",
+    "name": "Сицилианская: дракон, югославская атака",
+    "nameEn": "Sicilian Dragon, Yugoslav Attack",
+    "moves": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 g6 Be3 Bg7 f3 O-O Qd2 Nc6 Bc4 Bd7 O-O-O Rc8 Bb3"
+  },
+  {
+    "eco": "B80",
+    "name": "Сицилианская: Найдорф, английская атака",
+    "nameEn": "Sicilian Najdorf, English Attack",
+    "moves": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Be3 e5 Nb3 Be6 f3 Be7 Qd2 O-O O-O-O"
+  },
+  {
+    "eco": "B90",
+    "name": "Сицилианская: Найдорф (главная)",
+    "nameEn": "Sicilian Najdorf, Main Line",
+    "moves": "e4 c5 Nf3 d6 d4 cxd4 Nxd4 Nf6 Nc3 a6 Bg5 e6 f4 Be7 Qf3 Qc7 O-O-O Nbd7"
+  },
+  {
+    "eco": "B50",
+    "name": "Сицилианская: Шевенинген",
+    "nameEn": "Sicilian, Scheveningen",
+    "moves": "e4 c5 Nf3 e6 d4 cxd4 Nxd4 Nf6 Nc3 d6 Be2 Be7 O-O O-O f4 a6"
+  },
+  {
+    "eco": "C00",
+    "name": "Французская защита (разменная)",
+    "nameEn": "French, Exchange",
+    "moves": "e4 e6 d4 d5 exd5 exd5 Nf3 Bd6 c3 Nf6 Bb5+ Bd7"
+  },
+  {
+    "eco": "C02",
+    "name": "Французская: наступательная",
+    "nameEn": "French, Advance",
+    "moves": "e4 e6 d4 d5 e5 c5 c3 Nc6 Nf3 Qb6 Be2 cxd4 cxd4 Nh6"
+  },
+  {
+    "eco": "C03",
+    "name": "Французская: Рубинштейн",
+    "nameEn": "French, Rubinstein",
+    "moves": "e4 e6 d4 d5 Nc3 dxe4 Nxe4 Nd7 Nf3 Ngf6 Bd3 Be7 O-O b6"
+  },
+  {
+    "eco": "C10",
+    "name": "Французская: Штайниц",
+    "nameEn": "French, Steinitz",
+    "moves": "e4 e6 d4 d5 Nc3 Nf6 e5 Nfd7 f4 c5 Nf3 Nc6 Be3 cxd4 Nxd4 Bc5 Qd2 O-O"
+  },
+  {
+    "eco": "C11",
+    "name": "Французская: классическая",
+    "nameEn": "French, Classical",
+    "moves": "e4 e6 d4 d5 Nc3 Nf6 Bg5 Be7 e5 Nfd7 Bxe7 Qxe7 f4 O-O Nf3 c5 dxc5 Nxc5"
+  },
+  {
+    "eco": "C15",
+    "name": "Французская: Винавер",
+    "nameEn": "French, Winawer",
+    "moves": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Bxc3+ bxc3 Ne7 Qg4 Qc7"
+  },
+  {
+    "eco": "C18",
+    "name": "Французская: Винавер (главная)",
+    "nameEn": "French, Winawer, Main Line",
+    "moves": "e4 e6 d4 d5 Nc3 Bb4 e5 c5 a3 Bxc3+ bxc3 Ne7 Qg4 O-O Bd3 Nbc6"
+  },
+  {
+    "eco": "C01",
+    "name": "Французская: Мак-Кутчен",
+    "nameEn": "French, MacCutcheon",
+    "moves": "e4 e6 d4 d5 Nc3 Nf6 Bg5 Bb4 e5 h6 Bd2 Bxc3 bxc3 O-O f4 Nc6"
+  },
+  {
+    "eco": "C07",
+    "name": "Французская: Тарраш",
+    "nameEn": "French, Tarrasch",
+    "moves": "e4 e6 d4 d5 Nd2 c5 exd5 exd5 Ngf3 Nc6 Bb5 Bd6 dxc5 Bxc5 O-O Nge7"
+  },
+  {
+    "eco": "C21",
+    "name": "Центральный гамбит",
+    "nameEn": "Center Game",
+    "moves": "e4 e5 d4 exd4 Qxd4 Nc6 Qe3 Nf6 Nc3 Bb4 Bd2 Bxc3 bxc3 O-O O-O-O"
+  },
+  {
+    "eco": "C21",
+    "name": "Датский гамбит",
+    "nameEn": "Danish Gambit",
+    "moves": "e4 e5 d4 exd4 c3 dxc3 Bc4 cxb2 Bxb2 Bb4+ Nc3 Nf6"
+  },
+  {
+    "eco": "C23",
+    "name": "Дебют слона",
+    "nameEn": "Bishop's Opening",
+    "moves": "e4 e5 Bc4 Bc5 c3 Nf6 d4 exd4 cxd4 Bb4+ Bd2 Bxd2+ Nxd2 d5"
+  },
+  {
+    "eco": "C25",
+    "name": "Венская партия",
+    "nameEn": "Vienna Game",
+    "moves": "e4 e5 Nc3 Nf6 f4 d5 fxe5 Nxe4 Nf3 Be7 Bd3 O-O O-O f5"
+  },
+  {
+    "eco": "C25",
+    "name": "Венский гамбит",
+    "nameEn": "Vienna Gambit",
+    "moves": "e4 e5 Nc3 Nf6 f4 d5 fxe5 Nxe4 Nf3 Be7 Bd3 O-O O-O Nc6"
+  },
+  {
+    "eco": "C30",
+    "name": "Королевский гамбит (принятый)",
+    "nameEn": "King's Gambit Accepted",
+    "moves": "e4 e5 f4 exf4 Nf3 d5 exd5 Qxd5 Nc3 Qd6 d4 Nf6"
+  },
+  {
+    "eco": "C33",
+    "name": "Королевский гамбит: Кизерицкий",
+    "nameEn": "King's Gambit, Kieseritzky",
+    "moves": "e4 e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6 d4 d6 Nxf7 Kxf7 Bc4+"
+  },
+  {
+    "eco": "C31",
+    "name": "Контргамбит Фалькбеера",
+    "nameEn": "Falkbeer Countergambit",
+    "moves": "e4 e5 f4 d5 exd5 e4 d3 Bb4+ Nc3 exd3 Qxd3 Nf6"
+  },
+  {
+    "eco": "C37",
+    "name": "Королевский гамбит: гамбит Музио",
+    "nameEn": "King's Gambit, Muzio",
+    "moves": "e4 e5 f4 exf4 Nf3 g5 Bc4 g4 O-O gxf3 Qxf3 Nc6"
+  },
+  {
+    "eco": "C40",
+    "name": "Защита Филидора",
+    "nameEn": "Philidor Defense",
+    "moves": "e4 e5 Nf3 d6 d4 Nf6 Nc3 Nbd7 Bc4 Be7 O-O O-O Qe2 c6"
+  },
+  {
+    "eco": "C42",
+    "name": "Русская защита (главная)",
+    "nameEn": "Petrov Defense, Main Line",
+    "moves": "e4 e5 Nf3 Nf6 Nxe5 d6 Nf3 Nxe4 d4 d5 Bd3 Bd6 O-O O-O c4 c6 Qc2 Qc7 cxd5 cxd5 Nc3"
+  },
+  {
+    "eco": "C43",
+    "name": "Русская защита (современная)",
+    "nameEn": "Petrov, Modern (Steinitz Attack)",
+    "moves": "e4 e5 Nf3 Nf6 d4 exd4 e5 Ne4 Qxd4 d5 exd6 Bxd6 Bb5+ Bd7"
+  },
+  {
+    "eco": "C44",
+    "name": "Дебют Понциани",
+    "nameEn": "Ponziani Opening",
+    "moves": "e4 e5 Nf3 Nc6 c3 Nf6 d4 exd4 cxd4 Bb4 Bd2 O-O d5 Nxd5"
+  },
+  {
+    "eco": "C44",
+    "name": "Шотландский гамбит",
+    "nameEn": "Scotch Gambit",
+    "moves": "e4 e5 Nf3 Nc6 d4 exd4 Bc4 Nf6 e5 d5 Bb5 Ne4"
+  },
+  {
+    "eco": "C45",
+    "name": "Шотландская партия",
+    "nameEn": "Scotch Game",
+    "moves": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Nf6 Nxc6 bxc6 e5 Qe7 Qe2 Nd5 c4 Ba6 b3 O-O-O"
+  },
+  {
+    "eco": "C44",
+    "name": "Шотландская (4...Bc5)",
+    "nameEn": "Scotch, 4...Bc5",
+    "moves": "e4 e5 Nf3 Nc6 d4 exd4 Nxd4 Bc5 Be3 Qf6 c3 Nge7"
+  },
+  {
+    "eco": "C47",
+    "name": "Четыре коня (испанский вариант)",
+    "nameEn": "Four Knights, Spanish",
+    "moves": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bb5 Bb4 O-O O-O d3 d6 Bg5 Bxc3 bxc3 Ne7"
+  },
+  {
+    "eco": "C47",
+    "name": "Четыре коня (шотландский вариант)",
+    "nameEn": "Four Knights, Scotch",
+    "moves": "e4 e5 Nf3 Nc6 Nc3 Nf6 d4 exd4 Nxd4 Bb4 Nxc6 bxc6 Bd3 d5 exd5 cxd5 O-O O-O"
+  },
+  {
+    "eco": "C50",
+    "name": "Итальянская партия",
+    "nameEn": "Italian Game",
+    "moves": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d3 d6 O-O O-O Re1 a6"
+  },
+  {
+    "eco": "C51",
+    "name": "Гамбит Эванса",
+    "nameEn": "Evans Gambit",
+    "moves": "e4 e5 Nf3 Nc6 Bc4 Bc5 b4 Bxb4 c3 Ba5 d4 exd4 O-O"
+  },
+  {
+    "eco": "C53",
+    "name": "Итальянская: Джиоко Пиано",
+    "nameEn": "Giuoco Piano",
+    "moves": "e4 e5 Nf3 Nc6 Bc4 Bc5 c3 Nf6 d4 exd4 cxd4 Bb4+ Nc3 Nxe4 O-O Nxc3 bxc3 Bxc3 Qb3"
+  },
+  {
+    "eco": "C55",
+    "name": "Два коня (главная)",
+    "nameEn": "Two Knights, Main Line",
+    "moves": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 d5 exd5 Na5 Bb5+ c6 dxc6 bxc6 Be2 h6 Nf3 Nc4"
+  },
+  {
+    "eco": "C57",
+    "name": "Два коня (5...b5)",
+    "nameEn": "Two Knights, 5...b5",
+    "moves": "e4 e5 Nf3 Nc6 Bc4 Nf6 Ng5 b5 Bxf7+ Ke7 d4 exd4"
+  },
+  {
+    "eco": "C65",
+    "name": "Испанская: берлинская защита",
+    "nameEn": "Ruy Lopez, Berlin Defense",
+    "moves": "e4 e5 Nf3 Nc6 Bb5 Nf6 O-O Nxe4 d4 Nd6 Bxc6 dxc6 dxe5 Nf5 Qxd8+ Kxd8 Rd1+ Ke8 Nc3"
+  },
+  {
+    "eco": "C68",
+    "name": "Испанская: разменный вариант",
+    "nameEn": "Ruy Lopez, Exchange",
+    "moves": "e4 e5 Nf3 Nc6 Bb5 a6 Bxc6 dxc6 O-O f6 d4 exd4 Qxd4 Qxd4 Rd1 Bd7"
+  },
+  {
+    "eco": "C80",
+    "name": "Испанская: открытый вариант",
+    "nameEn": "Ruy Lopez, Open",
+    "moves": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Nxe4 d4 b5 Bb3 d5 dxe5 Be6 Qe2 Nc5 Rd1"
+  },
+  {
+    "eco": "C84",
+    "name": "Испанская: закрытый вариант",
+    "nameEn": "Ruy Lopez, Closed",
+    "moves": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d6 h3 Na5 Bc2 c5 d4 cxd4 cxd4 Qc7 Nbd2"
+  },
+  {
+    "eco": "C89",
+    "name": "Испанская: атака Маршалла",
+    "nameEn": "Ruy Lopez, Marshall Attack",
+    "moves": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d5 exd5 Nxd5 Nxe5 Ncxe5 Rxe5 c6 Bxd5 Qxd5"
+  },
+  {
+    "eco": "C96",
+    "name": "Испанская: вариант Чигорина",
+    "nameEn": "Ruy Lopez, Chigorin",
+    "moves": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d6 h3 Na5 Bc2 c5 d4 Qd7 a4 cxd4 cxd4 Nc6 Bg5"
+  },
+  {
+    "eco": "C95",
+    "name": "Испанская: вариант Брейера",
+    "nameEn": "Ruy Lopez, Breyer",
+    "moves": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d6 h3 Nb8 d4 Nbd7 a4 Bb7 Bg5"
+  },
+  {
+    "eco": "C90",
+    "name": "Испанская: вариант Зайцева",
+    "nameEn": "Ruy Lopez, Zaitsev",
+    "moves": "e4 e5 Nf3 Nc6 Bb5 a6 Ba4 Nf6 O-O Be7 Re1 b5 Bb3 O-O c3 d6 h3 Bb7 d4 Re8 Nbd2 Bf8"
+  },
+  {
+    "eco": "D00",
+    "name": "Атака Рихтера-Вересова",
+    "nameEn": "Richter-Veresov Attack",
+    "moves": "d4 d5 Nc3 Nf6 Bg5 Bf5 e3 e6 Bb5+ Nbd7 Nge2 c5 O-O"
+  },
+  {
+    "eco": "D02",
+    "name": "Лондонская система (классическая)",
+    "nameEn": "London System, Classical",
+    "moves": "d4 d5 Bf4 Nf6 e3 e6 Nf3 c5 c3 Nc6 Nbd2 Bd6 Bg3 O-O Bd3 b6"
+  },
+  {
+    "eco": "D06",
+    "name": "Ферзевый гамбит (принятый)",
+    "nameEn": "Queen's Gambit Accepted",
+    "moves": "d4 d5 c4 dxc4 Nf3 Nf6 e3 e6 Bxc4 c5 O-O a6 dxc5 Bxc5 Qe2 Nc6 Rd1 b5 Bd3 Bb7"
+  },
+  {
+    "eco": "D10",
+    "name": "Славянская защита",
+    "nameEn": "Slav Defense",
+    "moves": "d4 d5 c4 c6 Nf3 Nf6 Nc3 dxc4 a4 Bf5 e3 e6 Bxc4 Bb4 O-O Nbd7"
+  },
+  {
+    "eco": "D11",
+    "name": "Славянская: разменный вариант",
+    "nameEn": "Slav, Exchange",
+    "moves": "d4 d5 c4 c6 cxd5 cxd5 Nc3 Nf6 Nf3 Nc6 Bf4 Bf5 e3 e6"
+  },
+  {
+    "eco": "D43",
+    "name": "Полуславянская: вариант Мерана",
+    "nameEn": "Semi-Slav, Meran",
+    "moves": "d4 d5 c4 c6 Nf3 Nf6 Nc3 e6 e3 Nbd7 Bd3 dxc4 Bxc4 b5 Bd3 a6 e4 c5 d5 exd5"
+  },
+  {
+    "eco": "D31",
+    "name": "Ферзевый гамбит: разменный вариант",
+    "nameEn": "QGD, Exchange",
+    "moves": "d4 d5 c4 e6 cxd5 exd5 Nc3 Nf6 Bg5 c6 e3 Bf5 Bd3 Bxd3 Qxd3 Nbd7"
+  },
+  {
+    "eco": "D35",
+    "name": "Ферзевый гамбит: ортодоксальный",
+    "nameEn": "QGD, Orthodox",
+    "moves": "d4 d5 c4 e6 Nc3 Nf6 Nf3 Be7 Bg5 O-O e3 h6 Bh4 b6 cxd5 Nxd5 Bxe7 Qxe7 Nxd5 exd5"
+  },
+  {
+    "eco": "D52",
+    "name": "Ферзевый гамбит: Кембридж-Спрингс",
+    "nameEn": "QGD, Cambridge Springs",
+    "moves": "d4 d5 c4 e6 Nc3 Nf6 Bg5 Nbd7 e3 c6 Nf3 Qa5 Nd2 Bb4 Qc2 dxc4 Bxf6 Nxf6"
+  },
+  {
+    "eco": "D53",
+    "name": "Ферзевый гамбит: вариант Ласкера",
+    "nameEn": "QGD, Lasker Defense",
+    "moves": "d4 d5 c4 e6 Nc3 Nf6 Nf3 Be7 Bg5 O-O e3 h6 Bh4 Ne4 Bxe7 Qxe7 cxd5 Nxc3 bxc3 exd5"
+  },
+  {
+    "eco": "D38",
+    "name": "Ферзевый гамбит: защита Рагозина",
+    "nameEn": "QGD, Ragozin",
+    "moves": "d4 d5 c4 e6 Nc3 Nf6 Nf3 Bb4 e3 O-O Bd3 dxc4 Bxc4 c5 O-O a6 Qe2 b5 Bd3 Bb7"
+  },
+  {
+    "eco": "D40",
+    "name": "Ферзевый гамбит: защита Тарраша",
+    "nameEn": "QGD, Tarrasch Defense",
+    "moves": "d4 d5 c4 e6 Nc3 c5 cxd5 exd5 Nf3 Nc6 g3 Nf6 Bg2 Be7 O-O O-O Bg5 Be6"
+  },
+  {
+    "eco": "D80",
+    "name": "Защита Грюнфельда (обменная)",
+    "nameEn": "Grunfeld, Exchange",
+    "moves": "d4 Nf6 c4 g6 Nc3 d5 cxd5 Nxd5 e4 Nxc3 bxc3 Bg7 Nf3 c5 Rb1 O-O Be2 Nc6 d5 Ne5"
+  },
+  {
+    "eco": "D97",
+    "name": "Защита Грюнфельда (русская)",
+    "nameEn": "Grunfeld, Russian Variation",
+    "moves": "d4 Nf6 c4 g6 Nc3 d5 Nf3 Bg7 Qb3 dxc4 Qxc4 O-O e4 Bg4 Be3 Nfd7 Rc1"
+  },
+  {
+    "eco": "E00",
+    "name": "Каталонское начало (открытое)",
+    "nameEn": "Catalan, Open",
+    "moves": "d4 Nf6 c4 e6 g3 d5 Bg2 Be7 Nf3 O-O O-O dxc4 Qc2 a6 Qxc4 b5 Qc2 Bb7"
+  },
+  {
+    "eco": "E12",
+    "name": "Новоиндийская защита",
+    "nameEn": "Queen's Indian Defense",
+    "moves": "d4 Nf6 c4 e6 Nf3 b6 g3 Bb7 Bg2 Be7 O-O O-O Nc3 Ne4 Qc2 Nxc3 bxc3"
+  },
+  {
+    "eco": "E11",
+    "name": "Защита Боголюбова",
+    "nameEn": "Bogo-Indian Defense",
+    "moves": "d4 Nf6 c4 e6 Nf3 Bb4+ Bd2 Bxd2+ Nbxd2 d5 cxd5 exd5"
+  },
+  {
+    "eco": "E20",
+    "name": "Защита Нимцовича (классическая)",
+    "nameEn": "Nimzo-Indian, Classical",
+    "moves": "d4 Nf6 c4 e6 Nc3 Bb4 Qc2 O-O a3 Bxc3+ Qxc3 b6 Bg5 Bb7 e3 d5"
+  },
+  {
+    "eco": "B02",
+    "name": "Защита Алехина (обменная)",
+    "nameEn": "Alekhine, Exchange",
+    "moves": "e4 Nf6 e5 Nd5 d4 d6 exd6 exd6 Nf3 Bg4 Be2 Be7 O-O"
+  },
+  {
+    "eco": "A58",
+    "name": "Гамбит Бенко (принятый)",
+    "nameEn": "Benko Gambit Accepted",
+    "moves": "d4 Nf6 c4 c5 d5 b5 cxb5 a6 bxa6 Bxa6"
+  },
+  {
+    "eco": "D02",
+    "name": "Каталонское начало (закрытое)",
+    "nameEn": "Catalan, Closed",
+    "moves": "d4 Nf6 c4 e6 g3 d5 Bg2 Be7 Nf3 O-O O-O c6 Qc2 b6"
+  },
+  {
+    "eco": "B51",
+    "name": "Сицилианская: канал-московский вариант",
+    "nameEn": "Sicilian, Canal-Sokolsky (Moscow)",
+    "moves": "e4 c5 Nf3 d6 Bb5+ Bd7 Bxd7+ Qxd7 O-O Nf6 Qe2 e6 d4 cxd4 Nxd4"
+  },
+  {
+    "eco": "C47",
+    "name": "Четыре коня (итальянский вариант)",
+    "nameEn": "Four Knights, Italian",
+    "moves": "e4 e5 Nf3 Nc6 Nc3 Nf6 Bc4 Bc5 d3 d6 O-O O-O"
+  },
+  {
+    "eco": "E32",
+    "name": "Защита Нимцовича: Рубинштейн",
+    "nameEn": "Nimzo-Indian, Rubinstein",
+    "moves": "d4 Nf6 c4 e6 Nc3 Bb4 e3 O-O Bd3 d5 Nf3 c5 O-O Nc6 a3 Bxc3 bxc3"
+  }
+]
