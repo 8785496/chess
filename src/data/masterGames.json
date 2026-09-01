@@ -1,0 +1,314 @@
+[
+  {
+    "id": "legal-1750",
+    "white": "Легаль де Мёр",
+    "whiteEn": "Sire de Légal",
+    "black": "Сен-Бри",
+    "blackEn": "Saint Brie",
+    "year": 1750,
+    "event": "Париж",
+    "eventEn": "Paris",
+    "result": "1-0",
+    "title": { "ru": "Мат Легаля", "en": "Légal's Mate" },
+    "opening": { "ru": "Филидорская защита", "en": "Philidor Defence" },
+    "intro": {
+      "ru": "Древнейшая из знаменитых партий. Белые «зевают» ферзя — на деле это ловушка: две жертвы, и мат лёгкими фигурами. Урок: связку нельзя считать абсолютной, а за чужого ферзя надо платить королём.",
+      "en": "The oldest famous game on record. White “blunders” the queen — but it is a trap: two sacrifices and mate by minor pieces. The lesson: a pin is not absolute, and grabbing a queen can cost you the king."
+    },
+    "moves": ["e4", "e5", "Nf3", "d6", "Bc4", "Bg4", "Nc3", "g6", "Nxe5", "Bxd1", "Bxf7+", "Ke7", "Nd5#"],
+    "comments": {
+      "8": {
+        "ru": "Конь спокойно берёт пешку e5, хотя слон g4 «связал» его с ферзём d1. На первый взгляд — зевок, на деле — начало самой знаменитой ловушки в истории шахмат.",
+        "en": "The knight calmly takes the e5 pawn even though the g4-bishop “pins” it against the d1-queen. It looks like a blunder, but it starts the most famous trap in chess history."
+      },
+      "9": {
+        "ru": "Чёрные соблазнились ферзём. Хуже всего, что король остался в центре — теперь надо проверять, не быстрее ли белые.",
+        "en": "Black grabs the queen. Worst of all, the king is stuck in the centre — now Black must check whether White's attack is faster."
+      },
+      "12": {
+        "ru": "Мат! Королю мешают его же фигуры: ферзь d8, слон f8 и пешка d6. За ферзя — мат в три хода.",
+        "en": "Checkmate! The king is boxed in by his own pieces: the d8-queen, the f8-bishop and the d6-pawn. For the queen — mate in three."
+      }
+    }
+  },
+  {
+    "id": "immortal-1851",
+    "white": "Адольф Андерсен",
+    "whiteEn": "Adolf Anderssen",
+    "black": "Лайонел Кизерицкий",
+    "blackEn": "Lionel Kieseritzky",
+    "year": 1851,
+    "event": "Лондон",
+    "eventEn": "London",
+    "result": "1-0",
+    "title": { "ru": "Бессмертная партия", "en": "The Immortal Game" },
+    "opening": { "ru": "Гамбит короля", "en": "King's Gambit" },
+    "intro": {
+      "ru": "Символ романтической эпохи: белые отдали слона, обе ладьи и ферзя — и поставили мат голыми лёгкими фигурами. Урок: темп и инициатива в атаке могут стоить дороже любого материала.",
+      "en": "The symbol of the romantic era: White gave up a bishop, both rooks and the queen — and mated with bare minor pieces. The lesson: tempo and initiative in an attack can be worth more than any material."
+    },
+    "moves": ["e4", "e5", "f4", "exf4", "Bc4", "Qh4+", "Kf1", "b5", "Bxb5", "Nf6", "Nf3", "Qh6", "d3", "Nh5", "Nh4", "Qg5", "Nf5", "c6", "g4", "Nf6", "Rg1", "cxb5", "h4", "Qg6", "h5", "Qg5", "Qf3", "Ng8", "Bxf4", "Qf6", "Nc3", "Bc5", "Nd5", "Qxb2", "Bd6", "Bxg1", "e5", "Qxa1+", "Ke2", "Na6", "Nxg7+", "Kd8", "Qf6+", "Nxf6", "Be7#"],
+    "comments": {
+      "2": {
+        "ru": "Гамбит короля — визитная карточка XIX века: пешка предлагается за темп и открытую линию f.",
+        "en": "The King's Gambit — the trademark of the 19th century: a pawn is offered for tempo and the open f-file."
+      },
+      "22": {
+        "ru": "Пешки g4 и h4 идут на штурм: белые вскрывают укрытие короля чёрных, не считая потерянный материал.",
+        "en": "The g4 and h4 pawns storm forward: White rips open the black king's shelter, ignoring lost material."
+      },
+      "34": {
+        "ru": "Слон спокойно встаёт под бой. Андерсен считает темпы: каждая чёрная фигура, отвлёкшаяся на взятие, — это ход без защиты короля.",
+        "en": "The bishop calmly steps onto an attacked square. Anderssen counts tempi: every black piece busy capturing is a move not defending the king."
+      },
+      "42": {
+        "ru": "Главный ход партии — жертва ферзя! После взятия конём диагональ слона c4 открывается на короля d8.",
+        "en": "The key move of the game — the queen sacrifice! After the knight recaptures, the c4-bishop's diagonal opens toward the d8-king."
+      },
+      "44": {
+        "ru": "Мат слоном и конём — при этом у чёрных лишние ладья и слон. За красоту партию назвали «Бессмертной».",
+        "en": "Mate by bishop and knight — while Black is up a whole rook and bishop. Its beauty earned the game the name “Immortal”."
+      }
+    }
+  },
+  {
+    "id": "evergreen-1852",
+    "white": "Адольф Андерсен",
+    "whiteEn": "Adolf Anderssen",
+    "black": "Эрнст Дюфрен",
+    "blackEn": "Ernst Dufresne",
+    "year": 1852,
+    "event": "Берлин",
+    "eventEn": "Berlin",
+    "result": "1-0",
+    "title": { "ru": "Вечнозелёная партия", "en": "The Evergreen Game" },
+    "opening": { "ru": "Гамбит Эванса", "en": "Evans Gambit" },
+    "intro": {
+      "ru": "Вторая жемчужина Андерсена: жертва коня, жертва ферзя и тихий мат двумя слонами. Урок: вскрытая линия e-файла и двойные шахи — смертельный инструмент атаки.",
+      "en": "Anderssen's second gem: a knight sacrifice, a queen sacrifice and a quiet mate with two bishops. The lesson: an opened e-file plus double check is a lethal attacking tool."
+    },
+    "moves": ["e4", "e5", "Nf3", "Nc6", "Bc4", "Bc5", "b4", "Bxb4", "c3", "Ba5", "d4", "exd4", "O-O", "d3", "Qb3", "Qf6", "e5", "Qg6", "Re1", "Nge7", "Ba3", "b5", "Qxb5", "Rb8", "Qa4", "Bb6", "Nbd2", "Bb7", "Ne4", "Qf5", "Bxd3", "Qh5", "Nf6+", "gxf6", "exf6", "Rg8", "Rad1", "Qxf3", "Rxe7+", "Nxe7", "Qxd7+", "Kxd7", "Bf5+", "Ke8", "Bd7+", "Kf8", "Bxe7#"],
+    "comments": {
+      "6": {
+        "ru": "Гамбит Эванса: пешка за инициативу и большая диагональ для слона c4.",
+        "en": "The Evans Gambit: a pawn for the initiative and the long diagonal for the c4-bishop."
+      },
+      "32": {
+        "ru": "Жертва коня на f6: пешка g7 вынужденно берёт, и ладья e1 получает открытый файл прямо к королю.",
+        "en": "Knight sacrifice on f6: the g7-pawn must recapture, handing the e1-rook an open file straight to the king."
+      },
+      "40": {
+        "ru": "Жертва ферзя: Qxd7+!! Король вынужден взять и оказывается на открытой доске под ударом слонов.",
+        "en": "Queen sacrifice: Qxd7+!! The king must recapture and ends up in the open, at the mercy of the bishops."
+      },
+      "46": {
+        "ru": "Финал «вечнозелёной»: двойной шах после Bf5+, и мат двумя слонами — при огромном материальном перевесе чёрных.",
+        "en": "The “evergreen” finish: double check after Bf5+, then mate with two bishops — while Black enjoys a huge material edge."
+      }
+    }
+  },
+  {
+    "id": "opera-1858",
+    "white": "Пол Морфи",
+    "whiteEn": "Paul Morphy",
+    "black": "Герцог Брауншвейгский и граф Изуар",
+    "blackEn": "Duke of Brunswick & Count Isouard",
+    "year": 1858,
+    "event": "Парижская опера",
+    "eventEn": "Paris Opera",
+    "result": "1-0",
+    "title": { "ru": "Опера-гейм", "en": "The Opera Game" },
+    "opening": { "ru": "Филидорская защита", "en": "Philidor Defence" },
+    "intro": {
+      "ru": "Сыграна в ложе во время «Нормы» Беллини. Эталон принципов: развивай фигуры каждый ход, держи открытые линии и атакуй, пока соперник занят развитием. Мат на 17-м ходу.",
+      "en": "Played in a box seat during Bellini's Norma. A textbook of principles: develop a piece every move, keep open lines, and attack while the opponent is still developing. Mate on move 17."
+    },
+    "moves": ["e4", "e5", "Nf3", "d6", "d4", "Bg4", "dxe5", "Bxf3", "Qxf3", "dxe5", "Bc4", "Nf6", "Qb3", "Qe7", "Nc3", "c6", "Bg5", "b5", "Nxb5", "cxb5", "Bxb5+", "Nbd7", "O-O-O", "Rd8", "Rxd7", "Rxd7", "Rd1", "Qe6", "Bxd7+", "Nxd7", "Qb8+", "Nxb8", "Rd8#"],
+    "comments": {
+      "4": {
+        "ru": "Удар d4! Каждый ход белых развивает фигуру или вскрывает центр — конь g8 и слон f8 чёрных по-прежнему дома.",
+        "en": "The strike d4! Every white move develops or opens the centre — Black's g8-knight and f8-bishop are still at home."
+      },
+      "16": {
+        "ru": "Bg5 — конь f6 связан: он защищает ферзя e7 и не может участвовать в защите короля.",
+        "en": "Bg5 pins the f6-knight: it must guard the e7-queen and cannot help defend the king."
+      },
+      "18": {
+        "ru": "Конь под бой! Морфи вскрывает ферзевый фланг чёрных: и взятие, и отказ от него ведут к вскрытию позиций.",
+        "en": "The knight offers itself! Morphy rips open Black's queenside: whether Black captures or not, his position opens up."
+      },
+      "22": {
+        "ru": "Рокировка в длинную сторону — король в безопасности, а ладья a1 мгновенно включается в атаку по линии d.",
+        "en": "Long castling — the king is safe and the a1-rook instantly joins the attack down the d-file."
+      },
+      "30": {
+        "ru": "Жертва ферзя: Qb8+!! Конь вынужден взять — и последняя защита ладьи d8 исчезает.",
+        "en": "Queen sacrifice: Qb8+!! The knight must capture — and the last defence of the d8-square disappears."
+      },
+      "32": {
+        "ru": "Мат: ладья d8 держит одновременно короля и поле отхода d7. Простой и запоминающийся финал.",
+        "en": "Mate: the d8-rook covers both the king and the escape square d7. A simple, unforgettable finish."
+      }
+    }
+  },
+  {
+    "id": "hastings-1895",
+    "white": "Вильгельм Стейниц",
+    "whiteEn": "Wilhelm Steinitz",
+    "black": "Курт фон Барделебен",
+    "blackEn": "Curt von Bardeleben",
+    "year": 1895,
+    "event": "Гастингс",
+    "eventEn": "Hastings",
+    "result": "1-0",
+    "title": { "ru": "Битва при Гастингсе", "en": "The Battle of Hastings" },
+    "opening": { "ru": "Итальянская партия", "en": "Italian Game" },
+    "intro": {
+      "ru": "Первый чемпион мира против сильнейшего немецкого мастера. Четыре жертвы ладьи подряд, после которых фон Барделебен молча вышел из зала. Урок: король в центре — мишень даже для простых фигур.",
+      "en": "The first world champion against Germany's strongest master. Four consecutive rook sacrifices, after which von Bardeleben silently left the hall. The lesson: a king stuck in the centre is a target even for plain pieces."
+    },
+    "moves": ["e4", "e5", "Nf3", "Nc6", "Bc4", "Bc5", "c3", "Nf6", "d4", "exd4", "cxd4", "Bb4+", "Nc3", "d5", "exd5", "Nxd5", "O-O", "Be6", "Bg5", "Be7", "Bxd5", "Bxd5", "Nxd5", "Qxd5", "Bxe7", "Nxe7", "Re1", "f6", "Qe2", "Qd7", "Rac1", "c6", "d5", "cxd5", "Nd4", "Kf7", "Ne6", "Rhc8", "Qg4", "g6", "Ng5+", "Ke8", "Rxe7+", "Kf8", "Rf7+", "Kg8", "Rg7+", "Kh8", "Rxh7+"],
+    "comments": {
+      "32": {
+        "ru": "Прорыв d5! Центр вскрыт, белые ферзь и ладьи получают пути к королю f7, застрявшему в центре.",
+        "en": "The d5 breakthrough! The centre explodes and White's queen and rooks gain roads toward the f7-king, stuck in the centre."
+      },
+      "36": {
+        "ru": "Конь e6 парализует защиту: король f7 заперт собственными фигурами, и каждую белую жертву придётся брать.",
+        "en": "The e6-knight paralyses the defence: the f7-king is trapped by his own pieces, and every white sacrifice must be accepted."
+      },
+      "42": {
+        "ru": "Первая из четырёх жертв ладьи подряд: Rxe7+, Rf7+, Rg7+, Rxh7+. Ладьи гибнут — но король не может выйти из-под шахов.",
+        "en": "The first of four consecutive rook sacrifices: Rxe7+, Rf7+, Rg7+, Rxh7+. The rooks die — but the king cannot escape the checks."
+      },
+      "48": {
+        "ru": "Rxh7+ — и фон Барделебен встал и покинул зал. Стейниц показал форсированный мат в 10 ходов, начиная с 25...Kg8 26.Rg7+ Kh8 27.Qh4+.",
+        "en": "Rxh7+ — and von Bardeleben stood up and left the hall. Steinitz demonstrated a forced mate in 10 starting 25...Kg8 26.Rg7+ Kh8 27.Qh4+."
+      }
+    }
+  },
+  {
+    "id": "reti-1910",
+    "white": "Рихард Рети",
+    "whiteEn": "Richard Réti",
+    "black": "Шандор Тартаковер",
+    "blackEn": "Savielly Tartakower",
+    "year": 1910,
+    "event": "Вена",
+    "eventEn": "Vienna",
+    "result": "0-1",
+    "title": { "ru": "Жертва ферзя Рети", "en": "Réti's Queen Sacrifice" },
+    "opening": { "ru": "Защита Каро-Канн", "en": "Caro-Kann Defence" },
+    "intro": {
+      "ru": "Классический урок о наказании за жадность в Каро-Канн: чёрные выиграли коня, но забыли о рокировке. Жертва ферзя, двойной шах — и мат на 11-м ходу.",
+      "en": "A classic lesson on greed in the Caro-Kann: Black won a knight but forgot to castle. Queen sacrifice, double check — and mate on move 11."
+    },
+    "moves": ["e4", "c6", "d4", "d5", "Nc3", "dxe4", "Nxe4", "Nf6", "Qd3", "e5", "dxe5", "Qa5+", "Bd2", "Qxe5", "O-O-O", "Nxe4", "Qd8+", "Kxd8", "Bg5+", "Kc7", "Bd8#"],
+    "comments": {
+      "13": {
+        "ru": "Чёрные взяли вторую пешку... точнее, готовятся взять коня. Проблема очевидна заранее: король в центре, белая ладья смотрит на d8.",
+        "en": "Black is grabbing material — about to take the knight. The problem is visible in advance: the king sits in the centre while the white rook stares at d8."
+      },
+      "16": {
+        "ru": "Жертва ферзя: Qd8+!! Король вынужден взять ферзя — и сам закрывает короля от ладьи d1... точнее, открывает её удар.",
+        "en": "Queen sacrifice: Qd8+!! The king must take the queen — and in doing so walks into the blast of the d1-rook."
+      },
+      "18": {
+        "ru": "ДВОЙНОЙ шах: слон g5 и ладья d1 бьют одновременно. При двойном шахе король обязан идти сам — уйти нельзя никак иначе.",
+        "en": "DOUBLE check: the g5-bishop and the d1-rook attack at once. Against a double check the king must move itself — there is no other reply."
+      },
+      "20": {
+        "ru": "Тихий мат: слон d8 бьёт по диагонали a5–d8, и королю c7 некуда идти — вся доска контролируется.",
+        "en": "The quiet mate: the d8-bishop commands the a5–d8 diagonal and the c7-king has nowhere to run."
+      }
+    }
+  },
+  {
+    "id": "game-of-century-1956",
+    "white": "Дональд Бирн",
+    "whiteEn": "Donald Byrne",
+    "black": "Бобби Фишер",
+    "blackEn": "Bobby Fischer",
+    "year": 1956,
+    "event": "Нью-Йорк",
+    "eventEn": "New York",
+    "result": "0-1",
+    "title": { "ru": "Партия века", "en": "The Game of the Century" },
+    "opening": { "ru": "Защита Грюнфельда", "en": "Grünfeld Defence" },
+    "intro": {
+      "ru": "13-летний Бобби Фишер против гроссмейстера Дональда Бирна. Жертва ферзя, «карусель» коня с вечными шахами и мат в чистом виде. Партия прославила будущего чемпиона мира.",
+      "en": "13-year-old Bobby Fischer against GM Donald Byrne. A queen sacrifice, a knight “carousel” of endless checks and a pure mate. This game made the future world champion famous."
+    },
+    "moves": ["Nf3", "Nf6", "c4", "g6", "Nc3", "Bg7", "d4", "O-O", "Bf4", "d5", "Qb3", "dxc4", "Qxc4", "c6", "e4", "Nbd7", "Rd1", "Nb6", "Qc5", "Bg4", "Bg5", "Na4", "Qa3", "Nxc3", "bxc3", "Nxe4", "Bxe7", "Qb6", "Bc4", "Nxc3", "Bc5", "Rfe8+", "Kf1", "Be6", "Bxb6", "Bxc4+", "Kg1", "Ne2+", "Kf1", "Nxd4+", "Kg1", "Ne2+", "Kf1", "Nc3+", "Kg1", "axb6", "Qb4", "Ra4", "Qxb6", "Nxd1", "h3", "Rxa2", "Kh2", "Nxf2", "Re1", "Rxe1", "Qd8+", "Bf8", "Nxe1", "Bd5", "Nf3", "Ne4", "Qb8", "b5", "h4", "h5", "Ne5", "Kg7", "Kg1", "Bc5+", "Kf1", "Ng3+", "Ke1", "Bb4+", "Kd1", "Bb3+", "Kc1", "Ne2+", "Kb1", "Nc3+", "Kc1", "Rc2#"],
+    "comments": {
+      "25": {
+        "ru": "Nxe4 — комбинация Фишера начинается с простого взятия пешки. Материальный счёт волнует его меньше всего.",
+        "en": "Nxe4 — Fischer's combination starts with the simple capture of a pawn. Material is the last thing on his mind."
+      },
+      "33": {
+        "ru": "Ход века: 18...Be6!! Фишер игнорирует атаку на своего ферзя и предлагает слона. После 19.Bxb6 Bxc4+ конь начнёт серию шахов, и белый король уже не спрячется.",
+        "en": "The move of the century: 18...Be6!! Fischer ignores the attack on his queen and offers a bishop. After 19.Bxb6 Bxc4+ the knight starts its series of checks, and the white king has no hiding place."
+      },
+      "37": {
+        "ru": "«Карусель»: конь бьёт с шахом, гоняет короля между g1 и f1 и попутно уничтожает фигуры белых.",
+        "en": "The “carousel”: the knight checks, chases the king back and forth between g1 and f1, and hoovers up White's pieces along the way."
+      },
+      "49": {
+        "ru": "Конь пожирает ладью d1. Перевес Фишера уже огромен, но партия войдёт в историю изящным финалом.",
+        "en": "The knight devours the d1-rook. Fischer's edge is already decisive, but the game will be remembered for its elegant finish."
+      },
+      "53": {
+        "ru": "Nxf2! — конь создаёт угрозы мата и ловит белого короля в бегство по всей доске.",
+        "en": "Nxf2! — the knight creates mating threats and sends the white king fleeing across the whole board."
+      },
+      "81": {
+        "ru": "Rc2# — мат в чистом виде: ни одна чёрная фигура не защищает ладью и не мешает королю. Ганс Кмох назвал эту партию «Партией века».",
+        "en": "Rc2# — a pure mate: no black piece needs protection. Hans Kmoch called this game “The Game of the Century”."
+      }
+    }
+  },
+  {
+    "id": "kasparov-immortal-1999",
+    "white": "Гарри Каспаров",
+    "whiteEn": "Garry Kasparov",
+    "black": "Веселин Топалов",
+    "blackEn": "Veselin Topalov",
+    "year": 1999,
+    "event": "Вейк-ан-Зее",
+    "eventEn": "Wijk aan Zee",
+    "result": "1-0",
+    "title": { "ru": "Бессмертная Каспарова", "en": "Kasparov's Immortal" },
+    "opening": { "ru": "Защита Пирца", "en": "Pirc Defence" },
+    "intro": {
+      "ru": "Каспаров против Топалова, сильнейший турнир 1999 года. Жертва ладьи и 20-ходовая охота на короля, вошедшая в золотой фонд шахмат. Урок: жертва материала верна, если король соперника остаётся без укрытия.",
+      "en": "Kasparov against Topalov at the strongest tournament of 1999. A rook sacrifice and a 20-move king hunt that entered the chess gold fund. The lesson: sacrificing material is sound when the enemy king is left without shelter."
+    },
+    "moves": ["e4", "d6", "d4", "Nf6", "Nc3", "g6", "Be3", "Bg7", "Qd2", "c6", "f3", "b5", "Nge2", "Nbd7", "Bh6", "Bxh6", "Qxh6", "Bb7", "a3", "e5", "O-O-O", "Qe7", "Kb1", "a6", "Nc1", "O-O-O", "Nb3", "exd4", "Rxd4", "c5", "Rd1", "Nb6", "g3", "Kb8", "Na5", "Ba8", "Bh3", "d5", "Qf4+", "Ka7", "Rhe1", "d4", "Nd5", "Nbxd5", "exd5", "Qd6", "Rxd4", "cxd4", "Re7+", "Kb6", "Qxd4+", "Kxa5", "b4+", "Ka4", "Qc3", "Qxd5", "Ra7", "Bb7", "Rxb7", "Qc4", "Qxf6", "Kxa3", "Qxa6+", "Kxb4", "c3+", "Kxc3", "Qa1+", "Kd2", "Qb2+", "Kd1", "Bf1", "Rd2", "Rd7", "Rxd7", "Bxc4", "bxc4", "Qxh8", "Rd3", "Qa8", "c3", "Qa4+", "Ke1", "f4", "f5", "Kc1", "Rd2", "Qa7"],
+    "comments": {
+      "25": {
+        "ru": "Чёрные тоже рокируются в длинную сторону: короли на одном фланге, и впереди — прямая дуэль атак. Белая рука (a3, f3, g3) уже готова к прорыву.",
+        "en": "Black castles queenside too: the kings face each other on the same flank and a straight duel of attacks begins. White's pawn shield (a3, f3, g3) is already prepared."
+      },
+      "38": {
+        "ru": "20.Qf4+ — шах, и король чёрных начинает путешествие, из которого уже не вернётся.",
+        "en": "20.Qf4+ — the check from which the black king's journey begins, with no way home."
+      },
+      "46": {
+        "ru": "ГЛАВНЫЙ ход партии: 24.Rxd4!! Ладья просто отдаётся. После 24...cxd4 25.Re7+ ладья становится неуязвимой, а король чёрных — беглецом.",
+        "en": "THE move of the game: 24.Rxd4!! The rook is simply given away. After 24...cxd4 25.Re7+ the rook becomes untouchable and the black king a fugitive."
+      },
+      "52": {
+        "ru": "Пешка b4+ гонит короля: Kb6–Ka5–Ka4. Каждая клетка пути простреливается ферзём и пешками.",
+        "en": "The b4+ pawn push drives the king: Kb6–Ka5–Ka4. Every square of the route is covered by the queen and pawns."
+      },
+      "74": {
+        "ru": "Слон берёт ферзя чёрных — но материальный счёт уже ничего не значит: белые точно ведут короля к мату.",
+        "en": "The bishop snaps up Black's queen — but material no longer matters: White is walking the king into mate."
+      },
+      "86": {
+        "ru": "Топалов сдался после 44.Qa7: чёрный король в центре доски, ладья борется одна. Охота длиной 20 ходов вошла в историю как «Бессмертная Каспарова».",
+        "en": "Topalov resigned after 44.Qa7: the black king is marooned in the centre with a lone rook for company. The 20-move hunt went down in history as “Kasparov's Immortal”."
+      }
+    }
+  }
+]

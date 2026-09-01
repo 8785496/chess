@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { GameScreen } from './features/game/GameScreen';
+import { MasterGamesScreen } from './features/mastergames/MasterGamesScreen';
 import { OpeningsScreen } from './features/openings/OpeningsScreen';
 import { SettingsScreen } from './features/settings/SettingsScreen';
 import { useSettings } from './stores/settings';
 import { engineManager } from './engine/manager';
 import { useT } from './i18n';
 
-export type Tab = 'game' | 'openings' | 'settings';
+export type Tab = 'game' | 'games' | 'openings' | 'settings';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -58,6 +59,7 @@ export default function App() {
 
   const tabs: { id: Tab; label: string; icon: string }[] = [
     { id: 'game', label: t('tabGame'), icon: '♟' },
+    { id: 'games', label: t('tabGames'), icon: '🏆' },
     { id: 'openings', label: t('tabOpenings'), icon: '📖' },
     { id: 'settings', label: t('tabSettings'), icon: '⚙' },
   ];
@@ -79,7 +81,7 @@ export default function App() {
           </button>
         )}
       </header>
-      <nav className="mx-3 mb-2 grid grid-cols-3 gap-1 rounded-xl bg-black/5 p-1 dark:bg-white/10" role="tablist">
+      <nav className="mx-3 mb-2 grid grid-cols-4 gap-1 rounded-xl bg-black/5 p-1 dark:bg-white/10" role="tablist">
         {tabs.map((item) => (
           <button
             key={item.id}
@@ -100,6 +102,7 @@ export default function App() {
       </nav>
       <main className="min-h-0 flex-1 pb-1">
         {tab === 'game' && <GameScreen />}
+        {tab === 'games' && <MasterGamesScreen onPlayHere={() => setTab('game')} />}
         {tab === 'openings' && <OpeningsScreen onPlayHere={() => setTab('game')} />}
         {tab === 'settings' && <SettingsScreen />}
       </main>

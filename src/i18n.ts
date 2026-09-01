@@ -3,6 +3,7 @@ import { useSettings } from './stores/settings';
 const ru = {
   appTitle: 'Шахматы',
   tabGame: 'Игра',
+  tabGames: 'Партии',
   tabOpenings: 'Дебюты',
   tabSettings: 'Настройки',
   install: 'Установить',
@@ -74,6 +75,9 @@ const ru = {
   toEnd: 'В конец',
   variation: 'Вариант',
   backToCatalog: '← К списку дебютов',
+  // Реальные партии
+  gamesSearch: 'Поиск партии…',
+  backToGames: '← К списку партий',
   // Настройки
   settingsTitle: 'Настройки',
   sLanguage: 'Язык',
@@ -105,6 +109,7 @@ export type Dict = typeof ru;
 const en: Dict = {
   appTitle: 'Chess',
   tabGame: 'Play',
+  tabGames: 'Games',
   tabOpenings: 'Openings',
   tabSettings: 'Settings',
   install: 'Install',
@@ -173,6 +178,8 @@ const en: Dict = {
   toEnd: 'To end',
   variation: 'Variation',
   backToCatalog: '← Back to openings',
+  gamesSearch: 'Search game…',
+  backToGames: '← Back to games',
   settingsTitle: 'Settings',
   sLanguage: 'Language',
   sTheme: 'Appearance',
