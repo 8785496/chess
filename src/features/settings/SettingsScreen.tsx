@@ -1,7 +1,12 @@
-import { useState } from 'react';
-import { BOARD_THEMES, useSettings, type Lang, type PlayerColorPref, type ReviewDepth, type ThemeMode } from '../../stores/settings';
+import {
+  BOARD_THEMES,
+  useSettings,
+  type Lang,
+  type PlayerColorPref,
+  type ReviewDepth,
+  type ThemeMode,
+} from '../../stores/settings';
 import { BOT_LEVELS } from '../../engine/levels';
-import { useHistory } from '../../stores/history';
 import { useT } from '../../i18n';
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
@@ -32,8 +37,6 @@ function Toggle({ value, onChange }: { value: boolean; onChange: (v: boolean) =>
 export function SettingsScreen() {
   const t = useT();
   const s = useSettings();
-  const history = useHistory();
-  const [copied, setCopied] = useState<number | null>(null);
 
   return (
     <div className="thin-scroll h-full overflow-y-auto p-3 sm:p-4">
@@ -41,13 +44,21 @@ export function SettingsScreen() {
         <section className="card">
           <h2 className="mb-1 font-semibold">{t('settingsTitle')}</h2>
           <Row label={t('sLanguage')}>
-            <select className="select" value={s.lang} onChange={(e) => s.set('lang', e.target.value as Lang)}>
+            <select
+              className="select"
+              value={s.lang}
+              onChange={(e) => s.set('lang', e.target.value as Lang)}
+            >
               <option value="ru">Русский</option>
               <option value="en">English</option>
             </select>
           </Row>
           <Row label={t('sTheme')}>
-            <select className="select" value={s.themeMode} onChange={(e) => s.set('themeMode', e.target.value as ThemeMode)}>
+            <select
+              className="select"
+              value={s.themeMode}
+              onChange={(e) => s.set('themeMode', e.target.value as ThemeMode)}
+            >
               <option value="system">{t('sThemeSystem')}</option>
               <option value="light">{t('sThemeLight')}</option>
               <option value="dark">{t('sThemeDark')}</option>
@@ -118,39 +129,6 @@ export function SettingsScreen() {
           <button type="button" className="btn mt-2 w-full text-xs" onClick={() => s.reset()}>
             {t('sReset')}
           </button>
-        </section>
-
-        <section className="card">
-          <h2 className="mb-1 font-semibold">{t('sHistory')}</h2>
-          {!history.games.length && <p className="text-sm text-gray-400">{t('sHistoryEmpty')}</p>}
-          <div className="thin-scroll max-h-64 overflow-y-auto">
-            {history.games.map((g) => (
-              <div key={g.id} className="flex items-center justify-between gap-2 border-b border-gray-100 py-1.5 text-sm last:border-0 dark:border-gray-700">
-                <div className="min-w-0">
-                  <span className="mono mr-2 font-semibold">{g.result}</span>
-                  <span className="text-xs text-gray-500">
-                    {new Date(g.date).toLocaleDateString()} · {g.levelName} · {Math.ceil(g.plies / 2)} х
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  className="btn px-2 py-1 text-xs"
-                  onClick={() => {
-                    void navigator.clipboard.writeText(g.pgn);
-                    setCopied(g.id);
-                    setTimeout(() => setCopied(null), 1200);
-                  }}
-                >
-                  {copied === g.id ? t('copied') : 'PGN'}
-                </button>
-              </div>
-            ))}
-          </div>
-          {history.games.length > 0 && (
-            <button type="button" className="btn mt-2 w-full text-xs" onClick={() => history.clear()}>
-              {t('sClearHistory')}
-            </button>
-          )}
         </section>
 
         <section className="card text-sm">

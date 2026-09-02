@@ -13,7 +13,11 @@ import { BOT_LEVELS } from '../../engine/levels';
 import { findCheckSquare, needsPromotion, type Square } from '../../core/game';
 import { useT } from '../../i18n';
 
-export function GameScreen() {
+/**
+ * Отдельный экран партии: шапка со стрелкой «назад», доска с подсказкой,
+ * лента ходов и футер с кнопками управления. Открывается поверх главной навигации.
+ */
+export function GameScreen({ onBack }: { onBack: () => void }) {
   const t = useT();
   const game = useGame();
   const settings = useSettings();
@@ -41,7 +45,9 @@ export function GameScreen() {
     if (!hintExpanded) return [main];
     return [
       main,
-      ...hint.lines.slice(1).map((l) => ({ from: l.from, to: l.to, color: 'rgba(56, 189, 248, 0.35)' })),
+      ...hint.lines
+        .slice(1)
+        .map((l) => ({ from: l.from, to: l.to, color: 'rgba(56, 189, 248, 0.35)' })),
     ];
   }, [game.hint, hintExpanded]);
 
@@ -96,7 +102,8 @@ export function GameScreen() {
   // Клавиатурная навигация по истории.
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight' && e.key !== 'Home' && e.key !== 'End') return;
+      if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight' && e.key !== 'Home' && e.key !== 'End')
+        return;
       const len = useGame.getState().history.length;
       if (!len) return;
       const cur = useGame.getState().viewPly ?? len;
@@ -143,6 +150,10 @@ export function GameScreen() {
 
   const review = game.review;
 
+  // Кнопки управления в футере — в стиле навигации главного экрана.
+  const ctrlBtn =
+    'flex flex-1 flex-col items-center gap-0.5 whitespace-nowrap py-1.5 text-[10px] font-medium text-gray-500 transition hover:text-gray-700 disabled:cursor-not-allowed disabled:opacity-40 dark:text-gray-400 dark:hover:text-gray-200';
+
   const statusText = game.over.over
     ? gameEndText(game.over, t)
     : game.botThinking
@@ -156,26 +167,39 @@ export function GameScreen() {
           : t('blackToMove');
 
   return (
-    <div className="flex h-full min-h-0 flex-col gap-2 lg:flex-row lg:gap-4 lg:p-3">
-      <div className="flex min-h-0 flex-1 flex-col">
-        {/* Индикатор хода над доской */}
-        <div className="flex items-center justify-center gap-2 px-3 pb-1">
-          <span className="truncate text-sm font-semibold" data-status>
-            {statusText}
+    <div className="flex h-full min-h-0 flex-col">
+      {/* Шапка: назад в меню, статус партии, уровень бота */}
+      <header className="flex shrink-0 items-center gap-1.5 py-1 pl-1 pr-3">
+        <button
+          type="button"
+          onClick={onBack}
+          aria-label={t('back')}
+          title={t('back')}
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-xl leading-none text-gray-600 transition hover:bg-black/5 dark:text-gray-300 dark:hover:bg-white/10"
+        >
+          ←
+        </button>
+        <span className="truncate text-sm font-semibold" data-status>
+          {statusText}
+        </span>
+        {game.mode === 'bot' && (
+          <span className="ml-auto shrink-0 rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500 dark:bg-gray-700 dark:text-gray-300">
+            {t('level')} {game.levelId}
           </span>
-          {game.mode === 'bot' && (
-            <span className="shrink-0 rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500 dark:bg-gray-700 dark:text-gray-300">
-              {t('level')} {game.levelId}
-            </span>
-          )}
-        </div>
-        {/* Шкала оценки над доской */}
+        )}
+      </header>
+
+      {/* Центральная колонка: оценка, доска, подсказка, лента ходов */}
+      <div className="flex min-h-0 flex-1 flex-col lg:mx-auto lg:w-full lg:max-w-2xl">
         {settings.showEval && (
           <div className="px-2 pb-1 lg:px-0">
-            <EvalBar cp={evalCp} loading={game.evalLoading || game.hintLoading} orientation={game.orientation} />
+            <EvalBar
+              cp={evalCp}
+              loading={game.evalLoading || game.hintLoading}
+              orientation={game.orientation}
+            />
           </div>
         )}
-        {/* Доска */}
         <div className="flex min-h-0 flex-1 items-stretch justify-center px-2 lg:px-0">
           <div className="flex min-h-0 min-w-0 flex-1 flex-col">
             <BoardView
@@ -209,133 +233,164 @@ export function GameScreen() {
             )}
           </div>
         </div>
-      </div>
-
-      {/* Панель управления */}
-      <aside className="flex max-h-[45%] min-h-0 w-full flex-col gap-2 rounded-xl bg-white p-2 shadow-sm dark:bg-gray-800 sm:p-3 lg:max-h-none lg:w-80">
-        <div className="grid grid-cols-4 gap-1.5 sm:grid-cols-4 lg:grid-cols-2">
-          <button type="button" className="btn-primary col-span-2 lg:col-span-1" onClick={() => setShowNewGame((v) => !v)}>
-            {t('newGame')}
-          </button>
-          <button
-            type="button"
-            className="btn"
-            onClick={() => useGame.getState().undo()}
-            disabled={!game.history.length}
-            title={t('undo')}
-          >
-            ↩
-          </button>
-          <button type="button" className="btn" onClick={() => useGame.getState().flip()} title={t('flip')}>
-            ⇅
-          </button>
-          <button
-            type="button"
-            className="btn col-span-2 disabled:opacity-40 lg:col-span-2"
-            onClick={() => {
-              // Повторное нажатие не пересчитывает, а разворачивает/сворачивает детали.
-              if (game.hint) setHintExpanded((v) => !v);
-              else void useGame.getState().requestHint();
-            }}
-            disabled={game.hintLoading || game.over.over}
-            title={game.hint ? t('hintDetails') : undefined}
-          >
-            {game.hintLoading
-              ? t('hintThinking')
-              : game.hint
-                ? hintExpanded
-                  ? `▴ ${t('hintHide')}`
-                  : `▾ ${t('hintDetails')}`
-                : `💡 ${t('hint')}`}
-          </button>
-          <button
-            type="button"
-            className="btn col-span-2 lg:col-span-2"
-            onClick={() => setReviewOpen(true)}
-          >
-            🔍 {t('review')}
-          </button>
-        </div>
-
-        {showNewGame && (
-          <div className="rounded-lg bg-gray-50 p-2 text-sm dark:bg-gray-700/60">
-            <div className="mb-2 flex gap-1">
-              {(['bot', 'manual'] as const).map((m) => (
-                <button
-                  key={m}
-                  type="button"
-                  className={`flex-1 rounded-md px-2 py-1 text-xs font-medium ${
-                    pendingMode === m ? 'bg-emerald-600 text-white' : 'bg-white dark:bg-gray-700'
-                  }`}
-                  onClick={() => setPendingMode(m)}
-                >
-                  {m === 'bot' ? t('modeBot') : t('modeManual')}
-                </button>
-              ))}
-            </div>
-            {pendingMode === 'bot' && (
-              <>
-                <div className="mb-1.5 flex flex-wrap gap-1">
-                  {BOT_LEVELS.map((l) => (
-                    <button
-                      key={l.id}
-                      type="button"
-                      className={`rounded-md px-2 py-1 text-xs ${
-                        pendingLevel === l.id ? 'bg-amber-500 text-gray-900 font-semibold' : 'bg-white dark:bg-gray-700'
-                      }`}
-                      onClick={() => setPendingLevel(l.id)}
-                    >
-                      {l.id}. {settings.lang === 'en' ? l.nameEn : l.nameRu}
-                    </button>
-                  ))}
-                </div>
-                <div className="mb-2 flex gap-1">
-                  {(['white', 'black', 'random'] as const).map((c) => (
-                    <button
-                      key={c}
-                      type="button"
-                      className={`flex-1 rounded-md px-2 py-1 text-xs ${
-                        pendingColor === c ? 'bg-emerald-600 text-white' : 'bg-white dark:bg-gray-700'
-                      }`}
-                      onClick={() => setPendingColor(c)}
-                    >
-                      {c === 'white' ? t('white') : c === 'black' ? t('black') : t('random')}
-                    </button>
-                  ))}
-                </div>
-              </>
-            )}
-            <button
-              type="button"
-              className="btn-primary w-full"
-              onClick={() => {
-                settings.set('botLevelId', pendingLevel);
-                settings.set('playerColor', pendingColor);
-                useGame.getState().newGame({ mode: pendingMode, levelId: pendingLevel });
-                setShowNewGame(false);
-                setDismissedOver(-1);
-              }}
-            >
-              {t('confirm')}
-            </button>
+        {/* Лента ходов — компактная; скрывается, пока развёрнуты детали подсказки */}
+        {!hintExpanded && (
+          <div className="flex min-h-0 max-h-[26%] shrink-0 flex-col px-2 pt-1 lg:px-0">
+            <MoveList
+              history={game.history}
+              viewPly={game.viewPly}
+              reviewItems={review?.items ?? null}
+              onPlyClick={(ply) =>
+                useGame.getState().setViewPly(ply >= game.history.length ? null : ply)
+              }
+            />
           </div>
         )}
+      </div>
 
-        {game.viewPly !== null && (
-          <button type="button" className="btn text-xs" onClick={() => useGame.getState().setViewPly(null)}>
-            {t('backToGame')} ({game.viewPly}/{game.history.length})
-          </button>
-        )}
+      {/* Футер: кнопки управления игрой */}
+      <footer className="mt-1.5 shrink-0 border-t border-black/10 bg-white/95 px-2 pt-1.5 backdrop-blur dark:border-white/10 dark:bg-gray-800/95">
+        <div className="mx-auto w-full max-w-2xl pb-1.5">
+          {game.viewPly !== null && (
+            <button
+              type="button"
+              className="btn mb-1.5 w-full text-xs"
+              onClick={() => useGame.getState().setViewPly(null)}
+            >
+              {t('backToGame')} ({game.viewPly}/{game.history.length})
+            </button>
+          )}
 
-        <MoveList
-          history={game.history}
-          viewPly={game.viewPly}
-          reviewItems={review?.items ?? null}
-          onPlyClick={(ply) =>
-            useGame.getState().setViewPly(ply >= game.history.length ? null : ply)
-          }
-        />
-      </aside>
+          {showNewGame && (
+            <div className="mb-1.5 rounded-lg bg-gray-50 p-2 text-sm dark:bg-gray-700/60">
+              <div className="mb-2 flex gap-1">
+                {(['bot', 'manual'] as const).map((m) => (
+                  <button
+                    key={m}
+                    type="button"
+                    className={`flex-1 rounded-md px-2 py-1 text-xs font-medium ${
+                      pendingMode === m ? 'bg-emerald-600 text-white' : 'bg-white dark:bg-gray-700'
+                    }`}
+                    onClick={() => setPendingMode(m)}
+                  >
+                    {m === 'bot' ? t('modeBot') : t('modeManual')}
+                  </button>
+                ))}
+              </div>
+              {pendingMode === 'bot' && (
+                <>
+                  <div className="mb-1.5 flex flex-wrap gap-1">
+                    {BOT_LEVELS.map((l) => (
+                      <button
+                        key={l.id}
+                        type="button"
+                        className={`rounded-md px-2 py-1 text-xs ${
+                          pendingLevel === l.id
+                            ? 'bg-amber-500 text-gray-900 font-semibold'
+                            : 'bg-white dark:bg-gray-700'
+                        }`}
+                        onClick={() => setPendingLevel(l.id)}
+                      >
+                        {l.id}. {settings.lang === 'en' ? l.nameEn : l.nameRu}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="mb-2 flex gap-1">
+                    {(['white', 'black', 'random'] as const).map((c) => (
+                      <button
+                        key={c}
+                        type="button"
+                        className={`flex-1 rounded-md px-2 py-1 text-xs ${
+                          pendingColor === c
+                            ? 'bg-emerald-600 text-white'
+                            : 'bg-white dark:bg-gray-700'
+                        }`}
+                        onClick={() => setPendingColor(c)}
+                      >
+                        {c === 'white' ? t('white') : c === 'black' ? t('black') : t('random')}
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )}
+              <button
+                type="button"
+                className="btn-primary w-full"
+                onClick={() => {
+                  settings.set('botLevelId', pendingLevel);
+                  settings.set('playerColor', pendingColor);
+                  useGame.getState().newGame({ mode: pendingMode, levelId: pendingLevel });
+                  setShowNewGame(false);
+                  setDismissedOver(-1);
+                }}
+              >
+                {t('confirm')}
+              </button>
+            </div>
+          )}
+
+          {/* Ряд иконок в стиле главного меню: иконка сверху, подпись снизу */}
+          <div className="flex items-stretch">
+            <button
+              type="button"
+              className={ctrlBtn + (showNewGame ? ' text-emerald-600 dark:text-emerald-400' : '')}
+              onClick={() => setShowNewGame((v) => !v)}
+              title={t('newGame')}
+            >
+              <span className="text-xl leading-none">➕</span>
+              {t('newGame')}
+            </button>
+            <button
+              type="button"
+              className={ctrlBtn}
+              onClick={() => useGame.getState().undo()}
+              disabled={!game.history.length}
+              title={t('undo')}
+            >
+              <span className="text-xl leading-none">↩</span>
+              {t('undoShort')}
+            </button>
+            <button
+              type="button"
+              className={ctrlBtn}
+              onClick={() => useGame.getState().flip()}
+              title={t('flip')}
+            >
+              <span className="text-xl leading-none">⇅</span>
+              {t('flipShort')}
+            </button>
+            <button
+              type="button"
+              className={ctrlBtn}
+              onClick={() => {
+                // Повторное нажатие не пересчитывает, а разворачивает/сворачивает детали.
+                if (game.hint) setHintExpanded((v) => !v);
+                else void useGame.getState().requestHint();
+              }}
+              disabled={game.hintLoading || game.over.over}
+              title={game.hint ? t('hintDetails') : t('hint')}
+            >
+              <span className="text-xl leading-none">💡</span>
+              {game.hintLoading
+                ? t('hintThinking')
+                : game.hint
+                  ? hintExpanded
+                    ? `▴ ${t('hintHide')}`
+                    : `▾ ${t('hintDetails')}`
+                  : t('hint')}
+            </button>
+            <button
+              type="button"
+              className={ctrlBtn}
+              onClick={() => setReviewOpen(true)}
+              title={t('review')}
+            >
+              <span className="text-xl leading-none">🔍</span>
+              {t('reviewShort')}
+            </button>
+          </div>
+        </div>
+      </footer>
 
       {game.pendingPromotion && (
         <PromotionDialog
