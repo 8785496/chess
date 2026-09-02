@@ -14,8 +14,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'icons/*.png'],
       manifest: {
-        name: 'Шахматы — игра, анализ, дебюты',
-        short_name: 'Шахматы',
+        name: 'Шахматы e2e4',
+        short_name: 'Шахматы e2e4',
         description: 'Играйте против движка, получайте подсказки, разбирайте партии и изучайте дебюты. Работает офлайн.',
         lang: 'ru',
         dir: 'ltr',

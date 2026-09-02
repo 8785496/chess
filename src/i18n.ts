@@ -1,7 +1,7 @@
 import { useSettings } from './stores/settings';
 
 const ru = {
-  appTitle: 'Шахматы',
+  appTitle: 'Шахматы e2e4',
   tabGame: 'Игра',
   tabGames: 'Партии',
   tabOpenings: 'Дебюты',
@@ -107,7 +107,7 @@ const ru = {
 export type Dict = typeof ru;
 
 const en: Dict = {
-  appTitle: 'Chess',
+  appTitle: 'Chess e2e4',
   tabGame: 'Play',
   tabGames: 'Games',
   tabOpenings: 'Openings',
