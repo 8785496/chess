@@ -66,46 +66,46 @@ export default function App() {
 
   return (
     <div className="app-safe flex h-full flex-col">
-      <header className="flex items-center justify-between gap-2 px-3 pb-1 pt-2">
-        <h1 className="text-lg font-bold tracking-tight">♞ {t('appTitle')}</h1>
-        {installEvent && (
-          <button
-            type="button"
-            className="rounded-full bg-emerald-600 px-3 py-1 text-xs font-medium text-white"
-            onClick={() => {
-              void installEvent.prompt();
-              setInstallEvent(null);
-            }}
-          >
-            {t('install')}
-          </button>
-        )}
-      </header>
-      <nav className="mx-3 mb-2 grid grid-cols-4 gap-1 rounded-xl bg-black/5 p-1 dark:bg-white/10" role="tablist">
+      <main className="min-h-0 flex-1">
+        {tab === 'game' && <GameScreen />}
+        {tab === 'games' && <MasterGamesScreen onPlayHere={() => setTab('game')} />}
+        {tab === 'openings' && <OpeningsScreen onPlayHere={() => setTab('game')} />}
+        {tab === 'settings' && <SettingsScreen />}
+      </main>
+      <nav
+        className="flex shrink-0 border-t border-black/10 bg-white/95 backdrop-blur dark:border-white/10 dark:bg-gray-800/95"
+        role="tablist"
+      >
         {tabs.map((item) => (
           <button
             key={item.id}
             type="button"
             role="tab"
             aria-selected={tab === item.id}
-            className={`rounded-lg px-2 py-1.5 text-sm font-medium transition ${
+            className={`flex flex-1 flex-col items-center gap-0.5 py-1.5 text-[10px] font-medium transition ${
               tab === item.id
-                ? 'bg-white text-gray-900 shadow-sm dark:bg-gray-800 dark:text-gray-100'
-                : 'text-gray-500 hover:text-gray-800 dark:hover:text-gray-200'
+                ? 'text-emerald-600 dark:text-emerald-400'
+                : 'text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300'
             }`}
             onClick={() => setTab(item.id)}
           >
-            <span className="mr-1">{item.icon}</span>
+            <span className="text-xl leading-none">{item.icon}</span>
             {item.label}
           </button>
         ))}
       </nav>
-      <main className="min-h-0 flex-1 pb-1">
-        {tab === 'game' && <GameScreen />}
-        {tab === 'games' && <MasterGamesScreen onPlayHere={() => setTab('game')} />}
-        {tab === 'openings' && <OpeningsScreen onPlayHere={() => setTab('game')} />}
-        {tab === 'settings' && <SettingsScreen />}
-      </main>
+      {installEvent && (
+        <button
+          type="button"
+          className="fixed right-3 bottom-[calc(env(safe-area-inset-bottom)+3.75rem)] z-20 rounded-full bg-emerald-600 px-3 py-1.5 text-xs font-medium text-white shadow-lg"
+          onClick={() => {
+            void installEvent.prompt();
+            setInstallEvent(null);
+          }}
+        >
+          ⬇ {t('install')}
+        </button>
+      )}
     </div>
   );
 }

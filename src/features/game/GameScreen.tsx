@@ -5,12 +5,12 @@ import { PromotionDialog } from '../../board/PromotionDialog';
 import { EvalBar } from './EvalBar';
 import { MoveList } from './MoveList';
 import { GameOverDialog, gameEndText } from './GameOverDialog';
+import { ReviewDialog } from './ReviewDialog';
 import { fenAtPly, useGame } from '../../stores/game';
 import { boardThemeByKey, useSettings, type PlayerColorPref } from '../../stores/settings';
 import { BOT_LEVELS } from '../../engine/levels';
 import { findCheckSquare, needsPromotion, type Square } from '../../core/game';
-import { CLASS_COLOR, CLASS_GLYPH, MOVE_CLASS_ORDER, type MoveClass } from '../../core/classification';
-import { format, useT } from '../../i18n';
+import { useT } from '../../i18n';
 
 export function GameScreen() {
   const t = useT();
@@ -18,7 +18,7 @@ export function GameScreen() {
   const settings = useSettings();
   const [selected, setSelected] = useState<Square | null>(null);
   const [showNewGame, setShowNewGame] = useState(false);
-  const [toast, setToast] = useState<string | null>(null);
+  const [reviewOpen, setReviewOpen] = useState(false);
   const [dismissedOver, setDismissedOver] = useState<number>(-1);
   const [pendingLevel, setPendingLevel] = useState(settings.botLevelId);
   const [pendingColor, setPendingColor] = useState<PlayerColorPref>(settings.playerColor);
@@ -78,12 +78,6 @@ export function GameScreen() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
-  useEffect(() => {
-    if (!toast) return;
-    const id = setTimeout(() => setToast(null), 1500);
-    return () => clearTimeout(id);
-  }, [toast]);
-
   const handleTap = (sq: Square) => {
     if (!interactive) {
       return;
@@ -115,42 +109,7 @@ export function GameScreen() {
     useGame.getState().tryUserMove(from, to);
   };
 
-  const copyText = async (text: string, message: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-      setToast(message);
-    } catch {
-      setToast(text.slice(0, 40));
-    }
-  };
-
-  const downloadPgn = () => {
-    const pgn = game.getGamePgn();
-    const blob = new Blob([pgn], { type: 'application/x-chess-pgn' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `game-${new Date().toISOString().slice(0, 10)}.pgn`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
   const review = game.review;
-  const reviewCounts = useMemo(() => {
-    if (!review) return null;
-    const counts: Record<MoveClass, number> = {
-      best: 0, excellent: 0, good: 0, inaccuracy: 0, mistake: 0, blunder: 0,
-    };
-    let lossSum = 0;
-    let n = 0;
-    for (const item of review.items.values()) {
-      if (game.mode === 'bot' && game.history[item.ply - 1]?.color !== game.playerColor) continue;
-      counts[item.cls]++;
-      lossSum += Math.min(100, item.lossCp / 6);
-      n++;
-    }
-    return { counts, accuracy: n ? Math.max(0, Math.round(100 - lossSum / n)) : null, n };
-  }, [review, game.mode, game.playerColor, game.history]);
 
   const statusText = game.over.over
     ? gameEndText(game.over, t)
@@ -166,52 +125,57 @@ export function GameScreen() {
 
   return (
     <div className="flex h-full min-h-0 flex-col gap-2 lg:flex-row lg:gap-4 lg:p-3">
-      {/* Доска + шкала оценки */}
-      <div className="flex min-h-0 flex-1 items-stretch justify-center gap-2 px-2 pt-1 lg:px-0">
-        {settings.showEval && (
-          <EvalBar cp={evalCp} loading={game.evalLoading || game.hintLoading} orientation={game.orientation} />
-        )}
-        <div className="flex min-h-0 w-full flex-1 flex-col">
-          <BoardView
-            id="game-board"
-            fen={viewState.fen}
-            orientation={game.orientation}
-            theme={boardThemeByKey(settings.boardTheme)}
-            animate={settings.animate}
-            interactive={interactive}
-            lastMove={viewState.lastMove}
-            checkSquare={viewState.checkSquare}
-            selected={selected}
-            targets={targets}
-            arrows={
-              game.hint
-                ? [{ from: game.hint.from, to: game.hint.to, color: 'rgba(56, 189, 248, 0.85)' }]
-                : undefined
-            }
-            onSquareTap={handleTap}
-            onMoveAttempt={attemptMove}
-          />
-          {game.hint && (
-            <div className="mono pt-1 text-center text-sm font-semibold text-sky-600 dark:text-sky-400">
-              {game.hint.from}→{game.hint.to} · {game.hint.cpText}
-            </div>
+      <div className="flex min-h-0 flex-1 flex-col">
+        {/* Индикатор хода над доской */}
+        <div className="flex items-center justify-center gap-2 px-3 pb-1">
+          <span className="truncate text-sm font-semibold" data-status>
+            {statusText}
+          </span>
+          {game.mode === 'bot' && (
+            <span className="shrink-0 rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500 dark:bg-gray-700 dark:text-gray-300">
+              {t('level')} {game.levelId}
+            </span>
           )}
+        </div>
+        {/* Шкала оценки над доской */}
+        {settings.showEval && (
+          <div className="px-2 pb-1 lg:px-0">
+            <EvalBar cp={evalCp} loading={game.evalLoading || game.hintLoading} orientation={game.orientation} />
+          </div>
+        )}
+        {/* Доска */}
+        <div className="flex min-h-0 flex-1 items-stretch justify-center px-2 lg:px-0">
+          <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+            <BoardView
+              id="game-board"
+              fen={viewState.fen}
+              orientation={game.orientation}
+              theme={boardThemeByKey(settings.boardTheme)}
+              animate={settings.animate}
+              interactive={interactive}
+              lastMove={viewState.lastMove}
+              checkSquare={viewState.checkSquare}
+              selected={selected}
+              targets={targets}
+              arrows={
+                game.hint
+                  ? [{ from: game.hint.from, to: game.hint.to, color: 'rgba(56, 189, 248, 0.85)' }]
+                  : undefined
+              }
+              onSquareTap={handleTap}
+              onMoveAttempt={attemptMove}
+            />
+            {game.hint && (
+              <div className="mono pt-1 text-center text-sm font-semibold text-sky-600 dark:text-sky-400">
+                {game.hint.from}→{game.hint.to} · {game.hint.cpText}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Панель управления */}
       <aside className="flex max-h-[45%] min-h-0 w-full flex-col gap-2 rounded-xl bg-white p-2 shadow-sm dark:bg-gray-800 sm:p-3 lg:max-h-none lg:w-80">
-        <div className="flex items-center justify-between gap-2">
-          <span className="truncate text-sm font-semibold" data-status>
-            {statusText}
-          </span>
-          {game.mode === 'bot' && (
-            <span className="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500 dark:bg-gray-700 dark:text-gray-300">
-              {t('level')} {game.levelId}
-            </span>
-          )}
-        </div>
-
         <div className="grid grid-cols-4 gap-1.5 sm:grid-cols-4 lg:grid-cols-2">
           <button type="button" className="btn-primary col-span-2 lg:col-span-1" onClick={() => setShowNewGame((v) => !v)}>
             {t('newGame')}
@@ -235,6 +199,13 @@ export function GameScreen() {
             disabled={game.hintLoading || game.over.over}
           >
             {game.hintLoading ? t('hintThinking') : `💡 ${t('hint')}`}
+          </button>
+          <button
+            type="button"
+            className="btn col-span-2 lg:col-span-2"
+            onClick={() => setReviewOpen(true)}
+          >
+            🔍 {t('review')}
           </button>
         </div>
 
@@ -316,77 +287,6 @@ export function GameScreen() {
             useGame.getState().setViewPly(ply >= game.history.length ? null : ply)
           }
         />
-
-        {/* Разбор партии */}
-        <div className="flex flex-col gap-1.5 border-t border-gray-200 pt-2 dark:border-gray-700">
-          {review?.running ? (
-            <>
-              <div className="h-1.5 w-full overflow-hidden rounded bg-gray-200 dark:bg-gray-600">
-                <div
-                  className="h-full bg-emerald-500 transition-all"
-                  style={{ width: `${Math.round(review.progress * 100)}%` }}
-                />
-              </div>
-              <div className="flex items-center justify-between text-xs text-gray-500">
-                <span>{format(t('reviewRunning'), { percent: Math.round(review.progress * 100) })}</span>
-                <button type="button" className="underline" onClick={() => useGame.getState().cancelReview()}>
-                  {t('reviewCancel')}
-                </button>
-              </div>
-            </>
-          ) : (
-            <div className="flex items-center gap-1.5">
-              <select
-                className="select flex-1"
-                value={settings.reviewDepth}
-                onChange={(e) => settings.set('reviewDepth', e.target.value as 'fast' | 'deep')}
-                aria-label={t('reviewDepth')}
-              >
-                <option value="fast">{t('reviewFast')}</option>
-                <option value="deep">{t('reviewDeep')}</option>
-              </select>
-              <button
-                type="button"
-                className="btn-primary flex-1 whitespace-nowrap text-xs"
-                disabled={!game.history.length || (game.mode === 'bot' && !game.over.over)}
-                title={
-                  game.mode === 'bot' && !game.over.over ? t('reviewNavigateHint') : t('reviewRun')
-                }
-                onClick={() => void useGame.getState().startReview()}
-              >
-                🔍 {t('reviewRun')}
-              </button>
-            </div>
-          )}
-          {review && !review.running && !review.error && reviewCounts && (
-            <div className="text-xs text-gray-500 dark:text-gray-400">
-              <div className="mb-0.5 flex flex-wrap gap-x-2">
-                {MOVE_CLASS_ORDER.map((cls) => (
-                  <span key={cls} style={{ color: CLASS_COLOR[cls] }} className="font-semibold">
-                    {CLASS_GLYPH[cls]} {reviewCounts.counts[cls]}
-                  </span>
-                ))}
-              </div>
-              {reviewCounts.accuracy !== null && (
-                <div>{format(t('accuracy'), { percent: reviewCounts.accuracy })}</div>
-              )}
-            </div>
-          )}
-          {review?.error && <div className="text-xs text-red-500">{t('reviewError')}</div>}
-        </div>
-
-        <div className="flex gap-1.5 border-t border-gray-200 pt-2 dark:border-gray-700">
-          <button type="button" className="btn flex-1 text-xs" onClick={downloadPgn}>
-            ⬇ PGN
-          </button>
-          <button
-            type="button"
-            className="btn flex-1 text-xs"
-            onClick={() => void copyText(viewState.fen, t('copied'))}
-          >
-            FEN
-          </button>
-        </div>
       </aside>
 
       {game.pendingPromotion && (
@@ -401,20 +301,17 @@ export function GameScreen() {
         />
       )}
 
+      {reviewOpen && <ReviewDialog onClose={() => setReviewOpen(false)} />}
+
       {game.over.over && dismissedOver !== game.gameId && (
         <GameOverDialog
           onReview={() => {
             setDismissedOver(game.gameId);
+            setReviewOpen(true);
             void useGame.getState().startReview();
           }}
           onClose={() => setDismissedOver(game.gameId)}
         />
-      )}
-
-      {toast && (
-        <div className="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2 rounded-full bg-gray-900/90 px-4 py-2 text-sm text-white shadow-lg">
-          {toast}
-        </div>
       )}
     </div>
   );
