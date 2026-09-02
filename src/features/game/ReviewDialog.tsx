@@ -1,5 +1,10 @@
 import { useMemo } from 'react';
-import { CLASS_COLOR, CLASS_GLYPH, MOVE_CLASS_ORDER, type MoveClass } from '../../core/classification';
+import {
+  CLASS_COLOR,
+  CLASS_GLYPH,
+  MOVE_CLASS_ORDER,
+  tallyReview,
+} from '../../core/classification';
 import { format, useT } from '../../i18n';
 import { useGame } from '../../stores/game';
 import { useSettings } from '../../stores/settings';
@@ -17,18 +22,11 @@ export function ReviewDialog({ onClose }: ReviewDialogProps) {
 
   const counts = useMemo(() => {
     if (!review) return null;
-    const out: Record<MoveClass, number> = {
-      best: 0, excellent: 0, good: 0, inaccuracy: 0, mistake: 0, blunder: 0,
-    };
-    let lossSum = 0;
-    let n = 0;
-    for (const item of review.items.values()) {
-      if (game.mode === 'bot' && game.history[item.ply - 1]?.color !== game.playerColor) continue;
-      out[item.cls]++;
-      lossSum += Math.min(100, item.lossCp / 6);
-      n++;
-    }
-    return { counts: out, accuracy: n ? Math.max(0, Math.round(100 - lossSum / n)) : null, n };
+    // В режиме бота итоги считаем только по ходам игрока.
+    const tally = tallyReview(review.items.values(), (item) =>
+      game.mode === 'manual' || game.history[item.ply - 1]?.color === game.playerColor,
+    );
+    return { ...tally, accuracy: tally.n ? tally.accuracy : null };
   }, [review, game.mode, game.playerColor, game.history]);
 
   return (

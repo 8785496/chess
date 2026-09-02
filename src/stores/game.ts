@@ -12,7 +12,13 @@ import {
   type MoveRecord,
   type Square,
 } from '../core/game';
-import { classifyMove, clampScore, mateToCp, type ReviewItem } from '../core/classification';
+import {
+  classifyMove,
+  clampScore,
+  mateToCp,
+  tallyReview,
+  type ReviewItem,
+} from '../core/classification';
 import { sounds } from '../core/sounds';
 import { engineManager } from '../engine/manager';
 import { getLevel } from '../engine/levels';
@@ -77,6 +83,10 @@ interface GameStore {
   liveEval: number | null; // cp от лица белых
   evalLoading: boolean;
   review: ReviewState | null;
+  /** id записи в истории, если партия сохранена или открыта из истории. */
+  historyId: number | null;
+  /** Партия загружена из истории (архив): ходы недоступны, диалог итогов скрыт. */
+  fromHistory: boolean;
 
   newGame: (opts?: NewGameOpts) => void;
   /** Попытка хода игроком (drag&drop или tap). Возвращает false, если ход нелегален. */
@@ -94,6 +104,8 @@ interface GameStore {
   stopHintPlayback: () => void;
   startReview: () => Promise<void>;
   cancelReview: () => void;
+  /** Загружает завершённую партию из истории на доску (для просмотра и разбора). */
+  openFromHistory: (id: number) => boolean;
   getGamePgn: () => string;
 }
 
@@ -153,17 +165,19 @@ export const useGame = create<GameStore>((set, get) => {
     return true;
   };
 
-  const saveFinishedGame = (g: typeof get, _set: typeof set) => {
+  const saveFinishedGame = (g: typeof get, setStore: typeof set) => {
     const state = g();
     if (state.mode !== 'bot') return;
-    useHistory.getState().add({
+    const id = useHistory.getState().add({
       date: new Date().toISOString(),
       pgn: state.getGamePgn(),
       result: state.over.result,
       levelName: levelNameFor(state.levelId, useSettings.getState().lang),
+      levelId: state.levelId,
       playerColor: state.playerColor,
       plies: state.history.length,
     });
+    setStore({ historyId: id, fromHistory: false });
   };
 
   /** Ход бота с защитой от гонок (новая партия / откат во время «раздумья»). */
@@ -244,6 +258,8 @@ export const useGame = create<GameStore>((set, get) => {
     liveEval: null,
     evalLoading: false,
     review: null,
+    historyId: null,
+    fromHistory: false,
 
     newGame: (opts = {}) => {
       botToken++;
@@ -295,6 +311,8 @@ export const useGame = create<GameStore>((set, get) => {
         hintPlayback: null,
         liveEval: null,
         review: null,
+        historyId: null,
+        fromHistory: false,
       });
       // fenAfter для предзагруженных ходов
       if (moves.length) {
@@ -495,6 +513,19 @@ export const useGame = create<GameStore>((set, get) => {
             best: before.best ?? '',
           });
         }
+        // Итоги по ходам игрока сохраняем в запись истории (если она есть).
+        const cur = get();
+        if (cur.historyId !== null) {
+          const tally = tallyReview(items.values(), (item) =>
+            cur.mode === 'manual' || cur.history[item.ply - 1]?.color === cur.playerColor,
+          );
+          useHistory.getState().setReview(cur.historyId, {
+            accuracy: tally.accuracy,
+            counts: tally.counts,
+            analyzedAt: new Date().toISOString(),
+            depth: settings.reviewDepth,
+          });
+        }
         set({ review: { running: false, progress: 1, items, evals: [...evals], error: null } });
       } catch (e) {
         set({
@@ -513,6 +544,65 @@ export const useGame = create<GameStore>((set, get) => {
       reviewToken++;
       const r = get().review;
       if (r) set({ review: { ...r, running: false, error: null } });
+    },
+
+    openFromHistory: (id) => {
+      const entry = useHistory.getState().games.find((g) => g.id === id);
+      if (!entry) return false;
+      botToken++;
+      evalToken++;
+      reviewToken++;
+      playbackToken++;
+      engineManager.stop();
+      const chess = new Chess();
+      try {
+        chess.loadPgn(entry.pgn);
+      } catch {
+        return false;
+      }
+      const headers = chess.getHeaders();
+      const startFen = headers.SetUp === '1' && headers.FEN ? headers.FEN : START_FEN;
+      // fenAfter для каждого хода — повторным проигрыванием партии с начала.
+      const replay = createGame(startFen === START_FEN ? undefined : startFen);
+      const history: MoveRecord[] = chess.history({ verbose: true }).map((m) => {
+        replay.move(m.san);
+        return {
+          san: m.san,
+          from: m.from as Square,
+          to: m.to as Square,
+          color: m.color as Color,
+          captured: m.captured !== undefined,
+          promotion: m.promotion,
+          fenAfter: replay.fen(),
+        };
+      });
+      const last = history[history.length - 1];
+      set({
+        gameId: get().gameId + 1,
+        mode: 'bot',
+        playerColor: entry.playerColor,
+        levelId: entry.levelId ?? useSettings.getState().botLevelId,
+        startFen,
+        chess,
+        history,
+        fen: chess.fen(),
+        turn: chess.turn() as Color,
+        over: computeStatus(chess),
+        lastMove: last ? { from: last.from, to: last.to } : null,
+        checkSquare: findCheckSquare(chess),
+        orientation: entry.playerColor === 'b' ? 'black' : 'white',
+        botThinking: false,
+        pendingPromotion: null,
+        viewPly: null,
+        hint: null,
+        hintPlayback: null,
+        liveEval: null,
+        evalLoading: false,
+        review: null,
+        historyId: id,
+        fromHistory: true,
+      });
+      return true;
     },
 
     getGamePgn: () => {

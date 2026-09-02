@@ -82,3 +82,33 @@ export interface ReviewResult {
 export function toWhiteCp(cpFromSideToMove: number, sideToMove: 'w' | 'b'): number {
   return sideToMove === 'w' ? cpFromSideToMove : -cpFromSideToMove;
 }
+
+export interface ReviewTally {
+  counts: Record<MoveClass, number>;
+  accuracy: number; // 0..100 (0, если ходов нет)
+  n: number;
+}
+
+/** Считает классы ходов и точность; keep отбирает ходы (например, только ходы игрока). */
+export function tallyReview(
+  items: Iterable<ReviewItem>,
+  keep?: (item: ReviewItem) => boolean,
+): ReviewTally {
+  const counts: Record<MoveClass, number> = {
+    best: 0,
+    excellent: 0,
+    good: 0,
+    inaccuracy: 0,
+    mistake: 0,
+    blunder: 0,
+  };
+  let lossSum = 0;
+  let n = 0;
+  for (const item of items) {
+    if (keep && !keep(item)) continue;
+    counts[item.cls]++;
+    lossSum += Math.min(100, item.lossCp / 6);
+    n++;
+  }
+  return { counts, accuracy: n ? Math.max(0, Math.round(100 - lossSum / n)) : 0, n };
+}

@@ -23,6 +23,8 @@ export default function App() {
   // Доска — отдельный экран поверх главной навигации: открывается с главного
   // экрана («Новая игра»/«Продолжить») и из «играть с этой позиции».
   const [inGame, setInGame] = useState(false);
+  // Открыть экран партии сразу с диалогом разбора (партия из истории).
+  const [reviewOnOpen, setReviewOnOpen] = useState(false);
   const [installEvent, setInstallEvent] = useState<BeforeInstallPromptEvent | null>(null);
 
   // Тема: системная или явная.
@@ -64,6 +66,12 @@ export default function App() {
 
   const openGame = () => setInGame(true);
 
+  // Разбор партии из истории: доска открывается с уже запущенным разбором.
+  const openAnalysis = () => {
+    setReviewOnOpen(true);
+    setInGame(true);
+  };
+
   // Новая партия с сохранёнными настройками (уровень бота, цвет).
   const startNewGame = () => {
     useGame.getState().newGame();
@@ -81,12 +89,20 @@ export default function App() {
     <div className="app-safe flex h-full flex-col">
       {inGame ? (
         <main className="min-h-0 flex-1">
-          <GameScreen onBack={() => setInGame(false)} />
+          <GameScreen
+            initialReviewOpen={reviewOnOpen}
+            onBack={() => {
+              setReviewOnOpen(false);
+              setInGame(false);
+            }}
+          />
         </main>
       ) : (
         <>
           <main className="min-h-0 flex-1">
-            {tab === 'home' && <HomeScreen onNewGame={startNewGame} onResume={openGame} />}
+            {tab === 'home' && (
+              <HomeScreen onNewGame={startNewGame} onResume={openGame} onAnalyze={openAnalysis} />
+            )}
             {tab === 'games' && <MasterGamesScreen onPlayHere={openGame} />}
             {tab === 'openings' && <OpeningsScreen onPlayHere={openGame} />}
             {tab === 'settings' && <SettingsScreen />}

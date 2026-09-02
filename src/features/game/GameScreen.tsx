@@ -17,13 +17,20 @@ import { useT } from '../../i18n';
  * Отдельный экран партии: шапка со стрелкой «назад», доска с подсказкой,
  * лента ходов и футер с кнопками управления. Открывается поверх главной навигации.
  */
-export function GameScreen({ onBack }: { onBack: () => void }) {
+export function GameScreen({
+  onBack,
+  initialReviewOpen = false,
+}: {
+  onBack: () => void;
+  /** Открыть с диалогом разбора (партия, запущенная из истории). */
+  initialReviewOpen?: boolean;
+}) {
   const t = useT();
   const game = useGame();
   const settings = useSettings();
   const [selected, setSelected] = useState<Square | null>(null);
   const [showNewGame, setShowNewGame] = useState(false);
-  const [reviewOpen, setReviewOpen] = useState(false);
+  const [reviewOpen, setReviewOpen] = useState(initialReviewOpen);
   const [dismissedOver, setDismissedOver] = useState<number>(-1);
   const [pendingLevel, setPendingLevel] = useState(settings.botLevelId);
   const [pendingColor, setPendingColor] = useState<PlayerColorPref>(settings.playerColor);
@@ -344,7 +351,7 @@ export function GameScreen({ onBack }: { onBack: () => void }) {
               type="button"
               className={ctrlBtn}
               onClick={() => useGame.getState().undo()}
-              disabled={!game.history.length}
+              disabled={!game.history.length || game.fromHistory}
               title={t('undo')}
             >
               <span className="text-xl leading-none">↩</span>
@@ -406,7 +413,8 @@ export function GameScreen({ onBack }: { onBack: () => void }) {
 
       {reviewOpen && <ReviewDialog onClose={() => setReviewOpen(false)} />}
 
-      {game.over.over && dismissedOver !== game.gameId && (
+      {/* Диалог итога не показываем для партий, открытых из истории. */}
+      {game.over.over && !game.fromHistory && dismissedOver !== game.gameId && (
         <GameOverDialog
           onReview={() => {
             setDismissedOver(game.gameId);

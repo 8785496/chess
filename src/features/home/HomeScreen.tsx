@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { CLASS_COLOR, CLASS_GLYPH } from '../../core/classification';
 import { useGame } from '../../stores/game';
 import { useHistory } from '../../stores/history';
 import { useSettings } from '../../stores/settings';
 import { getLevel } from '../../engine/levels';
-import { useT } from '../../i18n';
+import { format, useT } from '../../i18n';
 
 /**
  * Главный экран: старт новой партии, продолжение текущей
@@ -12,9 +13,12 @@ import { useT } from '../../i18n';
 export function HomeScreen({
   onNewGame,
   onResume,
+  onAnalyze,
 }: {
   onNewGame: () => void;
   onResume: () => void;
+  /** Открыть загруженную из истории партию с запущенным разбором. */
+  onAnalyze: () => void;
 }) {
   const t = useT();
   const settings = useSettings();
@@ -24,6 +28,13 @@ export function HomeScreen({
 
   const inProgress = game.history.length > 0 && !game.over.over;
   const level = getLevel(settings.botLevelId);
+
+  /** Загружает партию из истории на доску и сразу запускает разбор. */
+  const analyze = (id: number) => {
+    if (!useGame.getState().openFromHistory(id)) return;
+    void useGame.getState().startReview();
+    onAnalyze();
+  };
 
   return (
     <div className="thin-scroll h-full overflow-y-auto p-3 sm:p-4">
@@ -58,18 +69,48 @@ export function HomeScreen({
                     {new Date(g.date).toLocaleDateString()} · {g.levelName} ·{' '}
                     {Math.ceil(g.plies / 2)} х
                   </span>
+                  {g.review && (
+                    <span className="ml-2 whitespace-nowrap text-xs">
+                      <span
+                        className="font-semibold"
+                        title={format(t('accuracy'), { percent: g.review.accuracy })}
+                      >
+                        🎯 {g.review.accuracy}%
+                      </span>
+                      {g.review.counts.blunder > 0 && (
+                        <span
+                          className="ml-1.5 font-semibold"
+                          style={{ color: CLASS_COLOR.blunder }}
+                          title={t('clsBlunder')}
+                        >
+                          {CLASS_GLYPH.blunder} {g.review.counts.blunder}
+                        </span>
+                      )}
+                    </span>
+                  )}
                 </div>
-                <button
-                  type="button"
-                  className="btn px-2 py-1 text-xs"
-                  onClick={() => {
-                    void navigator.clipboard.writeText(g.pgn);
-                    setCopied(g.id);
-                    setTimeout(() => setCopied(null), 1200);
-                  }}
-                >
-                  {copied === g.id ? t('copied') : 'PGN'}
-                </button>
+                <div className="flex shrink-0 items-center gap-1">
+                  <button
+                    type="button"
+                    className="btn px-2 py-1 text-xs"
+                    aria-label={t('review')}
+                    title={t('review')}
+                    onClick={() => analyze(g.id)}
+                  >
+                    🔍
+                  </button>
+                  <button
+                    type="button"
+                    className="btn px-2 py-1 text-xs"
+                    onClick={() => {
+                      void navigator.clipboard.writeText(g.pgn);
+                      setCopied(g.id);
+                      setTimeout(() => setCopied(null), 1200);
+                    }}
+                  >
+                    {copied === g.id ? t('copied') : 'PGN'}
+                  </button>
+                </div>
               </div>
             ))}
           </div>
