@@ -50,6 +50,13 @@ export function classifyMove(lossCp: number, isEngineBest: boolean): MoveClass {
   return 'blunder';
 }
 
+/** Оценка в сантипешках (от лица белых) в строку вида «+1.4». */
+export function formatCp(whiteCp: number): string {
+  const pawns = whiteCp / 100;
+  const sign = pawns > 0 ? '+' : pawns < 0 ? '−' : '';
+  return `${sign}${Math.abs(pawns).toFixed(1)}`;
+}
+
 export interface ReviewItem {
   ply: number;
   san: string;

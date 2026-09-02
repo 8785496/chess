@@ -3,6 +3,7 @@ import { Chess } from 'chess.js';
 import { BoardView } from '../../board/BoardView';
 import { PromotionDialog } from '../../board/PromotionDialog';
 import { EvalBar } from './EvalBar';
+import { HintPanel } from './HintPanel';
 import { MoveList } from './MoveList';
 import { GameOverDialog, gameEndText } from './GameOverDialog';
 import { ReviewDialog } from './ReviewDialog';
@@ -23,6 +24,26 @@ export function GameScreen() {
   const [pendingLevel, setPendingLevel] = useState(settings.botLevelId);
   const [pendingColor, setPendingColor] = useState<PlayerColorPref>(settings.playerColor);
   const [pendingMode, setPendingMode] = useState<'bot' | 'manual'>('bot');
+
+  // Двухступенчатая подсказка: сначала только стрелка, детали — по кнопке.
+  // Новая подсказка всегда приходит свёрнутой (сброс во время рендера, без эффекта).
+  const [hintExpanded, setHintExpanded] = useState(false);
+  const [lastHint, setLastHint] = useState(game.hint);
+  if (lastHint !== game.hint) {
+    setLastHint(game.hint);
+    setHintExpanded(false);
+  }
+
+  const hintArrows = useMemo(() => {
+    const hint = game.hint;
+    if (!hint) return undefined;
+    const main = { from: hint.from, to: hint.to, color: 'rgba(56, 189, 248, 0.85)' };
+    if (!hintExpanded) return [main];
+    return [
+      main,
+      ...hint.lines.slice(1).map((l) => ({ from: l.from, to: l.to, color: 'rgba(56, 189, 248, 0.35)' })),
+    ];
+  }, [game.hint, hintExpanded]);
 
   const viewState = useMemo(() => {
     const ply = game.viewPly;
@@ -157,18 +178,16 @@ export function GameScreen() {
               checkSquare={viewState.checkSquare}
               selected={selected}
               targets={targets}
-              arrows={
-                game.hint
-                  ? [{ from: game.hint.from, to: game.hint.to, color: 'rgba(56, 189, 248, 0.85)' }]
-                  : undefined
-              }
+              arrows={hintArrows}
               onSquareTap={handleTap}
               onMoveAttempt={attemptMove}
             />
             {game.hint && (
-              <div className="mono pt-1 text-center text-sm font-semibold text-sky-600 dark:text-sky-400">
-                {game.hint.from}→{game.hint.to} · {game.hint.cpText}
-              </div>
+              <HintPanel
+                hint={game.hint}
+                expanded={hintExpanded}
+                onToggle={() => setHintExpanded((v) => !v)}
+              />
             )}
           </div>
         </div>
@@ -195,10 +214,21 @@ export function GameScreen() {
           <button
             type="button"
             className="btn col-span-2 disabled:opacity-40 lg:col-span-2"
-            onClick={() => void useGame.getState().requestHint()}
+            onClick={() => {
+              // Повторное нажатие не пересчитывает, а разворачивает/сворачивает детали.
+              if (game.hint) setHintExpanded((v) => !v);
+              else void useGame.getState().requestHint();
+            }}
             disabled={game.hintLoading || game.over.over}
+            title={game.hint ? t('hintDetails') : undefined}
           >
-            {game.hintLoading ? t('hintThinking') : `💡 ${t('hint')}`}
+            {game.hintLoading
+              ? t('hintThinking')
+              : game.hint
+                ? hintExpanded
+                  ? `▴ ${t('hintHide')}`
+                  : `▾ ${t('hintDetails')}`
+                : `💡 ${t('hint')}`}
           </button>
           <button
             type="button"

@@ -16,6 +16,7 @@ import { classifyMove, clampScore, mateToCp, type ReviewItem } from '../core/cla
 import { sounds } from '../core/sounds';
 import { engineManager } from '../engine/manager';
 import { getLevel } from '../engine/levels';
+import { buildHintData, type HintData } from '../features/game/hint';
 import { useSettings } from './settings';
 import { useHistory } from './history';
 import { t } from '../i18n';
@@ -31,11 +32,7 @@ export interface ReviewState {
   error: string | null;
 }
 
-export interface HintState {
-  from: Square;
-  to: Square;
-  cpText: string;
-}
+export type { HintData };
 
 export interface NewGameOpts {
   mode?: GameMode;
@@ -62,7 +59,7 @@ interface GameStore {
   botThinking: boolean;
   pendingPromotion: { from: Square; to: Square } | null;
   viewPly: number | null;
-  hint: HintState | null;
+  hint: HintData | null;
   hintLoading: boolean;
   liveEval: number | null; // cp от лица белых
   evalLoading: boolean;
@@ -350,16 +347,15 @@ export const useGame = create<GameStore>((set, get) => {
       set({ hintLoading: true });
       try {
         const fen = state.viewPly !== null ? fenAtPly(state, state.viewPly) : state.fen;
-        const res = await engineManager.analyse(fen, { depth: 16, movetime: 1500 });
+        const ply = state.viewPly ?? state.history.length;
+        const sanHistory = state.history.slice(0, ply).map((h) => h.san);
+        // multipv 3: три лучших линии — сам ход, альтернативы и прогноз продолжения.
+        // Глубина снижена относительно старых 16, чтобы время ожидания не выросло.
+        const res = await engineManager.analyse(fen, { depth: 14, movetime: 1500, multipv: 3 });
         if (!res.best) return;
-        const { from, to } = parseUciMove(res.best);
-        const cpAbs = res.mate !== null ? mateToCp(res.mate) : clampScore(res.cp);
-        const stm = state.turn;
-        const whiteCp = stm === 'w' ? cpAbs : -cpAbs;
-        set({
-          hint: { from, to, cpText: formatCp(whiteCp) },
-          liveEval: whiteCp,
-        });
+        const data = buildHintData({ fen, sanHistory, analysis: res });
+        if (!data) return;
+        set({ hint: data, liveEval: data.cp });
       } finally {
         set({ hintLoading: false });
       }
@@ -483,11 +479,7 @@ function sameMove(uci: string, played: { from: Square; to: Square }): boolean {
   return uci.startsWith(played.from + played.to);
 }
 
-export function formatCp(whiteCp: number): string {
-  const pawns = whiteCp / 100;
-  const sign = pawns > 0 ? '+' : pawns < 0 ? '−' : '';
-  return `${sign}${Math.abs(pawns).toFixed(1)}`;
-}
+export { formatCp } from '../core/classification';
 
 /** FEN позиции на выбранном ply (0 = начальная, null = текущая). */
 export function fenAtPly(state: { startFen: string; history: MoveRecord[] }, ply: number): string {

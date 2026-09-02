@@ -1,6 +1,7 @@
 import { UciEngine, type EngineInfoLine } from './uci';
 import { applyLevel, type BotLevel } from './levels';
 import { ENGINE_JS } from './files.gen';
+import { clampScore, mateToCp } from '../core/classification';
 import { useEngine } from '../stores/engine';
 
 export interface AnalysisLine extends EngineInfoLine {
@@ -78,6 +79,8 @@ class EngineManager {
     return this.run(async (engine) => {
       await engine.isReady();
       applyLevel(engine, level);
+      // Подсказка могла оставить MultiPV=3 — для бота возвращаем одну линию.
+      engine.setOption('MultiPV', 1);
       const res = await engine.go({
         fen,
         depth: level.depth,
@@ -104,6 +107,9 @@ class EngineManager {
       const lines: AnalysisLine[] = res.info
         .filter((l) => l.pv.length)
         .map((l) => ({ ...l, uci: l.pv[0] }));
+      // Оценки с точки зрения сходящего: лучшая линия — первая (multipv порядок не всегда гарантирован).
+      const stmScore = (l: AnalysisLine) => (l.mate != null ? mateToCp(l.mate) : clampScore(l.cp ?? 0));
+      lines.sort((a, b) => stmScore(b) - stmScore(a));
       const top = lines[0];
       return {
         best: top?.uci ?? (res.bestmove !== '(none)' ? res.bestmove : null),
