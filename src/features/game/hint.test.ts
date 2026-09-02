@@ -55,7 +55,7 @@ describe('buildHintData', () => {
         best: 'g8f6',
         cp: -28,
         lines: [
-          { depth: 12, multipv: 1, uci: 'g8f6', cp: -28, pv: ['g8f6', 'b1c3', 'g8f6'] },
+          { depth: 12, multipv: 1, uci: 'g8f6', cp: -28, pv: ['g8f6', 'b1c3', 'e7e6'] },
           { depth: 12, multipv: 2, uci: 'e7e5', cp: -30, pv: ['e7e5', 'g1f3'] },
           { depth: 12, multipv: 3, uci: 'c7c5', cp: -35, pv: ['c7c5'] },
         ],
@@ -68,6 +68,9 @@ describe('buildHintData', () => {
     expect(data.winPct).toBeGreaterThan(50);
     expect(data.lines).toHaveLength(3);
     expect(data.lines[0].continuation).toContain('2.Nc3');
+    // UCI-ходы линии соответствуют SAN — по ним строится проигрывание.
+    expect(data.lines[0].uciMoves).toEqual(['g8f6', 'b1c3', 'e7e6']);
+    expect(data.fen).toBe(fenBlack);
     expect(data.lines[0].sharePct).toBeGreaterThanOrEqual(data.lines[1].sharePct);
     expect(data.lines.reduce((sum, l) => sum + l.sharePct, 0)).toBe(100);
     // После одного хода в библиотеке ещё нет совпадений.

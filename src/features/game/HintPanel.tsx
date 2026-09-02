@@ -10,13 +10,18 @@ interface HintPanelProps {
   hint: HintData;
   expanded: boolean;
   onToggle: () => void;
+  /** Индекс линии, которая сейчас проигрывается на доске. */
+  playingLine: number | null;
+  onPlayLine: (lineIndex: number) => void;
+  onStopPlayback: () => void;
 }
 
 /**
  * Панель подсказки под доской: в свёрнутом виде — ход и оценка, в развёрнутом —
- * варианты движка, угрозы противника, объяснение хода и название дебюта.
+ * варианты движка (с кнопкой проигрывания линии на доске), угрозы противника,
+ * объяснение хода и название дебюта.
  */
-export function HintPanel({ hint, expanded, onToggle }: HintPanelProps) {
+export function HintPanel({ hint, expanded, onToggle, playingLine, onPlayLine, onStopPlayback }: HintPanelProps) {
   const t = useT();
   const lang = useSettings((s) => s.lang);
   const heading = 'text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400';
@@ -46,6 +51,14 @@ export function HintPanel({ hint, expanded, onToggle }: HintPanelProps) {
                 {hint.lines.map((line, i) => (
                   <div key={`${line.from}${line.to}${i}`}>
                     <div className="mono flex flex-wrap items-baseline gap-x-2">
+                      <button
+                        type="button"
+                        className="text-sky-600 dark:text-sky-300"
+                        title={playingLine === i ? t('hintStopPlayback') : t('hintPlayLine')}
+                        onClick={() => (playingLine === i ? onStopPlayback() : onPlayLine(i))}
+                      >
+                        {playingLine === i ? '⏹' : '▶'}
+                      </button>
                       <span className="font-semibold">
                         {i + 1}. {line.san}
                       </span>

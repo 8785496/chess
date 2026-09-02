@@ -46,6 +46,16 @@ export function GameScreen() {
   }, [game.hint, hintExpanded]);
 
   const viewState = useMemo(() => {
+    // Проигрывание линии подсказки перекрывает показ доски.
+    const pb = game.hintPlayback;
+    if (pb) {
+      const fen = pb.fens[pb.index];
+      return {
+        fen,
+        lastMove: pb.index > 0 ? pb.moves[pb.index - 1] : null,
+        checkSquare: findCheckSquare(new Chess(fen)),
+      };
+    }
     const ply = game.viewPly;
     if (ply === null) {
       return { fen: game.fen, lastMove: game.lastMove, checkSquare: game.checkSquare };
@@ -63,6 +73,7 @@ export function GameScreen() {
     game.viewPly === null &&
     !game.over.over &&
     !game.botThinking &&
+    !game.hintPlayback &&
     (game.mode === 'manual' || game.turn === game.playerColor);
 
   const targets = useMemo(() => {
@@ -178,7 +189,7 @@ export function GameScreen() {
               checkSquare={viewState.checkSquare}
               selected={selected}
               targets={targets}
-              arrows={hintArrows}
+              arrows={game.hintPlayback ? undefined : hintArrows}
               onSquareTap={handleTap}
               onMoveAttempt={attemptMove}
             />
@@ -187,6 +198,13 @@ export function GameScreen() {
                 hint={game.hint}
                 expanded={hintExpanded}
                 onToggle={() => setHintExpanded((v) => !v)}
+                playingLine={game.hintPlayback?.lineIndex ?? null}
+                onPlayLine={(i) => {
+                  const hint = useGame.getState().hint;
+                  const line = hint?.lines[i];
+                  if (hint && line) useGame.getState().playHintLine(hint.fen, line.uciMoves, i);
+                }}
+                onStopPlayback={() => useGame.getState().stopHintPlayback()}
               />
             )}
           </div>

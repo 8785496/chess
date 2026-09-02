@@ -23,9 +23,13 @@ export interface HintLine {
   sharePct: number;
   /** Ожидаемое продолжение после первого хода, с номерами ходов. */
   continuation: string;
+  /** UCI-ходы линии (сколько удалось корректно перевести в SAN) — для проигрывания. */
+  uciMoves: string[];
 }
 
 export interface HintData {
+  /** Позиция, для которой считалась подсказка (старт проигрывания линий). */
+  fen: string;
   from: Square;
   to: Square;
   san: string;
@@ -316,6 +320,8 @@ export function buildHintData(input: BuildHintInput): HintData | null {
         winPct: mateWhite !== null ? (mateWhite > 0 ? 100 : 0) : winPercent(cpW),
         sharePct: shares[i],
         continuation: tail.length ? formatSanLine(after.fen(), tail) : '',
+        // Переведённые SAN и UCI соответствуют друг другу один к одному.
+        uciMoves: x.line.pv.slice(0, sans.length),
       };
       return { src: x, line };
     })
@@ -340,6 +346,7 @@ export function buildHintData(input: BuildHintInput): HintData | null {
   }
 
   return {
+    fen,
     from: main.line.from,
     to: main.line.to,
     san: main.line.san,

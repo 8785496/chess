@@ -34,6 +34,18 @@ export interface ReviewState {
 
 export type { HintData };
 
+/** Проигрывание линии подсказки на доске. */
+export interface HintPlayback {
+  /** FEN-ы: [0] — позиция подсказки, далее после каждого хода линии. */
+  fens: string[];
+  /** Ходы линии, moves.length === fens.length - 1. */
+  moves: { from: Square; to: Square }[];
+  /** Показанный ply (0 — стартовая позиция линии). */
+  index: number;
+  /** Индекс линии в hint.lines — для подсветки кнопки в панели. */
+  lineIndex: number;
+}
+
 export interface NewGameOpts {
   mode?: GameMode;
   playerColor?: Color; // цвет человека в режиме бота
@@ -61,6 +73,7 @@ interface GameStore {
   viewPly: number | null;
   hint: HintData | null;
   hintLoading: boolean;
+  hintPlayback: HintPlayback | null;
   liveEval: number | null; // cp от лица белых
   evalLoading: boolean;
   review: ReviewState | null;
@@ -76,6 +89,9 @@ interface GameStore {
   setViewPly: (ply: number | null) => void;
   requestHint: () => Promise<void>;
   clearHint: () => void;
+  /** Проиграть линию подсказки на доске (fen — позиция подсказки). */
+  playHintLine: (fen: string, uciMoves: string[], lineIndex: number) => void;
+  stopHintPlayback: () => void;
   startReview: () => Promise<void>;
   cancelReview: () => void;
   getGamePgn: () => string;
@@ -85,6 +101,7 @@ interface GameStore {
 let botToken = 0;
 let evalToken = 0;
 let reviewToken = 0;
+let playbackToken = 0;
 
 function levelNameFor(levelId: number, lang: string): string {
   const lvl = getLevel(levelId);
@@ -123,6 +140,7 @@ export const useGame = create<GameStore>((set, get) => {
       checkSquare: findCheckSquare(chess),
       viewPly: null,
       hint: null,
+      hintPlayback: null,
     });
     if (move.captured) sounds.capture();
     else sounds.move();
@@ -222,6 +240,7 @@ export const useGame = create<GameStore>((set, get) => {
     viewPly: null,
     hint: null,
     hintLoading: false,
+    hintPlayback: null,
     liveEval: null,
     evalLoading: false,
     review: null,
@@ -230,6 +249,7 @@ export const useGame = create<GameStore>((set, get) => {
       botToken++;
       evalToken++;
       reviewToken++;
+      playbackToken++;
       engineManager.stop();
       const settings = useSettings.getState();
       const mode = opts.mode ?? 'bot';
@@ -272,6 +292,7 @@ export const useGame = create<GameStore>((set, get) => {
         pendingPromotion: null,
         viewPly: null,
         hint: null,
+        hintPlayback: null,
         liveEval: null,
         review: null,
       });
@@ -330,6 +351,7 @@ export const useGame = create<GameStore>((set, get) => {
         checkSquare: findCheckSquare(chess),
         viewPly: null,
         hint: null,
+        hintPlayback: null,
         review: null,
         liveEval: null,
       });
@@ -339,12 +361,16 @@ export const useGame = create<GameStore>((set, get) => {
     flip: () =>
       set((s) => ({ orientation: s.orientation === 'white' ? 'black' : 'white' })),
 
-    setViewPly: (ply) => set({ viewPly: ply, hint: null }),
+    setViewPly: (ply) => {
+      playbackToken++;
+      set({ viewPly: ply, hint: null, hintPlayback: null });
+    },
 
     requestHint: async () => {
       const state = get();
       if (state.hintLoading || state.over.over) return;
-      set({ hintLoading: true });
+      playbackToken++;
+      set({ hintLoading: true, hintPlayback: null });
       try {
         const fen = state.viewPly !== null ? fenAtPly(state, state.viewPly) : state.fen;
         const ply = state.viewPly ?? state.history.length;
@@ -361,7 +387,50 @@ export const useGame = create<GameStore>((set, get) => {
       }
     },
 
-    clearHint: () => set({ hint: null }),
+    clearHint: () => {
+      playbackToken++;
+      set({ hint: null, hintPlayback: null });
+    },
+
+    playHintLine: (fen, uciMoves, lineIndex) => {
+      playbackToken++;
+      const token = playbackToken;
+      const chess = new Chess(fen);
+      const fens: string[] = [fen];
+      const moves: { from: Square; to: Square }[] = [];
+      for (const uci of uciMoves) {
+        const mv = parseUciMove(uci);
+        try {
+          const applied = chess.move({ from: mv.from, to: mv.to, promotion: mv.promotion ?? 'q' });
+          fens.push(chess.fen());
+          moves.push({ from: applied.from as Square, to: applied.to as Square });
+        } catch {
+          break;
+        }
+      }
+      if (!moves.length) return;
+      set({ hintPlayback: { fens, moves, index: 0, lineIndex } });
+      const step = () => {
+        if (token !== playbackToken) return;
+        const cur = get().hintPlayback;
+        if (!cur) return;
+        if (cur.index >= cur.moves.length) {
+          // Линия доиграна — короткая пауза и возврат к реальной позиции.
+          setTimeout(() => {
+            if (token === playbackToken) set({ hintPlayback: null });
+          }, 1200);
+          return;
+        }
+        set({ hintPlayback: { ...cur, index: cur.index + 1 } });
+        setTimeout(step, 850);
+      };
+      setTimeout(step, 700);
+    },
+
+    stopHintPlayback: () => {
+      playbackToken++;
+      if (get().hintPlayback) set({ hintPlayback: null });
+    },
 
     startReview: async () => {
       const state = get();
