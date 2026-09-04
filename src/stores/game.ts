@@ -120,6 +120,113 @@ function levelNameFor(levelId: number, lang: string): string {
   return lang === 'en' ? lvl.nameEn : lvl.nameRu;
 }
 
+// --- Сохранение текущей партии в localStorage ---
+
+const SAVE_KEY = 'chess-current-game';
+
+/** Минимальный снапшот партии, достаточный для продолжения после перезагрузки. */
+interface SavedGame {
+  v: 1;
+  gameId: number;
+  mode: GameMode;
+  playerColor: Color;
+  levelId: number;
+  startFen: string;
+  orientation: Orientation;
+  history: MoveRecord[];
+  historyId: number | null;
+  fromHistory: boolean;
+}
+
+function saveCurrentGame(s: Omit<SavedGame, 'v'>): void {
+  try {
+    // Явный выбор полей: в сторе живёт экземпляр Chess (с BigInt), его сериализовать нельзя.
+    const data: SavedGame = {
+      v: 1,
+      gameId: s.gameId,
+      mode: s.mode,
+      playerColor: s.playerColor,
+      levelId: s.levelId,
+      startFen: s.startFen,
+      orientation: s.orientation,
+      history: s.history,
+      historyId: s.historyId,
+      fromHistory: s.fromHistory,
+    };
+    localStorage.setItem(SAVE_KEY, JSON.stringify(data));
+  } catch {
+    // localStorage недоступен (приватный режим, переполнение) — игра просто не сохранится.
+  }
+}
+
+function loadSavedGame(): SavedGame | null {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (!raw) return null;
+    const data = JSON.parse(raw) as SavedGame;
+    if (data?.v !== 1 || typeof data.startFen !== 'string' || !Array.isArray(data.history)) {
+      return null;
+    }
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+/** Часть состояния, заполняемая при восстановлении сохранённой партии. */
+type RestoredGame = Pick<
+  GameStore,
+  | 'gameId'
+  | 'mode'
+  | 'playerColor'
+  | 'levelId'
+  | 'startFen'
+  | 'chess'
+  | 'history'
+  | 'fen'
+  | 'turn'
+  | 'over'
+  | 'lastMove'
+  | 'checkSquare'
+  | 'orientation'
+  | 'historyId'
+  | 'fromHistory'
+>;
+
+/** Разворачивает снапшот в состояние стора; null — восстанавливать нечего. */
+function restoreSavedGame(): RestoredGame | null {
+  const saved = loadSavedGame();
+  if (!saved || !saved.history.length) return null;
+  let chess: Chess;
+  try {
+    chess = createGame(saved.startFen === START_FEN ? undefined : saved.startFen);
+    for (const h of saved.history) chess.move(h.san);
+  } catch {
+    return null;
+  }
+  const over = computeStatus(chess);
+  // Завершённые партии уже лежат в архиве — восстанавливаем только идущие.
+  if (over.over) return null;
+  const last = saved.history[saved.history.length - 1];
+  return {
+    gameId: saved.gameId,
+    mode: saved.mode === 'manual' ? 'manual' : 'bot',
+    playerColor: saved.playerColor === 'b' ? 'b' : 'w',
+    levelId: saved.levelId,
+    startFen: saved.startFen,
+    chess,
+    history: saved.history,
+    fen: chess.fen(),
+    turn: chess.turn() as Color,
+    over,
+    lastMove: { from: last.from, to: last.to },
+    checkSquare: findCheckSquare(chess),
+    orientation: saved.orientation === 'black' ? 'black' : 'white',
+    historyId: typeof saved.historyId === 'number' ? saved.historyId : null,
+    fromHistory: saved.fromHistory === true,
+  };
+}
+
 export const useGame = create<GameStore>((set, get) => {
   /** Применяет ход к chess и обновляет производное состояние. */
   const applyMove = (from: Square, to: Square, promotion?: string): boolean => {
@@ -230,25 +337,35 @@ export const useGame = create<GameStore>((set, get) => {
     })();
   };
 
-  const initial = (() => {
-    const chess = createGame();
-    return chess;
-  })();
+  const initial = createGame();
+
+  // Незавершённая партия из localStorage — переживает перезагрузку страницы.
+  const restored = restoreSavedGame();
+  if (restored) {
+    // get() валиден только после завершения create, поэтому планирование отложено.
+    queueMicrotask(() => {
+      // Пока микрозадача ждала, пользователь мог начать новую партию.
+      if (get().gameId !== restored.gameId) return;
+      // Если в восстановленной позиции ход бота — он продолжает партию.
+      if (restored.mode === 'bot' && restored.turn !== restored.playerColor) scheduleBotMove(600);
+      if (useSettings.getState().showEval) scheduleLiveEval();
+    });
+  }
 
   return {
-    gameId: 1,
-    mode: 'bot',
-    playerColor: 'w',
-    levelId: useSettings.getState().botLevelId,
-    startFen: START_FEN,
-    chess: initial,
-    history: [],
-    fen: initial.fen(),
-    turn: 'w',
-    over: computeStatus(initial),
-    lastMove: null,
-    checkSquare: null,
-    orientation: 'white',
+    gameId: restored?.gameId ?? 1,
+    mode: restored?.mode ?? 'bot',
+    playerColor: restored?.playerColor ?? 'w',
+    levelId: restored?.levelId ?? useSettings.getState().botLevelId,
+    startFen: restored?.startFen ?? START_FEN,
+    chess: restored?.chess ?? initial,
+    history: restored?.history ?? [],
+    fen: restored?.fen ?? initial.fen(),
+    turn: restored?.turn ?? 'w',
+    over: restored?.over ?? computeStatus(initial),
+    lastMove: restored?.lastMove ?? null,
+    checkSquare: restored?.checkSquare ?? null,
+    orientation: restored?.orientation ?? 'white',
     botThinking: false,
     pendingPromotion: null,
     viewPly: null,
@@ -258,8 +375,8 @@ export const useGame = create<GameStore>((set, get) => {
     liveEval: null,
     evalLoading: false,
     review: null,
-    historyId: null,
-    fromHistory: false,
+    historyId: restored?.historyId ?? null,
+    fromHistory: restored?.fromHistory ?? false,
 
     newGame: (opts = {}) => {
       botToken++;
@@ -628,6 +745,15 @@ export const useGame = create<GameStore>((set, get) => {
       return chess.pgn({ maxWidth: 72, newline: '\n' });
     },
   };
+});
+
+// Автосохранение текущей партии: ход, откат, переворот доски,
+// новая партия и открытие из истории меняют одно из этих полей.
+useGame.subscribe((s, prev) => {
+  if (s.history === prev.history && s.orientation === prev.orientation && s.gameId === prev.gameId) {
+    return;
+  }
+  saveCurrentGame(s);
 });
 
 function colorOfFen(fen: string): Color {

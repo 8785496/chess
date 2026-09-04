@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { useGame } from './game';
 import { useHistory } from './history';
 import { START_FEN } from '../core/game';
@@ -83,5 +83,66 @@ describe('openFromHistory', () => {
     expect(g.fromHistory).toBe(false);
     expect(g.historyId).toBeNull();
     expect(g.history).toHaveLength(0);
+  });
+});
+
+describe('сохранение текущей партии в localStorage', () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
+  it('пишет снапшот после хода', () => {
+    useGame.getState().newGame();
+    expect(useGame.getState().tryUserMove('e2', 'e4')).toBe(true);
+
+    const raw = localStorage.getItem('chess-current-game');
+    expect(raw).toBeTruthy();
+    const data = JSON.parse(raw!);
+    expect(data.v).toBe(1);
+    expect(data.history).toHaveLength(1);
+    expect(data.history[0]).toMatchObject({ san: 'e4', from: 'e2', to: 'e4' });
+    expect(data.mode).toBe('bot');
+  });
+
+  it('восстанавливает партию после перезагрузки страницы', async () => {
+    vi.resetModules();
+    const { useGame: before } = await import('./game');
+    before.getState().newGame();
+    expect(before.getState().tryUserMove('e2', 'e4')).toBe(true);
+    before.getState().flip();
+
+    // «Перезагрузка»: модуль стора создаётся заново и читает localStorage.
+    vi.resetModules();
+    const { useGame: after } = await import('./game');
+    const g = after.getState();
+    expect(g.history).toHaveLength(1);
+    expect(g.history[0].san).toBe('e4');
+    expect(g.turn).toBe('b');
+    expect(g.lastMove).toEqual({ from: 'e2', to: 'e4' });
+    expect(g.orientation).toBe('black');
+    expect(g.over.over).toBe(false);
+    expect(g.fromHistory).toBe(false);
+  });
+
+  it('завершённая партия не восстанавливается', async () => {
+    vi.resetModules();
+    const { useGame: before } = await import('./game');
+    before.getState().newGame({ mode: 'manual' });
+    // Детский мат: 1. f3 e5 2. g4 Фh4#.
+    const moves: [string, string][] = [
+      ['f2', 'f3'],
+      ['e7', 'e5'],
+      ['g2', 'g4'],
+      ['d8', 'h4'],
+    ];
+    for (const [from, to] of moves) {
+      expect(before.getState().tryUserMove(from, to)).toBe(true);
+    }
+    expect(before.getState().over.over).toBe(true);
+
+    vi.resetModules();
+    const { useGame: after } = await import('./game');
+    expect(after.getState().history).toHaveLength(0);
+    expect(after.getState().over.over).toBe(false);
   });
 });

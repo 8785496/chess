@@ -90,7 +90,7 @@ export function BoardView({
   }
 
   return (
-    <div ref={wrapRef} className="board-wrap flex min-h-0 w-full flex-1 items-center justify-center">
+    <div ref={wrapRef} className="board-wrap flex min-h-0 w-full flex-1 items-start justify-center">
       <div style={{ width: size, height: size }}>
         <Chessboard
           options={{

@@ -36,27 +36,18 @@ export function GameScreen({
   const [pendingColor, setPendingColor] = useState<PlayerColorPref>(settings.playerColor);
   const [pendingMode, setPendingMode] = useState<'bot' | 'manual'>('bot');
 
-  // Двухступенчатая подсказка: сначала только стрелка, детали — по кнопке.
-  // Новая подсказка всегда приходит свёрнутой (сброс во время рендера, без эффекта).
-  const [hintExpanded, setHintExpanded] = useState(false);
-  const [lastHint, setLastHint] = useState(game.hint);
-  if (lastHint !== game.hint) {
-    setLastHint(game.hint);
-    setHintExpanded(false);
-  }
-
+  // Подсказка всегда показывается развёрнутой: детали видны сразу,
+  // вместе со стрелками всех вариантов.
   const hintArrows = useMemo(() => {
     const hint = game.hint;
     if (!hint) return undefined;
-    const main = { from: hint.from, to: hint.to, color: 'rgba(56, 189, 248, 0.85)' };
-    if (!hintExpanded) return [main];
     return [
-      main,
+      { from: hint.from, to: hint.to, color: 'rgba(56, 189, 248, 0.85)' },
       ...hint.lines
         .slice(1)
         .map((l) => ({ from: l.from, to: l.to, color: 'rgba(56, 189, 248, 0.35)' })),
     ];
-  }, [game.hint, hintExpanded]);
+  }, [game.hint]);
 
   const viewState = useMemo(() => {
     // Проигрывание линии подсказки перекрывает показ доски.
@@ -227,8 +218,6 @@ export function GameScreen({
             {game.hint && (
               <HintPanel
                 hint={game.hint}
-                expanded={hintExpanded}
-                onToggle={() => setHintExpanded((v) => !v)}
                 playingLine={game.hintPlayback?.lineIndex ?? null}
                 onPlayLine={(i) => {
                   const hint = useGame.getState().hint;
@@ -240,8 +229,8 @@ export function GameScreen({
             )}
           </div>
         </div>
-        {/* Лента ходов — компактная; скрывается, пока развёрнуты детали подсказки */}
-        {!hintExpanded && (
+        {/* Лента ходов скрывается, пока на экране развёрнутая подсказка */}
+        {!game.hint && (
           <div className="flex min-h-0 max-h-[26%] shrink-0 flex-col px-2 pt-1 lg:px-0">
             <MoveList
               history={game.history}
@@ -254,7 +243,6 @@ export function GameScreen({
           </div>
         )}
       </div>
-
       {/* Футер: кнопки управления игрой */}
       <footer className="mt-1.5 shrink-0 border-t border-black/10 bg-white/95 px-2 pt-1.5 backdrop-blur dark:border-white/10 dark:bg-gray-800/95">
         <div className="mx-auto w-full max-w-2xl pb-1.5">
@@ -369,31 +357,21 @@ export function GameScreen({
             <button
               type="button"
               className={ctrlBtn}
-              onClick={() => {
-                // Повторное нажатие не пересчитывает, а разворачивает/сворачивает детали.
-                if (game.hint) setHintExpanded((v) => !v);
-                else void useGame.getState().requestHint();
-              }}
-              disabled={game.hintLoading || game.over.over}
-              title={game.hint ? t('hintDetails') : t('hint')}
-            >
-              <span className="text-xl leading-none">💡</span>
-              {game.hintLoading
-                ? t('hintThinking')
-                : game.hint
-                  ? hintExpanded
-                    ? `▴ ${t('hintHide')}`
-                    : `▾ ${t('hintDetails')}`
-                  : t('hint')}
-            </button>
-            <button
-              type="button"
-              className={ctrlBtn}
               onClick={() => setReviewOpen(true)}
               title={t('review')}
             >
               <span className="text-xl leading-none">🔍</span>
               {t('reviewShort')}
+            </button>
+            <button
+              type="button"
+              className={ctrlBtn}
+              onClick={() => void useGame.getState().requestHint()}
+              disabled={game.hintLoading || game.over.over}
+              title={t('hint')}
+            >
+              <span className="text-xl leading-none">💡</span>
+              {game.hintLoading ? t('hintThinking') : t('hint')}
             </button>
           </div>
         </div>
