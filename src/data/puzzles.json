@@ -1,0 +1,223 @@
+[
+  {
+    "id": "backrank-basic",
+    "fen": "6k1/5ppp/8/8/8/8/5PPP/R5K1 w - - 0 1",
+    "kind": "mate",
+    "theme": "backrank",
+    "difficulty": 1,
+    "solution": ["Ra8#"],
+    "title": { "ru": "Мат на последней горизонтали", "en": "Back-rank mate" },
+    "hint": {
+      "ru": "Чёрный король заперт собственными пешками. Ищите горизонталь без защиты.",
+      "en": "The black king is trapped by its own pawns. Look for the undefended rank."
+    }
+  },
+  {
+    "id": "support-queen",
+    "fen": "7k/8/5K2/8/8/8/8/6Q1 w - - 0 1",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Qg7#"],
+    "title": { "ru": "Мат ферзём с поддержкой", "en": "Supported queen mate" },
+    "hint": {
+      "ru": "Король уже отрезал чёрного короля поле g7. Осталось поставить ферзя туда, где его защитит король.",
+      "en": "Your king already covers g7. Deliver the mate with the piece your king protects."
+    }
+  },
+  {
+    "id": "ladder-rooks",
+    "fen": "7k/R7/8/8/8/8/8/1R5K w - - 0 1",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Rb8#"],
+    "title": { "ru": "Мат двумя ладьями", "en": "Two-rook mate" },
+    "hint": {
+      "ru": "Одна ладья отрезает королю седьмую горизонталь — второй ставьте мат по восьмой.",
+      "en": "One rook cuts off the seventh rank — mate along the eighth with the other."
+    }
+  },
+  {
+    "id": "smothered-knight",
+    "fen": "6rk/6pp/7N/8/8/8/8/7K w - - 0 1",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Nf7#"],
+    "title": { "ru": "Спёртый мат конём", "en": "Smothered mate" },
+    "hint": {
+      "ru": "Чёрный король задохнулся в собственных фигурах. Конь прыгает туда, где его никто не достанет.",
+      "en": "The black king is smothered by its own pieces. Jump the knight where nothing can capture it."
+    }
+  },
+  {
+    "id": "scholars-mate",
+    "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 4 4",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 1,
+    "solution": ["Qxf7#"],
+    "title": { "ru": "Детский мат", "en": "Scholar's mate" },
+    "hint": {
+      "ru": "Слабейшее поле чёрных — f7. Ферзя защищает слон c4.",
+      "en": "Black's weakest square is f7 — and your bishop on c4 backs the queen."
+    }
+  },
+  {
+    "id": "promotion-mate",
+    "fen": "6k1/1P3ppp/8/8/8/8/5PPP/6K1 w - - 0 1",
+    "kind": "mate",
+    "theme": "promotion",
+    "difficulty": 1,
+    "solution": ["b8=Q#"],
+    "title": { "ru": "Мат превращением", "en": "Promotion mate" },
+    "hint": {
+      "ru": "Пешке остался один шаг. Что она станет на восьмой горизонтали?",
+      "en": "The pawn needs one more step. What should it become on the eighth rank?"
+    }
+  },
+  {
+    "id": "black-backrank",
+    "fen": "r5k1/5ppp/8/8/8/8/5PPP/6K1 b - - 0 1",
+    "kind": "mate",
+    "theme": "backrank",
+    "difficulty": 1,
+    "solution": ["Ra1#"],
+    "title": { "ru": "Играем за чёрных", "en": "Playing as Black" },
+    "hint": {
+      "ru": "Здесь матуете вы — чёрными. Белый король так же заперт, как в предыдущих задачах.",
+      "en": "This time you mate — with Black. The white king is boxed in just like before."
+    }
+  },
+  {
+    "id": "opera-deflection",
+    "fen": "4kb1r/p2n1ppp/4q3/4p1B1/4P3/1Q6/PPP2PPP/2KR4 w k - 0 1",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 3,
+    "solution": ["Qb8+", "Nxb8", "Rd8#"],
+    "title": { "ru": "Партия из Оперы", "en": "The Opera Game" },
+    "hint": {
+      "ru": "Морфи жертвует ферзя: конь вынужденно уходит с d7, и ладья ставит мат по открытой диагонали слона g5.",
+      "en": "Morphy sacrifices the queen: the knight must leave d7, and the rook mates along the file backed by the g5 bishop."
+    }
+  },
+  {
+    "id": "queen-sac-backrank",
+    "fen": "3r2k1/5ppp/4Q3/8/8/8/5PPP/4R1K1 w - - 0 1",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["Qe8+", "Rxe8", "Rxe8#"],
+    "title": { "ru": "Жертва на e8", "en": "Sacrifice on e8" },
+    "hint": {
+      "ru": "Ладья d8 защищает восьмую горизонталь. Заставьте её покинуть пост — второй ладье останется добить.",
+      "en": "The d8 rook guards the back rank. Force it away — the second rook finishes the job."
+    }
+  },
+  {
+    "id": "knight-fork-queen",
+    "fen": "3q3k/5ppp/8/4N3/8/8/5PPP/3Q2K1 w - - 0 1",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 1,
+    "solution": ["Nf7+", "Kg8", "Nxd8"],
+    "title": { "ru": "Вилка на ферзя", "en": "Forking the queen" },
+    "hint": {
+      "ru": "Найдите поле, с которого конь одновременно шахует короля и нападает на ферзя d8.",
+      "en": "Find the square from which the knight checks the king and attacks the d8 queen at once."
+    }
+  },
+  {
+    "id": "royal-fork",
+    "fen": "2q3k1/5ppp/8/3N4/8/8/5PPP/7K w - - 0 1",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["Ne7+", "Kh8", "Nxc8"],
+    "title": { "ru": "Королевская вилка", "en": "Royal fork" },
+    "hint": {
+      "ru": "Король и ферзь стоят на одной коневой диагонали. Прыжок с шахом решает всё.",
+      "en": "King and queen sit on one knight's move. A check-fork decides everything."
+    }
+  },
+  {
+    "id": "pawn-fork-check",
+    "fen": "6r1/pp3pp1/3k1r2/8/3PP3/8/PP4PP/3KR3 w - - 0 1",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["e5+", "Kc6", "exf6"],
+    "title": { "ru": "Пешечная вилка", "en": "Pawn fork" },
+    "hint": {
+      "ru": "Самая дешёвая фигура тоже умеет вилку: пешка даёт шах и нападает на ладью f6.",
+      "en": "Even the cheapest piece can fork: the pawn checks the king and attacks the f6 rook."
+    }
+  },
+  {
+    "id": "skewer-queen",
+    "fen": "R7/pp5k/6p1/8/7q/8/5PP1/6K1 w - - 0 1",
+    "kind": "tactic",
+    "theme": "skewer",
+    "difficulty": 2,
+    "solution": ["Rh8+", "Kg7", "Rxh4"],
+    "title": { "ru": "Протыкание ферзя", "en": "Skewering the queen" },
+    "hint": {
+      "ru": "Шах по вертикали — и король уступит ладье ферзя, стоящего за ним.",
+      "en": "Check down the file — the king will step aside and lose the queen behind it."
+    }
+  },
+  {
+    "id": "smothered-finish",
+    "fen": "2b1r1k1/pppp1Npp/8/8/1B6/1Q6/PPP3PP/5RK1 w - - 0 1",
+    "kind": "mate",
+    "theme": "smothered",
+    "difficulty": 2,
+    "solution": ["Nh6+", "Kh8", "Qg8+", "Rxg8", "Nf7#"],
+    "title": { "ru": "Финал Филидора", "en": "Philidor's finish" },
+    "hint": {
+      "ru": "Осталось три хода: двойной шах, жертва ферзя на g8 — и спёртый мат.",
+      "en": "Three moves remain: a double check, the queen sacrifice on g8 — and smothered mate."
+    }
+  },
+  {
+    "id": "reti-double-check",
+    "fen": "rnb1kb1r/pp3pp1/2p5/4q3/4n3/3Q4/PPPB1PPP/1NKR1BNR w kq - 0 9",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 3,
+    "solution": ["Qd8+", "Kxd8", "Bg5+", "Kc7", "Bd8#"],
+    "title": { "ru": "Двойной шах Рети", "en": "Réti's double check" },
+    "hint": {
+      "ru": "Знаменитая ловушка Рети–Тартаковера: ферзь приносится в жертву, а двойной шах загоняет короля под удар слона и ладьи.",
+      "en": "The famous Réti–Tartakower trap: the queen is sacrificed, and the double check drives the king under the bishop and rook."
+    }
+  },
+  {
+    "id": "philidor-legacy",
+    "fen": "2b1r2k/pppp2pp/8/4N3/1B6/1Q6/PPP3PP/5RK1 w - - 0 1",
+    "kind": "mate",
+    "theme": "smothered",
+    "difficulty": 3,
+    "solution": ["Nf7+", "Kg8", "Nh6+", "Kh8", "Qg8+", "Rxg8", "Nf7#"],
+    "title": { "ru": "Наследие Филидора", "en": "Philidor's legacy" },
+    "hint": {
+      "ru": "Классическая комбинация со спёртым матом: конь гонит короля, ферзь жертвуется на g8, и ладья сама себя хоронит.",
+      "en": "The classic smothered-mate combination: the knight drives the king, the queen is sacrificed on g8, and the rook buries itself."
+    }
+  },
+  {
+    "id": "reti-mirror",
+    "fen": "1nkr1bnr/pppb1ppp/3q4/4N3/4Q3/2P5/PP3PP1/RNB1KB1R b KQ - 0 9",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 3,
+    "solution": ["Qd1+", "Kxd1", "Bg4+", "Kc2", "Bd1#"],
+    "title": { "ru": "Мат Рети — за чёрных", "en": "Réti's mate as Black" },
+    "hint": {
+      "ru": "Та же ловушка, но теперь матуете вы чёрными: жертвуйте ферзя и завершайте двойным шахом.",
+      "en": "The same trap, but this time you mate with Black: sacrifice the queen and finish with a double check."
+    }
+  }
+]

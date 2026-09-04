@@ -3,13 +3,14 @@ import { GameScreen } from './features/game/GameScreen';
 import { HomeScreen } from './features/home/HomeScreen';
 import { MasterGamesScreen } from './features/mastergames/MasterGamesScreen';
 import { OpeningsScreen } from './features/openings/OpeningsScreen';
+import { PuzzlesScreen } from './features/puzzles/PuzzlesScreen';
 import { SettingsScreen } from './features/settings/SettingsScreen';
 import { useSettings } from './stores/settings';
 import { useGame } from './stores/game';
 import { engineManager } from './engine/manager';
 import { useT } from './i18n';
 
-export type Tab = 'home' | 'games' | 'openings' | 'settings';
+export type Tab = 'home' | 'puzzles' | 'games' | 'openings' | 'settings';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -80,6 +81,7 @@ export default function App() {
 
   const tabs: { id: Tab; label: string; icon: string }[] = [
     { id: 'home', label: t('tabHome'), icon: '🏠' },
+    { id: 'puzzles', label: t('tabPuzzles'), icon: '🧩' },
     { id: 'games', label: t('tabGames'), icon: '🏆' },
     { id: 'openings', label: t('tabOpenings'), icon: '📖' },
     { id: 'settings', label: t('tabSettings'), icon: '⚙' },
@@ -103,6 +105,7 @@ export default function App() {
             {tab === 'home' && (
               <HomeScreen onNewGame={startNewGame} onResume={openGame} onAnalyze={openAnalysis} />
             )}
+            {tab === 'puzzles' && <PuzzlesScreen />}
             {tab === 'games' && <MasterGamesScreen onPlayHere={openGame} />}
             {tab === 'openings' && <OpeningsScreen onPlayHere={openGame} />}
             {tab === 'settings' && <SettingsScreen />}
