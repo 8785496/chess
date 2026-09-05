@@ -6,6 +6,7 @@ import { BoardView } from '../../board/BoardView';
 import { boardThemeByKey, useSettings } from '../../stores/settings';
 import { format, useT } from '../../i18n';
 import { sounds } from '../../core/sounds';
+import { engineManager } from '../../engine/manager';
 import { canForceMate } from './mate';
 import { usePuzzleProgress } from './progress';
 import {
@@ -31,12 +32,22 @@ export function PuzzlesScreen() {
   const [selected, setSelected] = useState<Puzzle | null>(null);
 
   const solvedIds = useMemo(() => new Set(Object.keys(solved)), [solved]);
-  const list = useMemo(() => filterPuzzles(PUZZLES, filter, solvedIds, moves), [filter, moves, solvedIds]);
+  const list = useMemo(
+    () => filterPuzzles(PUZZLES, filter, solvedIds, moves),
+    [filter, moves, solvedIds],
+  );
   const solvedCount = PUZZLES.filter((p) => solvedIds.has(p.id)).length;
 
   if (selected) {
     // key — задача меняется полным ремонтированием решателя.
-    return <PuzzleSolver key={selected.id} puzzle={selected} onBack={() => setSelected(null)} onPickNext={setSelected} />;
+    return (
+      <PuzzleSolver
+        key={selected.id}
+        puzzle={selected}
+        onBack={() => setSelected(null)}
+        onPickNext={setSelected}
+      />
+    );
   }
 
   const filters: { id: PuzzleFilter; label: string }[] = [
@@ -173,6 +184,17 @@ function PuzzleSolver({
   const [hintShown, setHintShown] = useState(false);
   const [selected, setSelected] = useState<Square | null>(null);
   const [busy, setBusy] = useState(false); // идёт автоответ соперника
+  const [checking, setChecking] = useState(false); // движок проверяет отклонившийся ход
+  const checkingRef = useRef(false);
+  // Поколение попытки: «Заново», показ решения и размонтирование отменяют
+  // летящую проверку движка — её результат нельзя применять к новой позиции.
+  const epochRef = useRef(0);
+  useEffect(() => {
+    const epoch = epochRef;
+    return () => {
+      epoch.current += 1;
+    };
+  }, []);
   const timerRef = useRef<number | null>(null);
   const budgetRef = useRef(solverMovesOf(puzzle));
   const onScriptRef = useRef(true);
@@ -230,14 +252,21 @@ function PuzzleSolver({
       syncFromBoard();
       setBusy(false);
       if (chess.inCheck()) sounds.check();
-      else if (chess.history({ verbose: true })[chess.history().length - 1]?.captured) sounds.capture();
+      else if (chess.history({ verbose: true })[chess.history().length - 1]?.captured)
+        sounds.capture();
       else sounds.move();
     }, 650);
   };
 
   /** Применение хода решающего: сверка с линией или с форсированным матом. */
-  const attemptSolverMove = (from: Square, to: Square) => {
-    if (status !== 'solving' || busy || chessRef.current.turn() !== solverColor) return;
+  const attemptSolverMove = async (from: Square, to: Square) => {
+    if (
+      status !== 'solving' ||
+      busy ||
+      checkingRef.current ||
+      chessRef.current.turn() !== solverColor
+    )
+      return;
     const chess = chessRef.current;
     let move: ReturnType<Chess['move']> | null;
     try {
@@ -254,13 +283,33 @@ function PuzzleSolver({
     const ply = chess.history().length - 1;
     const exp = onScriptRef.current ? expected[ply] : undefined;
     const onScript =
-      !!exp && exp.from === from && exp.to === to && (exp.promotion ?? undefined) === (move.promotion ?? undefined);
+      !!exp &&
+      exp.from === from &&
+      exp.to === to &&
+      (exp.promotion ?? undefined) === (move.promotion ?? undefined);
     const isMate = chess.isCheckmate();
     // Ход принимается, если он из линии либо (в матовой задаче) сохраняет
-    // форсированный мат за оставшийся бюджет ходов.
-    const acceptable =
-      onScript ||
-      (puzzle.kind === 'mate' && budgetRef.current > 1 && canForceMate(chess, budgetRef.current - 1));
+    // форсированный мат. После отклонения форсированность доказывает движок
+    // в воркере: перебор на главном потоке здесь стоил секунд на матах в 3–4
+    // хода. Позиция после хода оценивается с точки зрения соперника, поэтому
+    // «решающий матует не позже budget−1» — это mate ≤ −(budget−1).
+    let acceptable = onScript;
+    if (!acceptable && puzzle.kind === 'mate' && budgetRef.current > 1) {
+      const epoch = epochRef.current;
+      checkingRef.current = true;
+      setChecking(true);
+      try {
+        const res = await engineManager.analyse(chess.fen(), { depth: 20, movetime: 1200 });
+        acceptable =
+          epoch === epochRef.current && res.mate !== null && res.mate <= -(budgetRef.current - 1);
+      } catch {
+        acceptable = false;
+      } finally {
+        checkingRef.current = false;
+        setChecking(false);
+      }
+      if (epoch !== epochRef.current) return;
+    }
 
     if (!acceptable) {
       chess.undo();
@@ -293,7 +342,7 @@ function PuzzleSolver({
   };
 
   const onSquareTap = (square: Square) => {
-    if (status !== 'solving' || busy) return;
+    if (status !== 'solving' || busy || checkingRef.current) return;
     const chess = chessRef.current;
     if (chess.turn() !== solverColor) return;
     if (selected) {
@@ -303,7 +352,7 @@ function PuzzleSolver({
       }
       const moves = chess.moves({ square: selected as JsSquare, verbose: true });
       if (moves.some((m) => m.to === square)) {
-        attemptSolverMove(selected, square);
+        void attemptSolverMove(selected, square);
         return;
       }
     }
@@ -312,14 +361,14 @@ function PuzzleSolver({
   };
 
   const targets = useMemo(() => {
-    if (!selected || status !== 'solving' || busy || turn !== solverColor) return {};
+    if (!selected || status !== 'solving' || busy || checking || turn !== solverColor) return {};
     const chess = new Chess(fen);
     const map: Record<string, boolean> = {};
     for (const m of chess.moves({ square: selected as JsSquare, verbose: true })) {
       map[m.to] = !!m.captured;
     }
     return map;
-  }, [selected, status, busy, solverColor, turn, fen]);
+  }, [selected, status, busy, checking, solverColor, turn, fen]);
 
   const checkSquare = useMemo(() => {
     const chess = new Chess(fen);
@@ -335,6 +384,10 @@ function PuzzleSolver({
   /** Показать решение: сброс и автопроигрывание всей линии. */
   const showSolution = () => {
     clearTimer();
+    epochRef.current += 1;
+    if (checkingRef.current) engineManager.stop();
+    checkingRef.current = false;
+    setChecking(false);
     chessRef.current = new Chess(puzzle.fen);
     setFen(puzzle.fen);
     setPlies(0);
@@ -355,7 +408,8 @@ function PuzzleSolver({
           }
           syncFromBoard();
           if (chess.inCheck()) sounds.check();
-          else if (chess.history({ verbose: true })[chess.history().length - 1]?.captured) sounds.capture();
+          else if (chess.history({ verbose: true })[chess.history().length - 1]?.captured)
+            sounds.capture();
           else sounds.move();
           play(i + 1);
         },
@@ -368,6 +422,10 @@ function PuzzleSolver({
   /** Заново: возврат к исходной позиции задачи. */
   const retry = () => {
     clearTimer();
+    epochRef.current += 1;
+    if (checkingRef.current) engineManager.stop();
+    checkingRef.current = false;
+    setChecking(false);
     chessRef.current = new Chess(puzzle.fen);
     budgetRef.current = solverMovesOf(puzzle);
     onScriptRef.current = true;
@@ -397,6 +455,7 @@ function PuzzleSolver({
   const statusLine = (() => {
     if (status === 'solved') return t('pSolved');
     if (status === 'shown') return t('pSolutionShown');
+    if (checking) return t('pCheckingMove');
     if (busy) return t('botTurn');
     if (wrong) return t('pWrong');
     if (mistakes > 0) return format(t('pMistakes'), { n: mistakes });
@@ -413,13 +472,15 @@ function PuzzleSolver({
             orientation={solverColor === 'w' ? 'white' : 'black'}
             theme={boardThemeByKey(settings.boardTheme)}
             animate={settings.animate}
-            interactive={status === 'solving' && !busy && turn === solverColor}
+            interactive={status === 'solving' && !busy && !checking && turn === solverColor}
             lastMove={lastMove}
             checkSquare={checkSquare}
             selected={selected}
             targets={targets}
             onSquareTap={onSquareTap}
-            onMoveAttempt={(from, to) => attemptSolverMove(from, to)}
+            onMoveAttempt={(from, to) => {
+              void attemptSolverMove(from, to);
+            }}
           />
         </div>
       </div>
