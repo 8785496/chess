@@ -5,3 +5,6 @@ coverage
 *.local
 .DS_Store
 public/engine
+
+# Lichess open puzzle database (raw, ~300MB compressed)
+data/lichess/

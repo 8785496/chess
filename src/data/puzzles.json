@@ -6,7 +6,10 @@
     "theme": "backrank",
     "difficulty": 1,
     "solution": ["Ra8#"],
-    "title": { "ru": "Мат на последней горизонтали", "en": "Back-rank mate" },
+    "title": {
+      "ru": "Мат на последней горизонтали",
+      "en": "Back-rank mate"
+    },
     "hint": {
       "ru": "Чёрный король заперт собственными пешками. Ищите горизонталь без защиты.",
       "en": "The black king is trapped by its own pawns. Look for the undefended rank."
@@ -19,7 +22,10 @@
     "theme": "basic-mate",
     "difficulty": 1,
     "solution": ["Qg7#"],
-    "title": { "ru": "Мат ферзём с поддержкой", "en": "Supported queen mate" },
+    "title": {
+      "ru": "Мат ферзём с поддержкой",
+      "en": "Supported queen mate"
+    },
     "hint": {
       "ru": "Король уже отрезал чёрного короля поле g7. Осталось поставить ферзя туда, где его защитит король.",
       "en": "Your king already covers g7. Deliver the mate with the piece your king protects."
@@ -32,7 +38,10 @@
     "theme": "basic-mate",
     "difficulty": 1,
     "solution": ["Rb8#"],
-    "title": { "ru": "Мат двумя ладьями", "en": "Two-rook mate" },
+    "title": {
+      "ru": "Мат двумя ладьями",
+      "en": "Two-rook mate"
+    },
     "hint": {
       "ru": "Одна ладья отрезает королю седьмую горизонталь — второй ставьте мат по восьмой.",
       "en": "One rook cuts off the seventh rank — mate along the eighth with the other."
@@ -45,7 +54,10 @@
     "theme": "basic-mate",
     "difficulty": 1,
     "solution": ["Nf7#"],
-    "title": { "ru": "Спёртый мат конём", "en": "Smothered mate" },
+    "title": {
+      "ru": "Спёртый мат конём",
+      "en": "Smothered mate"
+    },
     "hint": {
       "ru": "Чёрный король задохнулся в собственных фигурах. Конь прыгает туда, где его никто не достанет.",
       "en": "The black king is smothered by its own pieces. Jump the knight where nothing can capture it."
@@ -58,7 +70,10 @@
     "theme": "opening",
     "difficulty": 1,
     "solution": ["Qxf7#"],
-    "title": { "ru": "Детский мат", "en": "Scholar's mate" },
+    "title": {
+      "ru": "Детский мат",
+      "en": "Scholar's mate"
+    },
     "hint": {
       "ru": "Слабейшее поле чёрных — f7. Ферзя защищает слон c4.",
       "en": "Black's weakest square is f7 — and your bishop on c4 backs the queen."
@@ -71,7 +86,10 @@
     "theme": "promotion",
     "difficulty": 1,
     "solution": ["b8=Q#"],
-    "title": { "ru": "Мат превращением", "en": "Promotion mate" },
+    "title": {
+      "ru": "Мат превращением",
+      "en": "Promotion mate"
+    },
     "hint": {
       "ru": "Пешке остался один шаг. Что она станет на восьмой горизонтали?",
       "en": "The pawn needs one more step. What should it become on the eighth rank?"
@@ -84,7 +102,10 @@
     "theme": "backrank",
     "difficulty": 1,
     "solution": ["Ra1#"],
-    "title": { "ru": "Играем за чёрных", "en": "Playing as Black" },
+    "title": {
+      "ru": "Играем за чёрных",
+      "en": "Playing as Black"
+    },
     "hint": {
       "ru": "Здесь матуете вы — чёрными. Белый король так же заперт, как в предыдущих задачах.",
       "en": "This time you mate — with Black. The white king is boxed in just like before."
@@ -97,7 +118,10 @@
     "theme": "deflection",
     "difficulty": 3,
     "solution": ["Qb8+", "Nxb8", "Rd8#"],
-    "title": { "ru": "Партия из Оперы", "en": "The Opera Game" },
+    "title": {
+      "ru": "Партия из Оперы",
+      "en": "The Opera Game"
+    },
     "hint": {
       "ru": "Морфи жертвует ферзя: конь вынужденно уходит с d7, и ладья ставит мат по открытой диагонали слона g5.",
       "en": "Morphy sacrifices the queen: the knight must leave d7, and the rook mates along the file backed by the g5 bishop."
@@ -110,7 +134,10 @@
     "theme": "deflection",
     "difficulty": 2,
     "solution": ["Qe8+", "Rxe8", "Rxe8#"],
-    "title": { "ru": "Жертва на e8", "en": "Sacrifice on e8" },
+    "title": {
+      "ru": "Жертва на e8",
+      "en": "Sacrifice on e8"
+    },
     "hint": {
       "ru": "Ладья d8 защищает восьмую горизонталь. Заставьте её покинуть пост — второй ладье останется добить.",
       "en": "The d8 rook guards the back rank. Force it away — the second rook finishes the job."
@@ -123,7 +150,10 @@
     "theme": "fork",
     "difficulty": 1,
     "solution": ["Nf7+", "Kg8", "Nxd8"],
-    "title": { "ru": "Вилка на ферзя", "en": "Forking the queen" },
+    "title": {
+      "ru": "Вилка на ферзя",
+      "en": "Forking the queen"
+    },
     "hint": {
       "ru": "Найдите поле, с которого конь одновременно шахует короля и нападает на ферзя d8.",
       "en": "Find the square from which the knight checks the king and attacks the d8 queen at once."
@@ -136,7 +166,10 @@
     "theme": "fork",
     "difficulty": 2,
     "solution": ["Ne7+", "Kh8", "Nxc8"],
-    "title": { "ru": "Королевская вилка", "en": "Royal fork" },
+    "title": {
+      "ru": "Королевская вилка",
+      "en": "Royal fork"
+    },
     "hint": {
       "ru": "Король и ферзь стоят на одной коневой диагонали. Прыжок с шахом решает всё.",
       "en": "King and queen sit on one knight's move. A check-fork decides everything."
@@ -149,7 +182,10 @@
     "theme": "fork",
     "difficulty": 2,
     "solution": ["e5+", "Kc6", "exf6"],
-    "title": { "ru": "Пешечная вилка", "en": "Pawn fork" },
+    "title": {
+      "ru": "Пешечная вилка",
+      "en": "Pawn fork"
+    },
     "hint": {
       "ru": "Самая дешёвая фигура тоже умеет вилку: пешка даёт шах и нападает на ладью f6.",
       "en": "Even the cheapest piece can fork: the pawn checks the king and attacks the f6 rook."
@@ -162,7 +198,10 @@
     "theme": "skewer",
     "difficulty": 2,
     "solution": ["Rh8+", "Kg7", "Rxh4"],
-    "title": { "ru": "Протыкание ферзя", "en": "Skewering the queen" },
+    "title": {
+      "ru": "Протыкание ферзя",
+      "en": "Skewering the queen"
+    },
     "hint": {
       "ru": "Шах по вертикали — и король уступит ладье ферзя, стоящего за ним.",
       "en": "Check down the file — the king will step aside and lose the queen behind it."
@@ -175,7 +214,10 @@
     "theme": "smothered",
     "difficulty": 2,
     "solution": ["Nh6+", "Kh8", "Qg8+", "Rxg8", "Nf7#"],
-    "title": { "ru": "Финал Филидора", "en": "Philidor's finish" },
+    "title": {
+      "ru": "Финал Филидора",
+      "en": "Philidor's finish"
+    },
     "hint": {
       "ru": "Осталось три хода: двойной шах, жертва ферзя на g8 — и спёртый мат.",
       "en": "Three moves remain: a double check, the queen sacrifice on g8 — and smothered mate."
@@ -188,7 +230,10 @@
     "theme": "opening",
     "difficulty": 3,
     "solution": ["Qd8+", "Kxd8", "Bg5+", "Kc7", "Bd8#"],
-    "title": { "ru": "Двойной шах Рети", "en": "Réti's double check" },
+    "title": {
+      "ru": "Двойной шах Рети",
+      "en": "Réti's double check"
+    },
     "hint": {
       "ru": "Знаменитая ловушка Рети–Тартаковера: ферзь приносится в жертву, а двойной шах загоняет короля под удар слона и ладьи.",
       "en": "The famous Réti–Tartakower trap: the queen is sacrificed, and the double check drives the king under the bishop and rook."
@@ -201,7 +246,10 @@
     "theme": "smothered",
     "difficulty": 3,
     "solution": ["Nf7+", "Kg8", "Nh6+", "Kh8", "Qg8+", "Rxg8", "Nf7#"],
-    "title": { "ru": "Наследие Филидора", "en": "Philidor's legacy" },
+    "title": {
+      "ru": "Наследие Филидора",
+      "en": "Philidor's legacy"
+    },
     "hint": {
       "ru": "Классическая комбинация со спёртым матом: конь гонит короля, ферзь жертвуется на g8, и ладья сама себя хоронит.",
       "en": "The classic smothered-mate combination: the knight drives the king, the queen is sacrificed on g8, and the rook buries itself."
@@ -214,10 +262,2893 @@
     "theme": "opening",
     "difficulty": 3,
     "solution": ["Qd1+", "Kxd1", "Bg4+", "Kc2", "Bd1#"],
-    "title": { "ru": "Мат Рети — за чёрных", "en": "Réti's mate as Black" },
+    "title": {
+      "ru": "Мат Рети — за чёрных",
+      "en": "Réti's mate as Black"
+    },
     "hint": {
       "ru": "Та же ловушка, но теперь матуете вы чёрными: жертвуйте ферзя и завершайте двойным шахом.",
       "en": "The same trap, but this time you mate with Black: sacrifice the queen and finish with a double check."
+    }
+  },
+  {
+    "id": "l0bLi1",
+    "fen": "r2qkb1r/pppnpp1p/5np1/6N1/2BP4/2N5/PPP2PPP/R1Bb1RK1 w kq - 0 9",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 1,
+    "solution": ["Bxf7#"],
+    "title": {
+      "ru": "Дебютная ловушка",
+      "en": "An opening trap"
+    },
+    "hint": {
+      "ru": "Соперник отстал в развитии или потерял темп — ищите форсированный удар.",
+      "en": "The opponent is behind in development or lost a tempo — look for a forcing strike."
+    }
+  },
+  {
+    "id": "l1nYx2",
+    "fen": "1Q2r1k1/1pp2ppp/p1p3b1/1q6/4nB2/2P4P/PP4P1/3N1R1K w - - 5 33",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Qxe8#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "l2nkfw",
+    "fen": "4r1k1/1b1P1p1p/pq3Pp1/3P4/8/7P/P5P1/2R4K w - - 0 38",
+    "kind": "mate",
+    "theme": "promotion",
+    "difficulty": 1,
+    "solution": ["dxe8=Q#"],
+    "title": {
+      "ru": "Пешка становится ферзём",
+      "en": "A pawn becomes a queen"
+    },
+    "hint": {
+      "ru": "Пешке остался один шаг — превращение может быть с шахом, а то и с матом.",
+      "en": "The pawn is one step away — promotion may come with check, or even mate."
+    }
+  },
+  {
+    "id": "lAwkcV",
+    "fen": "r1b1k2N/pppp3Q/2n3p1/8/1P1pn3/N1q5/P5PP/R1B3KR b q - 0 14",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Qe1#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lBb6YX",
+    "fen": "2k3r1/ppp2p2/2np3p/4p3/2B1P1r1/P1NPP3/1PP4K/R5R1 b - - 2 18",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Rh4#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lEE4Mo",
+    "fen": "r1bqk1nr/p4pbp/2p1p1p1/6B1/4P3/2p2P2/PPPQ2PP/R3KB1R w KQkq - 0 11",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Qxd8#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lIVqia",
+    "fen": "8/1p4k1/p5P1/1q1Np3/3nP1B1/P5Q1/2r5/K5R1 b - - 4 35",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Qb2#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lK4LYG",
+    "fen": "rnb2rk1/2b1qppp/1p2p3/3pP3/2pP4/2NQ1N2/PPB2PPP/R4RK1 w - - 0 16",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Qxh7#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lLPoEa",
+    "fen": "3q1bnr/2p2kpp/2B1p3/Q7/1r6/5N1b/PPnPPP1P/RNB3KR b - - 11 16",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 1,
+    "solution": ["Rg4#"],
+    "title": {
+      "ru": "Дебютная ловушка",
+      "en": "An opening trap"
+    },
+    "hint": {
+      "ru": "Проверьте, чем защищены ферзевая диагональ и слабые поля.",
+      "en": "Check what defends the queen's diagonal and the weak squares."
+    }
+  },
+  {
+    "id": "lNtkyk",
+    "fen": "1n1rkbnr/qp1bpppp/8/1N1P4/8/5N2/PP1B1PPP/R3KB1R w KQk - 0 13",
+    "kind": "mate",
+    "theme": "smothered",
+    "difficulty": 1,
+    "solution": ["Nc7#"],
+    "title": {
+      "ru": "Спёртый мат",
+      "en": "Smothered mate"
+    },
+    "hint": {
+      "ru": "Классика: конь объявляет шах, пока ферзь жертвуется ради клетки.",
+      "en": "The classic: knight checks while the queen sacrifices itself for a square."
+    }
+  },
+  {
+    "id": "lPNxxw",
+    "fen": "5br1/1kp3qp/1pNp3n/1P1P4/2Q2p2/5P1b/P1R2R1P/4B2K b - - 0 25",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Qg1#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lPQja0",
+    "fen": "1k6/p4r1p/P2RN1p1/8/2K2b2/5P2/6P1/8 w - - 5 38",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Rd8#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lPmKF7",
+    "fen": "r1bqkb1r/pppnpp1p/5np1/4N3/8/1Q6/PB1PPPPP/RN2KB1R w KQkq - 4 7",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 1,
+    "solution": ["Qxf7#"],
+    "title": {
+      "ru": "Развитие дороже пешки",
+      "en": "Development beats pawns"
+    },
+    "hint": {
+      "ru": "Проверьте, чем защищены ферзевая диагональ и слабые поля.",
+      "en": "Check what defends the queen's diagonal and the weak squares."
+    }
+  },
+  {
+    "id": "lYgMrv",
+    "fen": "r2q1rk1/3b2bp/p2p2p1/1pp3N1/4Pp2/P1NP3Q/1PP3PP/R4RK1 w - - 2 18",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Qxh7#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "liR2jr",
+    "fen": "1k5r/ppp4r/3p2p1/1P3p2/2PNP3/Q2P1pP1/P4R2/5RK1 b - - 0 31",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Rh1#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lrO9Wg",
+    "fen": "1b2rrk1/pp3pp1/2pqN2p/3n4/3P4/3B1Q1P/PP3PP1/R1B2RK1 b - - 0 16",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 1,
+    "solution": ["Qh2#"],
+    "title": {
+      "ru": "Развитие дороже пешки",
+      "en": "Development beats pawns"
+    },
+    "hint": {
+      "ru": "Соперник отстал в развитии или потерял темп — ищите форсированный удар.",
+      "en": "The opponent is behind in development or lost a tempo — look for a forcing strike."
+    }
+  },
+  {
+    "id": "lrW8sY",
+    "fen": "r1b5/1p4k1/p1n4p/3Np1p1/2B5/2QP2Pn/PP4PP/6NK b - - 0 26",
+    "kind": "mate",
+    "theme": "smothered",
+    "difficulty": 1,
+    "solution": ["Nf2#"],
+    "title": {
+      "ru": "Король в клетке",
+      "en": "The king in a cage"
+    },
+    "hint": {
+      "ru": "Классика: конь объявляет шах, пока ферзь жертвуется ради клетки.",
+      "en": "The classic: knight checks while the queen sacrifices itself for a square."
+    }
+  },
+  {
+    "id": "lstrXj",
+    "fen": "rn2r1k1/ppp2ppp/8/3P4/6b1/1B1Q1Rb1/PPP3P1/RNB2K1N b - - 0 19",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 1,
+    "solution": ["Re1#"],
+    "title": {
+      "ru": "Развитие дороже пешки",
+      "en": "Development beats pawns"
+    },
+    "hint": {
+      "ru": "Проверьте, чем защищены ферзевая диагональ и слабые поля.",
+      "en": "Check what defends the queen's diagonal and the weak squares."
+    }
+  },
+  {
+    "id": "lwD46C",
+    "fen": "4rrk1/pp3p1p/8/3p1pp1/3P2q1/2PK4/PP1QN1P1/R4R2 b - - 0 20",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Qe4#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lyDfEA",
+    "fen": "8/6p1/r6p/8/8/5KPk/p7/R7 w - - 2 51",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Rh1#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "l1IqRp",
+    "fen": "6k1/p1p2ppp/1p5q/5n2/N1P2b2/1PBPRN2/P5PP/6QK b - - 0 24",
+    "kind": "mate",
+    "theme": "smothered",
+    "difficulty": 2,
+    "solution": ["Ng3#"],
+    "title": {
+      "ru": "Конь ставит мат",
+      "en": "The knight delivers mate"
+    },
+    "hint": {
+      "ru": "Классика: конь объявляет шах, пока ферзь жертвуется ради клетки.",
+      "en": "The classic: knight checks while the queen sacrifices itself for a square."
+    }
+  },
+  {
+    "id": "l63gZj",
+    "fen": "r1b2rk1/pppp2pp/4pq2/2b5/2PNP3/1P5P/P4PP1/1RBQKB1R b K - 0 11",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 2,
+    "solution": ["Qxf2#"],
+    "title": {
+      "ru": "Развитие дороже пешки",
+      "en": "Development beats pawns"
+    },
+    "hint": {
+      "ru": "Соперник отстал в развитии или потерял темп — ищите форсированный удар.",
+      "en": "The opponent is behind in development or lost a tempo — look for a forcing strike."
+    }
+  },
+  {
+    "id": "l7cuHM",
+    "fen": "r1b1k2r/pp3ppp/2n5/4P3/4P3/2NK4/PPP2qPN/R1BQ1B1R b kq - 0 12",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 2,
+    "solution": ["Nxe5#"],
+    "title": {
+      "ru": "Наказание в дебюте",
+      "en": "Punished in the opening"
+    },
+    "hint": {
+      "ru": "Соперник отстал в развитии или потерял темп — ищите форсированный удар.",
+      "en": "The opponent is behind in development or lost a tempo — look for a forcing strike."
+    }
+  },
+  {
+    "id": "lBJDBY",
+    "fen": "R7/2r2pk1/4p1p1/6Np/7P/3BP2K/4nPP1/5n2 b - - 15 34",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Ng1#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lBsADL",
+    "fen": "rnb1kb1r/pppp1ppp/8/4P3/7q/2N2Pn1/PPPKP1PP/R1B1QBNR b kq - 6 6",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 2,
+    "solution": ["Qd4#"],
+    "title": {
+      "ru": "Наказание в дебюте",
+      "en": "Punished in the opening"
+    },
+    "hint": {
+      "ru": "Соперник отстал в развитии или потерял темп — ищите форсированный удар.",
+      "en": "The opponent is behind in development or lost a tempo — look for a forcing strike."
+    }
+  },
+  {
+    "id": "lDW5pp",
+    "fen": "1Q4nr/3kr1pp/p2q1p2/1p3P2/8/8/PP4PP/2R4K w - - 12 31",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Qc8#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lKxd74",
+    "fen": "r4bk1/pp1n1rBp/8/q2p1N2/2Pp4/2P1PP1P/P7/R3K1R1 w Q - 0 21",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Nh6#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lN8RtF",
+    "fen": "8/8/2P2k2/5p1p/5KpP/1N4P1/5P2/4n3 b - - 0 58",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Ng2#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lRXG52",
+    "fen": "8/8/8/5p1p/6q1/5kP1/2Q5/6K1 w - - 5 60",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Qd3#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lX7t7x",
+    "fen": "8/2p5/3p1N2/2kP4/2P5/2K3p1/6n1/8 w - - 0 57",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Nd7#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lYMBcz",
+    "fen": "r1b2rk1/p4ppp/1p2p3/3q4/1b1P4/P5BP/1P2KPP1/R2Q1B1R b - - 0 14",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Qe4#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lccLpP",
+    "fen": "3N4/1R6/p4p2/1p3Pkp/4P3/6PK/r6P/6b1 w - - 1 41",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Nf7#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "loqkpK",
+    "fen": "r6r/bp2k1p1/p3pnBp/3pQ3/q2n1B2/8/PPP2PPP/R3R1K1 w - - 0 17",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Qd6#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "ls11b8",
+    "fen": "1r2kb1r/1Qpnpppp/p1Bq4/3N4/8/6PP/PPn2P2/R1B2K1R w k - 6 14",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 2,
+    "solution": ["Qxb8#"],
+    "title": {
+      "ru": "Дебютная ловушка",
+      "en": "An opening trap"
+    },
+    "hint": {
+      "ru": "Проверьте, чем защищены ферзевая диагональ и слабые поля.",
+      "en": "Check what defends the queen's diagonal and the weak squares."
+    }
+  },
+  {
+    "id": "l0E0A7",
+    "fen": "6k1/P6p/Q2pr1pb/5p2/7P/R1BK4/2P2P2/7q b - - 5 28",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Qe4#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "l2zZ6K",
+    "fen": "5rr1/p3k3/8/2N1pn2/1PP4p/3PRK2/P2R2PP/8 b - - 0 28",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Ng3#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lE91cH",
+    "fen": "8/5R2/3pR3/3P1p1k/3q4/1p4KP/3p4/8 w - - 0 51",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Rxf5#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lcqxms",
+    "fen": "N2k1bnr/pp2pppp/8/4P3/6b1/5N2/PqnBKPPP/R2Q1B1R b - - 2 12",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 3,
+    "solution": ["Qb5#"],
+    "title": {
+      "ru": "Дебютная ловушка",
+      "en": "An opening trap"
+    },
+    "hint": {
+      "ru": "Соперник отстал в развитии или потерял темп — ищите форсированный удар.",
+      "en": "The opponent is behind in development or lost a tempo — look for a forcing strike."
+    }
+  },
+  {
+    "id": "lrekHm",
+    "fen": "2rqkb1r/3bnp1p/p2pp1p1/1p4Pn/2p1NP1Q/P3P2P/BPPP4/R1B1K1NR w KQk - 2 16",
+    "kind": "mate",
+    "theme": "smothered",
+    "difficulty": 3,
+    "solution": ["Nxd6#"],
+    "title": {
+      "ru": "Король в клетке",
+      "en": "The king in a cage"
+    },
+    "hint": {
+      "ru": "Классика: конь объявляет шах, пока ферзь жертвуется ради клетки.",
+      "en": "The classic: knight checks while the queen sacrifices itself for a square."
+    }
+  },
+  {
+    "id": "ltDTkc",
+    "fen": "3b4/pppqk2p/3Nr2B/n7/6n1/2N5/PP4PP/4RRK1 w - - 2 24",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Bf8#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "l1a8VJ",
+    "fen": "6k1/p2b1pb1/2p3pp/4q3/2B1N3/2n2QP1/P4P1P/6K1 w - - 0 29",
+    "kind": "mate",
+    "theme": "fork",
+    "difficulty": 1,
+    "solution": ["Qxf7+", "Kh8", "Qg8#"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "l22lty",
+    "fen": "r4b2/2p3r1/p1b1R3/1p4pk/7B/2N3PP/PPP2P2/6K1 w - - 0 24",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["g4+", "Kxh4", "Rh6#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "l44wB2",
+    "fen": "2kr3r/ppp1nbp1/2p1qP1p/8/4P1P1/2B2N1P/PPP1QP2/1K1R3R b - - 0 16",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Qxa2+", "Kc1", "Qa1#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lOlWSh",
+    "fen": "r6k/2r3pP/2bpBp2/1q2pP1Q/4P3/1P2R3/1P3B2/1K4R1 b - - 7 32",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Bxe4+", "Rxe4", "Qd3#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lR4mte",
+    "fen": "3rk2r/ppp2ppp/1n2B3/4R3/8/8/PPP2PPP/RNB3K1 b k - 0 12",
+    "kind": "mate",
+    "theme": "backrank",
+    "difficulty": 1,
+    "solution": ["Rd1+", "Re1", "Rxe1#"],
+    "title": {
+      "ru": "Мат на последней горизонтали",
+      "en": "Back-rank mate"
+    },
+    "hint": {
+      "ru": "Король заперт своими пешками — ищите незащищённую горизонталь.",
+      "en": "The king is trapped by its own pawns — look for the undefended rank."
+    }
+  },
+  {
+    "id": "lUskgZ",
+    "fen": "6k1/1p3ppp/4p3/1p2P3/3q1P2/PP6/2Q3PP/7K b - - 0 27",
+    "kind": "mate",
+    "theme": "backrank",
+    "difficulty": 1,
+    "solution": ["Qa1+", "Qb1", "Qxb1#"],
+    "title": {
+      "ru": "Тяжёлая фигура на восьмой",
+      "en": "Heavy piece on the eighth"
+    },
+    "hint": {
+      "ru": "Король заперт своими пешками — ищите незащищённую горизонталь.",
+      "en": "The king is trapped by its own pawns — look for the undefended rank."
+    }
+  },
+  {
+    "id": "lbdyPI",
+    "fen": "3R4/p3b1kp/b1p2qp1/5p2/2N1p3/PP5Q/2P2PPP/R5K1 b - - 0 30",
+    "kind": "mate",
+    "theme": "backrank",
+    "difficulty": 1,
+    "solution": ["Qxa1+", "Rd1", "Qxd1#"],
+    "title": {
+      "ru": "Мат на последней горизонтали",
+      "en": "Back-rank mate"
+    },
+    "hint": {
+      "ru": "Король заперт своими пешками — ищите незащищённую горизонталь.",
+      "en": "The king is trapped by its own pawns — look for the undefended rank."
+    }
+  },
+  {
+    "id": "lhCMQF",
+    "fen": "2rq1rk1/1p3pb1/p2p2P1/3p3R/3NP1p1/4P3/PPP4Q/2K5 w - - 0 22",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Rh8+", "Bxh8", "Qh7#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lisr0A",
+    "fen": "5r1k/2p3pp/p7/1p1q2NP/1P1B2Q1/P3P1P1/7K/8 b - - 0 28",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Rf2+", "Kg1", "Qg2#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "llB4UL",
+    "fen": "4r1k1/p4pp1/1p5p/8/3Q4/2P2RPq/PP5P/6K1 b - - 0 36",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Re1+", "Rf1", "Qxf1#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lp9HIZ",
+    "fen": "2r4k/8/p4P1p/4Q1p1/4p3/1P2P2q/P2P2RP/6K1 b - - 4 34",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Rc1+", "Kf2", "Qf3#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lpkubO",
+    "fen": "r1bqkb1r/pp1pp1pp/5p2/3Qn1N1/2B5/8/P4PPP/RN2K2R w KQkq - 0 11",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 1,
+    "solution": ["Qf7+", "Nxf7", "Bxf7#"],
+    "title": {
+      "ru": "Наказание в дебюте",
+      "en": "Punished in the opening"
+    },
+    "hint": {
+      "ru": "Проверьте, чем защищены ферзевая диагональ и слабые поля.",
+      "en": "Check what defends the queen's diagonal and the weak squares."
+    }
+  },
+  {
+    "id": "lsJGUd",
+    "fen": "4q2k/7p/6pP/1p1pP1Q1/p1r5/P5P1/1P3PK1/2r5 w - - 0 36",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Qf6+", "Kg8", "Qg7#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "ltX3hW",
+    "fen": "r2q2rk/ppp2p2/4bn2/3p2Q1/3P4/2PB4/P1P2PPP/R4RK1 w - - 5 18",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 1,
+    "solution": ["Qh6+", "Nh7", "Qxh7#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "l1r7O2",
+    "fen": "r2Bk2r/ppp2p2/2np2p1/2b1p3/4n1b1/2NP1N1P/PPP3P1/R2QKB1R b KQkq - 0 10",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Bf2+", "Ke2", "Nd4#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "l2mpK7",
+    "fen": "r1b2Nk1/ppb1n1pp/3q4/2Npnp2/8/1B2B3/PPP1QPPP/R4RK1 b - - 0 15",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Nf3+", "gxf3", "Qxh2#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "l7N6bY",
+    "fen": "r1bq2k1/1p4p1/4pr2/p2p2NR/2pP2p1/2P1P3/PPQ2PP1/2K5 w - - 1 22",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Rh8+", "Kxh8", "Qh7#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lK2duf",
+    "fen": "rnbq1r1k/pp1p2pp/2p5/6N1/2B1P3/2N5/PPP3PP/R2Q2KR b - - 0 11",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 2,
+    "solution": ["Qb6+", "Qd4", "Qxd4#"],
+    "title": {
+      "ru": "Наказание в дебюте",
+      "en": "Punished in the opening"
+    },
+    "hint": {
+      "ru": "Соперник отстал в развитии или потерял темп — ищите форсированный удар.",
+      "en": "The opponent is behind in development or lost a tempo — look for a forcing strike."
+    }
+  },
+  {
+    "id": "lMUKxU",
+    "fen": "3r3r/4bpp1/3p1k1p/8/3Np3/3qP1K1/P3Q2P/8 w - - 1 32",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Qf2+", "Ke5", "Qf5#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lN2cj7",
+    "fen": "5rk1/4Qp1p/2P1pKp1/1P3b2/8/P6q/3R1P2/8 w - - 0 43",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Qxf8+", "Kxf8", "Rd8#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lPzhK2",
+    "fen": "7k/1p1r2rp/p7/4q3/2Q5/7b/PP3RpP/4R1K1 w - - 2 37",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Rf8+", "Rg8", "Qxg8#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lQIzkN",
+    "fen": "r4r1k/bpp3pp/p2P4/4P1P1/4Q1p1/6P1/PP5P/R1B2R1K b - - 0 22",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Rxf1+", "Kg2", "Rg1#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lWuYFe",
+    "fen": "6r1/pppk4/8/3P1p1p/1P1Bpb2/P5r1/4B1PK/5RR1 b - - 1 29",
+    "kind": "mate",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["Rxg2+", "Kh1", "Rh2#"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lWwNTz",
+    "fen": "2r4k/pb1PQ1np/1p2p1pN/8/n1P5/1K4P1/P4q1P/1BRR4 b - - 3 35",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Qb2+", "Kxa4", "Bc6#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lXtOgF",
+    "fen": "r1bBk2r/pp3ppp/4p3/2bp4/2n3n1/2N3P1/PPQ1PPBP/3RK1NR b Kkq - 0 11",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 2,
+    "solution": ["Bxf2+", "Kf1", "Nce3#"],
+    "title": {
+      "ru": "Наказание в дебюте",
+      "en": "Punished in the opening"
+    },
+    "hint": {
+      "ru": "Соперник отстал в развитии или потерял темп — ищите форсированный удар.",
+      "en": "The opponent is behind in development or lost a tempo — look for a forcing strike."
+    }
+  },
+  {
+    "id": "lcGfLs",
+    "fen": "4k3/2p1r3/Q3N1q1/1p3ppp/5b2/2P5/PP3P2/K2R4 w - - 3 36",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Rd8+", "Kf7", "Rf8#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lhPhV9",
+    "fen": "1k4rr/1p2b3/pP2P3/3Q4/3P4/2P1BBq1/P6p/R4R1K b - - 0 31",
+    "kind": "mate",
+    "theme": "promotion",
+    "difficulty": 2,
+    "solution": ["Qg1+", "Bxg1", "hxg1=Q#"],
+    "title": {
+      "ru": "Пешка становится ферзём",
+      "en": "A pawn becomes a queen"
+    },
+    "hint": {
+      "ru": "Сопровождайте пешку: король не должен успеть её догнать.",
+      "en": "Escort the pawn: the king must not catch it."
+    }
+  },
+  {
+    "id": "lhtfSC",
+    "fen": "3Rr3/pp4pp/2p5/2b2k2/8/4p1B1/PPP2PPP/4R1K1 b - - 0 20",
+    "kind": "mate",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["exf2+", "Bxf2", "Rxe1#"],
+    "title": {
+      "ru": "Вилка",
+      "en": "The fork"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "liaW20",
+    "fen": "7r/1Q4pp/4r1k1/pPp4N/P4P2/1q2P3/6K1/8 w - - 3 36",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Qxg7+", "Kf5", "Ng3#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lkscDE",
+    "fen": "3r1rk1/5p1p/5qp1/ppb1n3/4B3/7Q/PPP2PPP/1RB2RK1 b - - 1 20",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["Qxf2+", "Kh1", "Qxf1#"],
+    "title": {
+      "ru": "Защита не успевает",
+      "en": "The defence runs out"
+    },
+    "hint": {
+      "ru": "Одна фигура соперника защищает две цели — заставьте её заняться только одной.",
+      "en": "One enemy piece defends two targets — force it to deal with only one."
+    }
+  },
+  {
+    "id": "ll9DV2",
+    "fen": "6k1/6p1/4N2p/1p1Q4/4Pp2/3pb3/1q4PP/r4R1K w - - 2 32",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Ng5+", "Kh8", "Qd8#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lp0h46",
+    "fen": "8/5R1N/6p1/2p1P2p/5rk1/P2b4/6KP/8 w - - 6 46",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["h3+", "Kh4", "Rxf4#"],
+    "title": {
+      "ru": "Отвлечение",
+      "en": "Deflection"
+    },
+    "hint": {
+      "ru": "Одна фигура соперника защищает две цели — заставьте её заняться только одной.",
+      "en": "One enemy piece defends two targets — force it to deal with only one."
+    }
+  },
+  {
+    "id": "lpRXf5",
+    "fen": "r4rk1/1p1N1p2/6PB/1p1p4/6Q1/8/P4nPK/4q3 w - - 0 27",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Nf6+", "Kh8", "g7#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lqEsEF",
+    "fen": "4Q3/4P3/3N1ppk/p2P4/q7/2p4P/1P6/1K1R4 b - - 0 40",
+    "kind": "mate",
+    "theme": "promotion",
+    "difficulty": 2,
+    "solution": ["c2+", "Kc1", "cxd1=Q#"],
+    "title": {
+      "ru": "Проходная пешка",
+      "en": "The passed pawn"
+    },
+    "hint": {
+      "ru": "Пешке остался один шаг — превращение может быть с шахом, а то и с матом.",
+      "en": "The pawn is one step away — promotion may come with check, or even mate."
+    }
+  },
+  {
+    "id": "lqOBbx",
+    "fen": "7k/4P1p1/1p4Qp/p2p4/1B6/1K4P1/PP2qb1P/8 b - - 4 36",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Qc4+", "Ka4", "Qxb4#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lqwrU7",
+    "fen": "2r3k1/p3ppb1/4b1p1/1N1P4/1r1BP1P1/q7/1PPQ4/1K1R1B1R b - - 0 22",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Rxb2+", "Bxb2", "Qxb2#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lrGZKF",
+    "fen": "3r3r/p1kb2pp/Bbp5/3R1p2/4p2P/P7/1PP2BP1/2KR4 w - - 2 21",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Bg3+", "f4", "Bxf4#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lrhXf9",
+    "fen": "r1b3k1/7p/1p4q1/2bPP3/1p2Pp2/P4B2/3BQ1PK/1R3R2 b - - 0 26",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Qg3+", "Kh1", "Qh4#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lu44st",
+    "fen": "3r3r/1kpqn2p/p1pb1p2/2B1p2b/N3P3/3R1p1P/PPP1QPP1/4R1K1 w - - 0 18",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["Rb3+", "Kc8", "Qxa6#"],
+    "title": {
+      "ru": "Защита не успевает",
+      "en": "The defence runs out"
+    },
+    "hint": {
+      "ru": "Одна фигура соперника защищает две цели — заставьте её заняться только одной.",
+      "en": "One enemy piece defends two targets — force it to deal with only one."
+    }
+  },
+  {
+    "id": "lw8fe4",
+    "fen": "3r2k1/1pp2pp1/1pn5/2q1pN2/4P1n1/2P4R/PPQN1P2/R3KB2 b Q - 0 23",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["Qxf2+", "Kd1", "Qxf1#"],
+    "title": {
+      "ru": "Отвлечение",
+      "en": "Deflection"
+    },
+    "hint": {
+      "ru": "Одна фигура соперника защищает две цели — заставьте её заняться только одной.",
+      "en": "One enemy piece defends two targets — force it to deal with only one."
+    }
+  },
+  {
+    "id": "l3OzS6",
+    "fen": "3rk2r/pp2b1pp/2p2n2/q3pbB1/2B4Q/P1P2N2/1P3PPP/2KR3R b k - 7 16",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 3,
+    "solution": ["Qxc3+", "bxc3", "Bxa3#"],
+    "title": {
+      "ru": "Защита не успевает",
+      "en": "The defence runs out"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "l3Yx1P",
+    "fen": "r6r/p2p2pp/1p1Nkp1n/b3p2Q/5Pq1/B1P5/PP1N3P/2K1Rb2 w - - 1 19",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Rxe5+", "fxe5", "Qxe5#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "l5mQSN",
+    "fen": "r1b2r2/pp1pbp2/2n1p1pk/3nP1NP/4Q3/8/1qPP1PP1/RN2K2R w KQ - 0 15",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Nxf7+", "Rxf7", "Qxg6#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "l8K00s",
+    "fen": "5Q2/pb6/1p2p1p1/4P1kp/3P1nP1/3B3P/P4P1K/2q5 w - - 2 34",
+    "kind": "mate",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Qe7+", "Kh6", "g5#"],
+    "title": {
+      "ru": "Двойной удар",
+      "en": "A double strike"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lActVu",
+    "fen": "rr3qk1/2p3p1/4p3/p3N3/K1RP1p2/PP6/1P6/3Q2R1 b - - 4 28",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Qb4+", "Rxb4", "axb4#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lDHZef",
+    "fen": "8/1pk1np2/p3p1p1/1pK3P1/3PPP2/PP6/8/2B5 b - - 0 38",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Nc6", "a4", "b6#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lDUHWl",
+    "fen": "5bnr/p1p2p1p/3q1k2/1r2Np2/3P3P/6Q1/PP3PP1/n2KR3 w - - 0 21",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Nd7+", "Qxd7", "Qg5#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lW83l2",
+    "fen": "r5k1/ppb2pp1/2p4p/3p4/3P2qP/2PBr3/PPQ1NK2/5R1R b - - 5 23",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Rxe2+", "Qxe2", "Qg3#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lc2TWK",
+    "fen": "r2r1k2/p1p2p1p/1bb2N1p/4BP2/6R1/8/PP1p2PP/4R2K w - - 2 29",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Bd6+", "cxd6", "Nxh7#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lcaySx",
+    "fen": "rnb1r1k1/ppp2Npp/5q2/3P4/2Bb4/5Q2/PPP3PP/RNB2K1R b - - 2 11",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 3,
+    "solution": ["Qxf3+", "gxf3", "Bh3#"],
+    "title": {
+      "ru": "Дебютная ловушка",
+      "en": "An opening trap"
+    },
+    "hint": {
+      "ru": "Соперник отстал в развитии или потерял темп — ищите форсированный удар.",
+      "en": "The opponent is behind in development or lost a tempo — look for a forcing strike."
+    }
+  },
+  {
+    "id": "ldZ9mM",
+    "fen": "7k/pp4pp/2p5/2Q3N1/6b1/1B1P1q2/PPP3rP/R6K b - - 2 24",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Rg3+", "Nxf3", "Bxf3#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "leYpW8",
+    "fen": "5k2/p4Bb1/6P1/8/P1pq4/5Q1K/5r2/R1n5 w - - 1 32",
+    "kind": "mate",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Qa3+", "Qd6", "Qxd6#"],
+    "title": {
+      "ru": "Вилка",
+      "en": "The fork"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "lmJnGm",
+    "fen": "r4r2/2qn3k/p3p2p/8/3R4/1P2Q2P/K7/6R1 w - - 1 39",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Qxh6+", "Kxh6", "Rh4#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lpnNfB",
+    "fen": "r1bqk2r/1p1n1pb1/4p1p1/1P1pP2p/pB1P1PQP/3B1N2/1P4P1/3K3R w kq - 0 19",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 3,
+    "solution": ["Qxe6+", "fxe6", "Bxg6#"],
+    "title": {
+      "ru": "Увод защитника",
+      "en": "Removing the guard"
+    },
+    "hint": {
+      "ru": "Одна фигура соперника защищает две цели — заставьте её заняться только одной.",
+      "en": "One enemy piece defends two targets — force it to deal with only one."
+    }
+  },
+  {
+    "id": "lrstax",
+    "fen": "R7/P4N2/2R4p/6pk/1p6/1r1n2KP/5PP1/7r b - - 1 54",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Nc5+", "f3", "Ne4#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "ludBT5",
+    "fen": "3r1r1Q/4q2R/2p2pk1/p1p5/Pp2P1P1/1P1P3P/2P5/7K w - - 4 38",
+    "kind": "mate",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Rg7+", "Qxg7", "Qh5#"],
+    "title": {
+      "ru": "Двойной удар",
+      "en": "A double strike"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "l0BGvj",
+    "fen": "5R2/k7/p1pN4/Bp2p3/3bP3/3P4/P2r4/1KR5 b - - 3 33",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Rb2+", "Ka1", "Rb4+", "Rc3", "Bxc3#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "l30NeT",
+    "fen": "r1r2k2/3R4/4pN1p/1p3P2/1p2b3/1P5P/PP6/K5R1 b - - 0 34",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Rxa2+", "Kxa2", "Ra8+", "Ra7", "Rxa7#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "l55l2m",
+    "fen": "r1b1kb1r/4pppp/p4n2/1pp5/4qP2/3Q4/PPPB2PP/2KR1B1R w kq - 0 13",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 2,
+    "solution": ["Qd8+", "Kxd8", "Ba5+", "Ke8", "Rd8#"],
+    "title": {
+      "ru": "Дебютная ловушка",
+      "en": "An opening trap"
+    },
+    "hint": {
+      "ru": "Проверьте, чем защищены ферзевая диагональ и слабые поля.",
+      "en": "Check what defends the queen's diagonal and the weak squares."
+    }
+  },
+  {
+    "id": "l9dvfa",
+    "fen": "7r/3k4/2pp1p1b/4p3/2Q1P3/2P2PNq/P6P/1R3RK1 b - - 6 26",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Be3+", "Rf2", "Qxh2+", "Kf1", "Qxf2#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lU5h8o",
+    "fen": "1r6/3RK3/6kp/3BP3/3n4/1P4P1/7P/8 b - - 0 46",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Nf5+", "Ke6", "Re8+", "Re7", "Rxe7#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lbvffr",
+    "fen": "R7/6p1/1B1r1pk1/P7/4n2p/4P2P/6P1/6K1 b - - 1 32",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Rd1+", "Kh2", "Ng3", "e4", "Rh1#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "ligYsg",
+    "fen": "5rk1/p4p1p/1p3Qp1/3B1n2/PP3q2/8/5PPP/4R1K1 w - - 2 29",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Bxf7+", "Rxf7", "Re8+", "Rf8", "Qxf8#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "ltS5pO",
+    "fen": "1n3bnr/Q1Nk4/2p2p2/3ppqp1/8/1B1P1P1p/PPP1NBb1/R4RK1 b - - 1 21",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["h2+", "Kxg2", "Qh3+", "Kh1", "Qxf3#"],
+    "title": {
+      "ru": "Защита не успевает",
+      "en": "The defence runs out"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "ltuFSQ",
+    "fen": "8/1R4pn/5nkp/4B3/5PP1/7P/7K/3r4 w - - 3 37",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["f5+", "Kg5", "Rxg7+", "Kh4", "Bg3#"],
+    "title": {
+      "ru": "Защита не успевает",
+      "en": "The defence runs out"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "luF1Yv",
+    "fen": "3r1rk1/1pp4p/2q1p3/p7/P1nP3P/2P2R2/Q6P/5RK1 w - - 1 29",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["Qg2+", "Kh8", "Rxf8+", "Rxf8", "Rxf8#"],
+    "title": {
+      "ru": "Защита не успевает",
+      "en": "The defence runs out"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "l2Sax1",
+    "fen": "4r2r/1Qpk1p2/7p/2BP2p1/1Pn5/2q5/P1P2PPP/R3RK2 b - - 0 27",
+    "kind": "mate",
+    "theme": "backrank",
+    "difficulty": 3,
+    "solution": ["Qxe1+", "Rxe1", "Nd2+", "Kg1", "Rxe1#"],
+    "title": {
+      "ru": "Слабая восьмая горизонталь",
+      "en": "The weak back rank"
+    },
+    "hint": {
+      "ru": "Тяжёлой фигуре часто нужен всего один ход на открытую восьмую.",
+      "en": "A heavy piece often needs just one move to the open eighth rank."
+    }
+  },
+  {
+    "id": "l3TZHJ",
+    "fen": "4rk2/pp3bpQ/1qr5/3p2N1/8/P5P1/1P4PP/4R2K w - - 0 25",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 3,
+    "solution": ["Qh8+", "Bg8", "Qxg8+", "Kxg8", "Rxe8#"],
+    "title": {
+      "ru": "Защита не успевает",
+      "en": "The defence runs out"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "l5E3As",
+    "fen": "4kb2/ppR1n3/4P2p/5b2/1P4rB/1B6/P4PpP/6K1 w - - 1 26",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Rc8+", "Nxc8", "Ba4+", "b5", "Bxb5#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lGOE9e",
+    "fen": "r2qr3/pp3pkp/5nPN/2bp4/3p4/6QP/PPP3P1/R1n2RK1 w - - 0 18",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Nf5+", "Kh8", "g7+", "Kg8", "Nh6#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lGXoIH",
+    "fen": "r3k1nQ/pppb1p1p/3p4/3P4/4q3/5N2/P4PPP/RNB2K1R b q - 0 15",
+    "kind": "mate",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Qc4+", "Ke1", "Qxc1+", "Ke2", "Bb5#"],
+    "title": {
+      "ru": "Вилка",
+      "en": "The fork"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "lHLCT2",
+    "fen": "r2q4/1ppk1p2/p4P1r/8/8/3B3b/PPPQ1np1/4R1K1 w - - 2 21",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Bb5+", "Kc8", "Qxd8+", "Kxd8", "Re8#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lOj0P8",
+    "fen": "r3r1k1/pb3ppp/2pb1p2/7Q/1n1PN3/1B2qP1P/PB4P1/R4K1R w - - 5 19",
+    "kind": "mate",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Nxf6+", "gxf6", "Qxf7+", "Kh8", "Qxf6#"],
+    "title": {
+      "ru": "Двойной удар",
+      "en": "A double strike"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "lPHaP2",
+    "fen": "2k1r3/pp3Q2/1np4P/2K5/4r3/2P5/PP1R4/8 b - - 0 42",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Na4+", "Kd6", "Rd8+", "Qd7+", "Rxd7#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lXz9NE",
+    "fen": "r6k/5R1p/3p2q1/p1pQpb2/P1P1np2/1R3B2/5PPK/6N1 b - - 0 31",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Qg3+", "fxg3", "fxg3+", "Kh1", "Nf2#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "leODIH",
+    "fen": "8/7R/5kp1/5p2/p1r2N2/Pb6/r5PP/4R2K w - - 3 28",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 3,
+    "solution": ["Re6+", "Kg5", "Nh3+", "Kg4", "Rxg6#"],
+    "title": {
+      "ru": "Увод защитника",
+      "en": "Removing the guard"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "leeW7Y",
+    "fen": "5k2/pb3pp1/1p2p3/4n2P/1P1K1BP1/2r2P2/8/R4R2 b - - 9 27",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Rd3+", "Kxe5", "f6+", "Kxe6", "Bc8#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lltbym",
+    "fen": "r1b1k2r/3nb2p/1qn1p1p1/p1ppP1NQ/1p1P4/2PBB3/PP3PPP/R3K2R w KQkq - 0 14",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Bxg6+", "hxg6", "Qxg6+", "Kf8", "Nxe6#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lmrahb",
+    "fen": "rnb1k1nr/ppp1bp1p/3p4/3NN3/3PP2Q/8/PPP4P/R1B1KB1q w Qkq - 2 11",
+    "kind": "mate",
+    "theme": "opening",
+    "difficulty": 3,
+    "solution": ["Qxe7+", "Nxe7", "Nf6+", "Kf8", "Bh6#"],
+    "title": {
+      "ru": "Наказание в дебюте",
+      "en": "Punished in the opening"
+    },
+    "hint": {
+      "ru": "Соперник отстал в развитии или потерял темп — ищите форсированный удар.",
+      "en": "The opponent is behind in development or lost a tempo — look for a forcing strike."
+    }
+  },
+  {
+    "id": "lslV82",
+    "fen": "r1b5/ppq2kpQ/2n1prN1/3p2p1/8/2PBp3/PP3P2/R3K2R w KQ - 2 23",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Qg8+", "Kxg8", "Rh8+", "Kf7", "Rf8#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lvACx0",
+    "fen": "5rk1/1p3ppp/pq2p3/2bpB3/8/P3RQ1P/1Pr2PP1/3R2K1 w - - 3 25",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Qf6", "gxf6", "Rg3+", "Kh8", "Bxf6#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lwtI8U",
+    "fen": "r2k3r/pp1b2pp/8/2p3N1/3q1Bn1/2Q5/PP3PP1/4R1K1 w - - 2 24",
+    "kind": "mate",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Qa5+", "b6", "Nf7+", "Kc8", "Qa6#"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "lyu8Re",
+    "fen": "r2q1rk1/3n1p2/2p1pbp1/2pp3Q/1p1P4/3BP2P/P2N1P2/R3K1R1 w Q - 0 20",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Bxg6", "fxg6", "Qxg6+", "Bg7", "Qxg7#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lzDiH9",
+    "fen": "6k1/1N6/p2P3p/7q/1P3pP1/P3r2P/5Q1K/3R1R2 b - - 0 36",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Rxh3+", "Kg1", "Rh1+", "Kg2", "Qh3#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "l96khX",
+    "fen": "2QR4/1p2rpkp/p1p2qp1/8/1P1b4/PB4P1/5P2/6K1 w - - 11 39",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["Rg8+", "Kh6", "Qh3+", "Kg5", "Qh4+", "Kf5", "Qf4#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lZ4I7W",
+    "fen": "r7/2R3pb/4ppk1/q2p3p/3PP1PP/5BB1/5P2/6K1 w - - 0 36",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 2,
+    "solution": ["gxh5+", "Kh6", "Bf4+", "g5", "hxg6+", "Kxg6", "h5#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "ld2nPU",
+    "fen": "2Q2r2/pp4pk/4Q1p1/4P1p1/8/P3N3/4qrPP/3R1RK1 b - - 0 30",
+    "kind": "mate",
+    "theme": "backrank",
+    "difficulty": 2,
+    "solution": ["Rxf1+", "Nxf1", "Qf2+", "Kh1", "Qxf1+", "Rxf1", "Rxf1#"],
+    "title": {
+      "ru": "Тяжёлая фигура на восьмой",
+      "en": "Heavy piece on the eighth"
+    },
+    "hint": {
+      "ru": "Тяжёлой фигуре часто нужен всего один ход на открытую восьмую.",
+      "en": "A heavy piece often needs just one move to the open eighth rank."
+    }
+  },
+  {
+    "id": "l7kjjS",
+    "fen": "8/p7/6pp/q4p1k/p2Qp2P/1P2PPP1/6K1/8 w - - 0 32",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Kh3", "g5", "Qg7", "g4+", "fxg4+", "fxg4+", "Qxg4#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "lEw70a",
+    "fen": "4k2N/p2rb1pp/B3Q3/2P2n2/5q2/3p4/PP6/R5K1 w - - 3 28",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Qf7+", "Kd8", "Qg8+", "Bf8", "Qxf8+", "Kc7", "Qc8#"],
+    "title": {
+      "ru": "Простой мат",
+      "en": "Simple mate"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lRO6ox",
+    "fen": "5r2/p4p1p/6pk/4Q2N/8/1q5P/p4PP1/6K1 w - - 2 42",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Qf4+", "g5", "Qf6+", "Kxh5", "g4+", "Kh4", "Qh6#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lRdDLn",
+    "fen": "4RR2/pp3p1k/7p/3b1Pp1/7N/6K1/Pr1r3P/8 w - g6 0 31",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 3,
+    "solution": ["Rh8+", "Kg7", "f6+", "Kxf6", "Rxh6+", "Kg7", "Nf5#"],
+    "title": {
+      "ru": "Отвлечение",
+      "en": "Deflection"
+    },
+    "hint": {
+      "ru": "Одна фигура соперника защищает две цели — заставьте её заняться только одной.",
+      "en": "One enemy piece defends two targets — force it to deal with only one."
+    }
+  },
+  {
+    "id": "lZ3r5H",
+    "fen": "1r5Q/2k5/5Q2/p1bpP3/8/8/1qPK3P/3R1B1R b - - 1 39",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Qd4+", "Ke1", "Qc3+", "Rd2", "Rb1+", "Ke2", "Qe3#"],
+    "title": {
+      "ru": "Король без укрытия",
+      "en": "A king without shelter"
+    },
+    "hint": {
+      "ru": "Ограничьте короля и найдите поле, откуда фигура поставит мат.",
+      "en": "Restrict the king and find the square from which a piece delivers mate."
+    }
+  },
+  {
+    "id": "lZVb0a",
+    "fen": "rnb5/pp2k1b1/4p1B1/2p1P3/3P4/2P2Q1R/P3KP2/q7 w - - 2 25",
+    "kind": "mate",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Qf7+", "Kd8", "Rh8+", "Bxh8", "Qf8+", "Kc7", "Qd6#"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "lgUq8r",
+    "fen": "r1b1kbnr/pppp1ppp/8/6q1/4B3/5QP1/P4PKP/1N2R3 w kq - 0 14",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 3,
+    "solution": ["Bg6+", "Kd8", "Re8+", "Kxe8", "Qxf7+", "Kd8", "Qxf8#"],
+    "title": {
+      "ru": "Увод защитника",
+      "en": "Removing the guard"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "lhWIqV",
+    "fen": "1RN2k1r/p2p4/7p/2pN1PpB/2bbK1P1/8/7P/r7 w - - 0 40",
+    "kind": "mate",
+    "theme": "deflection",
+    "difficulty": 3,
+    "solution": ["Nce7+", "Kg7", "f6+", "Bxf6", "Nf5+", "Kh7", "Nxf6#"],
+    "title": {
+      "ru": "Отвлечение",
+      "en": "Deflection"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "lyATcN",
+    "fen": "6k1/R4pp1/4R3/1p3r1p/3Q3K/6P1/P4q1P/6r1 w - - 0 32",
+    "kind": "mate",
+    "theme": "basic-mate",
+    "difficulty": 3,
+    "solution": ["Ra8+", "Kh7", "Rh8+", "Kxh8", "Rh6+", "Kg8", "Qd8#"],
+    "title": {
+      "ru": "Матовая сеть",
+      "en": "The mating net"
+    },
+    "hint": {
+      "ru": "Считайте поля вокруг короля: где у него нет убежища?",
+      "en": "Count the squares around the king: where has it no shelter?"
+    }
+  },
+  {
+    "id": "l7KNlX",
+    "fen": "6k1/6b1/5p2/3P1P2/1B6/3B1Q2/5PK1/3qr3 b - - 0 53",
+    "kind": "tactic",
+    "theme": "deflection",
+    "difficulty": 1,
+    "solution": ["Rg1+", "Kh2", "Qxf3"],
+    "title": {
+      "ru": "Защита не успевает",
+      "en": "The defence runs out"
+    },
+    "hint": {
+      "ru": "Одна фигура соперника защищает две цели — заставьте её заняться только одной.",
+      "en": "One enemy piece defends two targets — force it to deal with only one."
+    }
+  },
+  {
+    "id": "lKy5PA",
+    "fen": "4r3/3r1kp1/1p6/3PR1Bp/p2R2bP/P7/1P6/1K6 w - - 2 39",
+    "kind": "tactic",
+    "theme": "deflection",
+    "difficulty": 1,
+    "solution": ["Rf4+", "Kg6", "Rxe8"],
+    "title": {
+      "ru": "Отвлечение",
+      "en": "Deflection"
+    },
+    "hint": {
+      "ru": "Одна фигура соперника защищает две цели — заставьте её заняться только одной.",
+      "en": "One enemy piece defends two targets — force it to deal with only one."
+    }
+  },
+  {
+    "id": "lSIJx3",
+    "fen": "2r3k1/pp3ppp/3p4/3P1P2/1P1Q1P2/2nB2P1/4q2P/2R4K b - - 4 29",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 1,
+    "solution": ["Qf3+", "Kg1", "Ne2+", "Bxe2", "Rxc1+"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "lUb79E",
+    "fen": "2r5/pp4R1/4p3/3bk3/1P4P1/P2KP3/8/5R2 b - - 0 32",
+    "kind": "tactic",
+    "theme": "skewer",
+    "difficulty": 1,
+    "solution": ["Bc4+", "Kd2", "Bxf1"],
+    "title": {
+      "ru": "Сквозной удар",
+      "en": "The skewer"
+    },
+    "hint": {
+      "ru": "Выстройте две фигуры соперника на одной линии: дальняя падёт.",
+      "en": "Line up two enemy pieces on one line: the far one will fall."
+    }
+  },
+  {
+    "id": "lWGxxW",
+    "fen": "7k/1Q4p1/3q3p/1pb3p1/2p5/P7/1Pn2PPP/4R2K w - - 0 32",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 1,
+    "solution": ["Re8+", "Kh7", "Qe4+", "Qg6", "Rh8+", "Kxh8", "Qxg6"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "la0URD",
+    "fen": "4rr1k/ppp1N1p1/3p2p1/7n/2BQP2q/5P2/PPP4P/R6K w - - 0 20",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 1,
+    "solution": ["Nxg6+", "Kh7", "Nxh4"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lfFQG2",
+    "fen": "8/7p/3N4/6k1/P7/2bn2P1/6KP/8 w - - 1 47",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 1,
+    "solution": ["Ne4+", "Kf5", "Nxc3"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lrCO8w",
+    "fen": "5rk1/2p4p/1p1p2p1/pBn3B1/3b1P2/P1N2P2/KP1Q4/4r3 b - - 3 28",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 1,
+    "solution": ["Ra1+", "Kxa1", "Nb3+", "Ka2", "Nxd2"],
+    "title": {
+      "ru": "Двойной удар",
+      "en": "A double strike"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "lwc0NX",
+    "fen": "2r2k2/p4p2/2p4R/3p4/3P4/2P5/P2K4/8 w - - 1 37",
+    "kind": "tactic",
+    "theme": "skewer",
+    "difficulty": 1,
+    "solution": ["Rh8+", "Ke7", "Rxc8"],
+    "title": {
+      "ru": "Нападение по линии",
+      "en": "Attack down the line"
+    },
+    "hint": {
+      "ru": "Выстройте две фигуры соперника на одной линии: дальняя падёт.",
+      "en": "Line up two enemy pieces on one line: the far one will fall."
+    }
+  },
+  {
+    "id": "lys3Nv",
+    "fen": "r1bqk2r/ppp2pp1/5n1p/3Pp3/1b2P3/2NB4/PP3PPP/R1BQK2R w KQkq - 0 10",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 1,
+    "solution": ["Qa4+", "c6", "Qxb4"],
+    "title": {
+      "ru": "Двойной удар",
+      "en": "A double strike"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "l2tvkm",
+    "fen": "2k4r/ppp4p/2n3p1/3b4/8/P4RP1/1P1b1PBP/R5K1 w - - 3 20",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["Bh3+", "Kb8", "Rd3", "Bg5", "Rxd5"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "l5BkWD",
+    "fen": "r2qk2r/p1p2ppp/1pnp4/4p3/1PP1n3/2P1PN2/P5PP/RN1Q1RK1 w kq - 0 11",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["Qd5", "Ne7", "Qxe4"],
+    "title": {
+      "ru": "Двойной удар",
+      "en": "A double strike"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "lBRe61",
+    "fen": "2Rqr1k1/pp4bp/5pp1/3p4/PP1p1P2/B3P3/1Q1NNKPP/8 b - - 0 21",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["dxe3+", "Kg3", "Qxc8"],
+    "title": {
+      "ru": "Вилка",
+      "en": "The fork"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lD7NoX",
+    "fen": "7r/7p/1p4p1/8/QP2k3/5qP1/2N5/K7 w - - 3 43",
+    "kind": "tactic",
+    "theme": "skewer",
+    "difficulty": 2,
+    "solution": ["Qc6+", "Ke5", "Qxf3"],
+    "title": {
+      "ru": "Сквозной удар",
+      "en": "The skewer"
+    },
+    "hint": {
+      "ru": "Выстройте две фигуры соперника на одной линии: дальняя падёт.",
+      "en": "Line up two enemy pieces on one line: the far one will fall."
+    }
+  },
+  {
+    "id": "lDXcKg",
+    "fen": "4rrk1/5pp1/Q4q1p/1pR4P/1P1P4/2Pb2N1/5PP1/R5K1 b - - 0 30",
+    "kind": "tactic",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["Re1+", "Rxe1", "Qxa6"],
+    "title": {
+      "ru": "Отвлечение",
+      "en": "Deflection"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "lHUppe",
+    "fen": "5k2/p2q1p2/2p5/8/2P2R1Q/1P4K1/P2r3P/8 b - - 12 32",
+    "kind": "tactic",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["Qd3+", "Rf3", "Qg6+", "Qg4", "Rg2+", "Kxg2", "Qxg4+"],
+    "title": {
+      "ru": "Защита не успевает",
+      "en": "The defence runs out"
+    },
+    "hint": {
+      "ru": "Одна фигура соперника защищает две цели — заставьте её заняться только одной.",
+      "en": "One enemy piece defends two targets — force it to deal with only one."
+    }
+  },
+  {
+    "id": "lR4fQS",
+    "fen": "1r1qk2r/p1p1ppbp/3p1np1/8/4P3/3P1N2/bBQ2PPP/1R2KB1R w Kk - 0 14",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["Qa4+", "Nd7", "Qxa2", "Rxb2", "Rxb2", "Bxb2", "Qxb2"],
+    "title": {
+      "ru": "Вилка",
+      "en": "The fork"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lSBEkv",
+    "fen": "7r/1Qpk4/2p2p2/P5p1/8/2N3Pp/3r1b1P/3R3K b - - 2 34",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["Rxd1+", "Nxd1", "Re8", "Qb4", "Re1+", "Qxe1", "Bxe1", "a6", "Kc8"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "lXOe9Q",
+    "fen": "6r1/4k2p/3b2q1/p2Rpp2/8/1P5Q/2r2PPP/3R2K1 w - - 0 30",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["Rxd6", "Qxd6", "Qxh7+", "Kf8", "Qxf5+", "Kg7", "Qxc2"],
+    "title": {
+      "ru": "Вилка",
+      "en": "The fork"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lXPYEd",
+    "fen": "r4rk1/p3R1pp/2Q5/8/1p1p2P1/7P/b4P2/6K1 w - - 0 31",
+    "kind": "tactic",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["Qb7", "Bf7", "Rxf7", "Rxf7", "Qxa8+"],
+    "title": {
+      "ru": "Увод защитника",
+      "en": "Removing the guard"
+    },
+    "hint": {
+      "ru": "Одна фигура соперника защищает две цели — заставьте её заняться только одной.",
+      "en": "One enemy piece defends two targets — force it to deal with only one."
+    }
+  },
+  {
+    "id": "lYv4DQ",
+    "fen": "8/8/p7/2p2R2/4k3/2q4P/Pr4P1/5R1K w - - 1 40",
+    "kind": "tactic",
+    "theme": "skewer",
+    "difficulty": 2,
+    "solution": ["R1f4+", "Kd3", "Rf3+", "Kc2", "Rxc3+", "Kxc3", "Rxc5+"],
+    "title": {
+      "ru": "Нападение по линии",
+      "en": "Attack down the line"
+    },
+    "hint": {
+      "ru": "Выстройте две фигуры соперника на одной линии: дальняя падёт.",
+      "en": "Line up two enemy pieces on one line: the far one will fall."
+    }
+  },
+  {
+    "id": "lb7fqE",
+    "fen": "8/8/4k3/4P3/3Q4/4KP2/r6r/8 b - - 4 45",
+    "kind": "tactic",
+    "theme": "skewer",
+    "difficulty": 2,
+    "solution": ["Rae2+", "Kd3", "Rd2+", "Kc4", "Rxd4+"],
+    "title": {
+      "ru": "Две фигуры на одной линии",
+      "en": "Two pieces, one line"
+    },
+    "hint": {
+      "ru": "Ищите длинную диагональ или открытую линию с королём впереди.",
+      "en": "Look for a long diagonal or open file with the king in front."
+    }
+  },
+  {
+    "id": "leUQ5F",
+    "fen": "1r2k3/p2bbrpp/2p3q1/8/2Q5/3PR3/P1P3PP/4R2K w - - 2 29",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["Rxe7+", "Kf8", "Rxd7", "Rxd7", "Qf4+", "Qf6", "Qxb8+"],
+    "title": {
+      "ru": "Двойной удар",
+      "en": "A double strike"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lhLxjT",
+    "fen": "r5k1/p1p3pp/1p6/8/5r2/b3q2P/P5P1/1R1Q1R1K w - - 0 24",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["Qd5+", "Kf8", "Qxa8+"],
+    "title": {
+      "ru": "Вилка",
+      "en": "The fork"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lizJbM",
+    "fen": "1Q6/2q2p1p/3kp1p1/3p4/3P4/r6P/4RPP1/6K1 w - - 9 39",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["Qb4+", "Kd7", "Qxa3"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lj0Fyv",
+    "fen": "4kbr1/p1r2p1R/4NBp1/1qppPn2/8/5Q2/PPP2PP1/1R2K3 b - - 0 23",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["fxe6", "Rxc7", "Qa5+", "c3", "Qxc7"],
+    "title": {
+      "ru": "Вилка",
+      "en": "The fork"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "ljltFN",
+    "fen": "1r4k1/2R2p2/4pBp1/3pPnNp/2nP3P/3K4/5PP1/8 b - - 19 46",
+    "kind": "tactic",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["Rb3+", "Kc2", "Nxd4+", "Kc1", "Rc3+", "Kd1", "Nb2+", "Kd2", "Rxc7"],
+    "title": {
+      "ru": "Отвлечение",
+      "en": "Deflection"
+    },
+    "hint": {
+      "ru": "Одна фигура соперника защищает две цели — заставьте её заняться только одной.",
+      "en": "One enemy piece defends two targets — force it to deal with only one."
+    }
+  },
+  {
+    "id": "lmti0Q",
+    "fen": "4r1k1/1b4pp/ppqQ1p2/5N2/P3r3/2P1B2P/1P3PP1/R3R1K1 b - - 0 24",
+    "kind": "tactic",
+    "theme": "deflection",
+    "difficulty": 2,
+    "solution": ["Rxe3", "Nxe3", "Qxd6"],
+    "title": {
+      "ru": "Увод защитника",
+      "en": "Removing the guard"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "lpNeiG",
+    "fen": "2r5/R1p1n3/4P3/3p2Np/3K2kP/6P1/P1P5/8 b - - 0 47",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["Nc6+", "Kxd5", "Nxa7"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "lqE7la",
+    "fen": "1rr3k1/5pp1/4p2p/1q1pP3/1Bb2R2/P1P1PQ1P/1P4P1/3R2K1 b - - 2 28",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 2,
+    "solution": ["Be2", "Rxd5", "exd5"],
+    "title": {
+      "ru": "Вилка",
+      "en": "The fork"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "l1kS6r",
+    "fen": "8/4b1p1/2k1N2p/1p3p2/3K1P2/1P4P1/7P/8 b - - 0 37",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Kd6", "Nxg7", "Bf6+", "Ke3", "Bxg7"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "l2UDBf",
+    "fen": "r1q2r2/2p3k1/4n2p/p1p1P2n/2Q4N/6P1/PP6/3R1R1K w - - 0 28",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Qg4+", "Ng5", "Rd7+", "Qxd7", "Qxd7+"],
+    "title": {
+      "ru": "Две цели одним ходом",
+      "en": "Two targets, one move"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "l48w4j",
+    "fen": "8/pp1n1P1p/2rBN2k/6p1/8/7P/1P2K1P1/8 w - - 4 31",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Nc5", "Kg6", "Nxd7", "Kxf7", "Ne5+", "Ke6", "Nxc6"],
+    "title": {
+      "ru": "Вилка",
+      "en": "The fork"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "lB13Cs",
+    "fen": "r4rk1/ppq3p1/5n2/3pp3/3P2bQ/2P2NP1/PP4P1/R3K2R w KQ - 2 19",
+    "kind": "tactic",
+    "theme": "deflection",
+    "difficulty": 3,
+    "solution": ["Nxe5", "Bh5", "g4", "Nxg4", "Qxh5"],
+    "title": {
+      "ru": "Увод защитника",
+      "en": "Removing the guard"
+    },
+    "hint": {
+      "ru": "Одна фигура соперника защищает две цели — заставьте её заняться только одной.",
+      "en": "One enemy piece defends two targets — force it to deal with only one."
+    }
+  },
+  {
+    "id": "lKiEju",
+    "fen": "r2qk1nr/pp2b1pp/5p2/2p1Pb2/3pNB2/8/PPP1QPPP/3RK1NR w Kkq - 0 14",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["exf6", "Nxf6", "Nd6+", "Kf8", "Nxf5"],
+    "title": {
+      "ru": "Вилка",
+      "en": "The fork"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lKlnsr",
+    "fen": "r1b1k2r/p4ppp/2n1p3/q7/P2PQ3/1pp5/1P3PPP/R1B1KB1R w KQkq - 0 15",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Qxc6+", "Bd7", "Qxc3", "Qxc3+", "bxc3"],
+    "title": {
+      "ru": "Двойной удар",
+      "en": "A double strike"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lKwwuA",
+    "fen": "8/8/7k/b2B2p1/2P2pP1/3n1P2/2Kp2N1/6B1 b - - 3 52",
+    "kind": "tactic",
+    "theme": "deflection",
+    "difficulty": 3,
+    "solution": ["Nb2", "Kxb2", "d1=Q"],
+    "title": {
+      "ru": "Увод защитника",
+      "en": "Removing the guard"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "lVkvWn",
+    "fen": "r3r1k1/1pp1qppp/p3b3/P3N3/2PQ4/6R1/5PPP/4R1K1 w - - 5 22",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Nd7", "g6", "Nf6+", "Qxf6", "Qxf6"],
+    "title": {
+      "ru": "Вилка",
+      "en": "The fork"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "lXrT9z",
+    "fen": "8/2pk4/2rnp1q1/3p1p2/QP1P1N2/P1PK4/6P1/1R5R b - - 6 38",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Qg3+", "Ke2", "Ne4", "Qxc6+", "Kxc6"],
+    "title": {
+      "ru": "Двойной удар",
+      "en": "A double strike"
+    },
+    "hint": {
+      "ru": "Проверьте незащищённые фигуры соперника и поля прыжков коня.",
+      "en": "Check the opponent's undefended pieces and the knight's jump squares."
+    }
+  },
+  {
+    "id": "lZKJlr",
+    "fen": "7R/1p3kr1/p1bpq3/2p3p1/4P3/1PPP3Q/PK4P1/8 w - - 1 36",
+    "kind": "tactic",
+    "theme": "deflection",
+    "difficulty": 3,
+    "solution": ["Qf3+", "Qf6", "Rf8+", "Kxf8", "Qxf6+"],
+    "title": {
+      "ru": "Защита не успевает",
+      "en": "The defence runs out"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "la3j0m",
+    "fen": "6k1/p5p1/3p1p2/3Pp2Q/4q1PK/1P6/5B2/8 b - - 3 40",
+    "kind": "tactic",
+    "theme": "skewer",
+    "difficulty": 3,
+    "solution": ["g6", "Qh6", "Qh1+", "Kg3", "Qxh6"],
+    "title": {
+      "ru": "Нападение по линии",
+      "en": "Attack down the line"
+    },
+    "hint": {
+      "ru": "Ищите длинную диагональ или открытую линию с королём впереди.",
+      "en": "Look for a long diagonal or open file with the king in front."
+    }
+  },
+  {
+    "id": "lfxZUV",
+    "fen": "2k4r/1pp2ppp/2q5/2bpQ3/r7/2P1BP2/PP4PP/R4RK1 b - - 3 18",
+    "kind": "tactic",
+    "theme": "deflection",
+    "difficulty": 3,
+    "solution": ["Qf6", "Qxf6", "Bxe3+", "Kh1", "gxf6"],
+    "title": {
+      "ru": "Увод защитника",
+      "en": "Removing the guard"
+    },
+    "hint": {
+      "ru": "Ищите жертву, выманивающую ключевого защитника из позиции.",
+      "en": "Look for a sacrifice that lures the key defender away."
+    }
+  },
+  {
+    "id": "llJTNd",
+    "fen": "1k6/2p5/1p4P1/p2B4/2Pb1R2/P7/6r1/2K5 b - - 0 40",
+    "kind": "tactic",
+    "theme": "fork",
+    "difficulty": 3,
+    "solution": ["Be3+", "Kd1", "Rg1+", "Ke2", "Bxf4"],
+    "title": {
+      "ru": "Двойной удар",
+      "en": "A double strike"
+    },
+    "hint": {
+      "ru": "Найдите ход, после которого атакованы две фигуры сразу.",
+      "en": "Find a move that attacks two pieces at once."
+    }
+  },
+  {
+    "id": "llx53C",
+    "fen": "6k1/1p4P1/p1b2r1p/3B4/P2N3q/1P6/2Q5/3R2K1 b - - 0 36",
+    "kind": "tactic",
+    "theme": "skewer",
+    "difficulty": 3,
+    "solution": ["Bxd5", "Qc8+", "Kxg7", "Nf5+", "Rxf5", "Qxf5", "Qh1+", "Kf2", "Qxd1"],
+    "title": {
+      "ru": "Нападение по линии",
+      "en": "Attack down the line"
+    },
+    "hint": {
+      "ru": "Ищите длинную диагональ или открытую линию с королём впереди.",
+      "en": "Look for a long diagonal or open file with the king in front."
     }
   }
 ]

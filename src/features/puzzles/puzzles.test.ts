@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { Chess } from 'chess.js';
 import {
+  MOVES_FILTER_VALUES,
   PUZZLES,
   filterPuzzles,
   solverColorOf,
@@ -54,7 +55,10 @@ describe('puzzle dataset', () => {
       const n = solverMovesOf(p);
       if (n <= 2) {
         // Полный перебор посилен: доказываем форсированность перебором.
-        expect(canForceMate(new Chess(p.fen), n), `${p.id}: мат должен быть форсирован за ${n}`).toBe(true);
+        expect(
+          canForceMate(new Chess(p.fen), n),
+          `${p.id}: мат должен быть форсирован за ${n}`,
+        ).toBe(true);
       } else {
         // Для n ≥ 3 перебор слишком дорог — форсированность доказывает движок
         // (puzzles.engine.test.ts). Здесь дёшево отрицаем более короткие маты.
@@ -64,7 +68,8 @@ describe('puzzle dataset', () => {
         expect(canForceMate(new Chess(p.fen), 1), `${p.id}: неожиданный мат в 1`).toBe(false);
       }
     }
-  });
+    // Каталог вырос до ~150 матовых задач — перебору нужен запас времени.
+  }, 120000);
 
   it('мат в 1: сохранённый ход действительно матует', () => {
     for (const p of PUZZLES.filter((x) => x.kind === 'mate' && x.solution.length === 1)) {
@@ -85,7 +90,10 @@ describe('puzzle dataset', () => {
       const solver = solverColorOf(p);
       const before = materialBalance(new Chess(p.fen), solver);
       const after = materialBalance(playSolution(p), solver);
-      expect(after - before, `${p.id}: выигрыш должен быть не меньше 2 пешек`).toBeGreaterThanOrEqual(2);
+      expect(
+        after - before,
+        `${p.id}: выигрыш должен быть не меньше 2 пешек`,
+      ).toBeGreaterThanOrEqual(2);
     }
   });
 
@@ -94,14 +102,22 @@ describe('puzzle dataset', () => {
   });
 
   it('фильтр по числу ходов отбирает задачи нужной длины', () => {
-    expect(filterPuzzles(PUZZLES, 'all', new Set(), 1).map((p) => p.id)).toHaveLength(7);
-    expect(filterPuzzles(PUZZLES, 'all', new Set(), 2).every((p) => solverMovesOf(p) === 2)).toBe(true);
-    expect(filterPuzzles(PUZZLES, 'all', new Set(), 3).map((p) => p.id)).toHaveLength(3);
-    expect(filterPuzzles(PUZZLES, 'all', new Set(), 4).map((p) => p.id)).toEqual(['philidor-legacy']);
-    expect(filterPuzzles(PUZZLES, 'all', new Set(), 'all')).toHaveLength(PUZZLES.length);
+    for (const m of MOVES_FILTER_VALUES) {
+      if (m === 'all') {
+        expect(filterPuzzles(PUZZLES, 'all', new Set(), m)).toHaveLength(PUZZLES.length);
+        continue;
+      }
+      const expected = PUZZLES.filter((p) => solverMovesOf(p) === m);
+      expect(expected.length, `в каталоге есть задачи на ${m} ход(ов)`).toBeGreaterThan(0);
+      expect(filterPuzzles(PUZZLES, 'all', new Set(), m).map((p) => p.id)).toEqual(
+        expected.map((p) => p.id),
+      );
+    }
     // Фильтры по статусу и длине применяются вместе.
-    const solvedOne = filterPuzzles(PUZZLES, 'solved', new Set(['reti-mirror']), 3);
-    expect(solvedOne.map((p) => p.id)).toEqual(['reti-mirror']);
+    const target = PUZZLES.find((p) => solverMovesOf(p) === 3);
+    if (!target) throw new Error('в каталоге нет задачи на 3 хода');
+    const solvedOne = filterPuzzles(PUZZLES, 'solved', new Set([target.id]), 3);
+    expect(solvedOne.map((p) => p.id)).toEqual([target.id]);
   });
 });
 
