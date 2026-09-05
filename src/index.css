@@ -42,6 +42,18 @@ body {
   -webkit-user-select: none;
 }
 
+/* Подхват фигуры на тач-экранах: плавный рост до 1.35x с подъёмом тени (см. BoardView). */
+@keyframes piece-pickup {
+  from {
+    transform: scale(1);
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
+  }
+  to {
+    transform: scale(1.35);
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35));
+  }
+}
+
 /* Ходы подгружаемого движка в списке дебютов и т.п. */
 .mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;

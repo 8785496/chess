@@ -31,6 +31,7 @@ beforeEach(() => {
 afterEach(() => {
   cleanup();
   vi.restoreAllMocks();
+  vi.unstubAllGlobals();
 });
 
 /** dnd-kit measures squares and updates drag state asynchronously (effects + rAF). */
@@ -65,7 +66,7 @@ function setup() {
   );
   const square = (sq: string) => utils.container.querySelector(`#t-square-${sq}`) as HTMLElement;
   const piece = (sq: string) => square(sq).querySelector('[data-piece]') as HTMLElement;
-  return { onSquareTap, onMoveAttempt, square, piece };
+  return { onSquareTap, onMoveAttempt, square, piece, container: utils.container };
 }
 
 describe('BoardView: тапы по клеткам', () => {
@@ -138,5 +139,38 @@ describe('BoardView: тапы по клеткам', () => {
     expect(onMoveAttempt).not.toHaveBeenCalled();
     expect(onSquareTap).toHaveBeenCalledTimes(1);
     expect(onSquareTap).toHaveBeenCalledWith('e2');
+  });
+});
+
+describe('BoardView: эффект увеличения фигуры при перетаскивании', () => {
+  /** Активирует драг e2 и возвращает элементы-клоны (DragOverlay) и оригиналы. */
+  async function dragPieces() {
+    const utils = setup();
+    const el = utils.piece('e2');
+    const from = center('e2');
+    fireEvent.pointerDown(el, { isPrimary: true, button: 0, ...from });
+    fireEvent.pointerMove(document, { clientX: from.clientX + 12, clientY: from.clientY });
+    await settle();
+    const pieces = Array.from(utils.container.querySelectorAll('[data-piece]')) as HTMLElement[];
+    // Клон летит за курсором с cursor: grabbing, оригинал на клетке остаётся grab.
+    const clone = pieces.find((p) => p.style.cursor === 'grabbing');
+    return { ...utils, clone };
+  }
+
+  it('на тач-экране (pointer: coarse) клону фигуры задаётся анимация piece-pickup', async () => {
+    vi.stubGlobal(
+      'matchMedia',
+      vi.fn().mockReturnValue({ matches: true, addEventListener: vi.fn(), removeEventListener: vi.fn() }),
+    );
+    const { clone } = await dragPieces();
+    expect(clone).toBeDefined();
+    expect((clone as HTMLElement).style.animation).toContain('piece-pickup');
+  });
+
+  it('на обычном указателе клон остаётся с библиотечным scale(1.2) и без анимации', async () => {
+    const { clone } = await dragPieces();
+    expect(clone).toBeDefined();
+    expect((clone as HTMLElement).style.transform).toBe('scale(1.2)');
+    expect((clone as HTMLElement).style.animation).toBe('');
   });
 });

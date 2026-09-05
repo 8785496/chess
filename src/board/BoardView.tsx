@@ -36,6 +36,22 @@ const DRAG_ACTIVATION_DISTANCE = 8;
 /** Window (ms) in which a repeated tap on the same square is treated as a duplicate of one gesture. */
 const TAP_DEDUPE_MS = 100;
 
+/**
+ * Coarse pointer (finger) covers the piece being dragged, so on touch screens
+ * the piece lifts higher than the library default scale(1.2), with a shadow.
+ */
+function useCoarsePointer(): boolean {
+  const [coarse, setCoarse] = useState(() => window.matchMedia?.('(pointer: coarse)').matches ?? false);
+  useEffect(() => {
+    const mq = window.matchMedia?.('(pointer: coarse)');
+    if (!mq) return;
+    const onChange = (e: MediaQueryListEvent) => setCoarse(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+  return coarse;
+}
+
 /** Квадратная область под доску: сторона = min(ширина, высота) контейнера. */
 function useSquareSize<T extends HTMLElement>(): [React.RefObject<T | null>, number] {
   const ref = useRef<T>(null);
@@ -75,6 +91,7 @@ export function BoardView({
   onMoveAttempt,
 }: BoardViewProps) {
   const [wrapRef, size] = useSquareSize<HTMLDivElement>();
+  const coarsePointer = useCoarsePointer();
 
   // One gesture can arrive via several paths (click on the piece and on the
   // square, touchend and a drop onto the same square) - collapse them into one tap.
@@ -123,6 +140,9 @@ export function BoardView({
             allowDragging: interactive,
             dragActivationDistance: DRAG_ACTIVATION_DISTANCE,
             canDragPiece: ({ square }) => interactive && square !== null,
+            draggingPieceStyle: coarsePointer
+              ? { animation: 'piece-pickup 120ms ease-out forwards' }
+              : undefined,
             darkSquareStyle: { backgroundColor: theme.dark },
             lightSquareStyle: { backgroundColor: theme.light },
             squareStyles,
