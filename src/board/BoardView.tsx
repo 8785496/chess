@@ -26,6 +26,16 @@ interface BoardViewProps {
   onMoveAttempt: (from: Square, to: Square) => void;
 }
 
+/**
+ * Distance (px) after which a touch/press counts as a drag.
+ * The library defaults to 1px: on phones a finger almost always shifts
+ * a little, so a plain tap used to turn into a drag onto the same square.
+ */
+const DRAG_ACTIVATION_DISTANCE = 8;
+
+/** Window (ms) in which a repeated tap on the same square is treated as a duplicate of one gesture. */
+const TAP_DEDUPE_MS = 100;
+
 /** Квадратная область под доску: сторона = min(ширина, высота) контейнера. */
 function useSquareSize<T extends HTMLElement>(): [React.RefObject<T | null>, number] {
   const ref = useRef<T>(null);
@@ -66,6 +76,17 @@ export function BoardView({
 }: BoardViewProps) {
   const [wrapRef, size] = useSquareSize<HTMLDivElement>();
 
+  // One gesture can arrive via several paths (click on the piece and on the
+  // square, touchend and a drop onto the same square) - collapse them into one tap.
+  const lastTap = useRef<{ square: Square; at: number } | null>(null);
+  const tap = (square: Square) => {
+    const now = Date.now();
+    const prev = lastTap.current;
+    lastTap.current = { square, at: now };
+    if (prev && prev.square === square && now - prev.at < TAP_DEDUPE_MS) return;
+    onSquareTap(square);
+  };
+
   const squareStyles: Record<string, CSSProperties> = {};
   if (lastMove) {
     const hl = { background: 'rgba(255, 213, 79, 0.5)' };
@@ -100,6 +121,7 @@ export function BoardView({
             animationDurationInMs: animate ? 220 : 0,
             showAnimations: animate,
             allowDragging: interactive,
+            dragActivationDistance: DRAG_ACTIVATION_DISTANCE,
             canDragPiece: ({ square }) => interactive && square !== null,
             darkSquareStyle: { backgroundColor: theme.dark },
             lightSquareStyle: { backgroundColor: theme.light },
@@ -109,15 +131,17 @@ export function BoardView({
               endSquare: a.to,
               color: a.color,
             })),
-            onSquareClick: ({ square }) => onSquareTap(square),
-            // Фигуры отрисованы отдельным слоем поверх клеток: клик по фигуре
-            // не доходит до onSquareClick, поэтому дублируем обработку.
+            onSquareClick: ({ square }) => tap(square),
             onPieceClick: ({ square }) => {
-              if (square !== null) onSquareTap(square);
+              if (square !== null) tap(square);
             },
             onPieceDrop: ({ sourceSquare, targetSquare }) => {
               if (targetSquare === null) return false;
-              if (sourceSquare === targetSquare) return false;
+              if (sourceSquare === targetSquare) {
+                // The piece was picked up and released in place - a tap, not a move.
+                tap(sourceSquare);
+                return false;
+              }
               onMoveAttempt(sourceSquare, targetSquare);
               return true;
             },
