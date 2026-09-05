@@ -485,10 +485,10 @@ function PuzzleSolver({
         </div>
       </div>
       <aside className="flex max-h-[55%] w-full flex-col gap-2 rounded-xl bg-white p-3 shadow-sm dark:bg-gray-800 sm:p-4 lg:max-h-none lg:w-80">
-        <div className="flex items-start justify-between gap-2">
+        <div className="flex items-center justify-between gap-2">
           <button
             type="button"
-            className="self-start text-sm text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
+            className="-my-1 rounded-lg px-1.5 py-2 text-lg text-gray-500 transition hover:bg-black/5 hover:text-gray-800 dark:hover:bg-white/10 dark:hover:text-gray-200"
             onClick={onBack}
           >
             {t('pBackToCatalog')}

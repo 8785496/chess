@@ -38,7 +38,7 @@ export function HomeScreen({
 
   return (
     <div className="thin-scroll h-full overflow-y-auto p-3 sm:p-4">
-      <div className="mx-auto flex max-w-xl flex-col gap-3">
+      <div className="mx-auto flex min-h-full max-w-xl flex-col gap-3">
         <section className="card flex flex-col gap-2">
           <h2 className="font-semibold">{t('appTitle')}</h2>
           <button type="button" className="btn-primary" onClick={onNewGame}>
@@ -54,10 +54,12 @@ export function HomeScreen({
           </p>
         </section>
 
-        <section className="card">
+        <section
+          className={`card ${history.games.length ? 'flex min-h-0 flex-1 flex-col' : ''}`}
+        >
           <h2 className="mb-1 font-semibold">{t('sHistory')}</h2>
           {!history.games.length && <p className="text-sm text-gray-400">{t('sHistoryEmpty')}</p>}
-          <div className="thin-scroll max-h-64 overflow-y-auto">
+          <div className="thin-scroll min-h-0 flex-1 overflow-y-auto">
             {history.games.map((g) => (
               <div
                 key={g.id}
